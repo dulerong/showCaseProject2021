@@ -3,10 +3,11 @@
 import Vue from 'vue'
 import App from './vue/App.vue'
 import vuetify from './vuetify'
-import router from './router/router'
-import { store } from './store'
+import router from './router/'
+import { store } from './store/'
 
 // below are plugins
+import './axios'
 import './plugins/day'
 
 Vue.config.productionTip = false
