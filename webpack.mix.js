@@ -5,6 +5,7 @@ mix.webpackConfig({
   resolve: {
     alias: {
       '~': path.resolve(__dirname, 'resources/'),
+      '~js': path.resolve(__dirname, 'resources/js'),
       '~pages': path.resolve(__dirname, 'resources/js/vue/pages'),
       '~layouts': path.resolve(__dirname, 'resources/js/vue/layouts'),
       '~components': path.resolve(__dirname, 'resources/js/vue/components'),
