@@ -27,22 +27,10 @@ export default {
   },
   data: (vm) => ({
     isValid: false,
-    sites: [
-      { value: '新北市板橋區', name: '板橋' },
-      { value: '新北市三重區', name: '三重' },
-      { value: '新北市中和區', name: '中和' },
-      { value: '新北市永和區', name: '永和' },
-      { value: '新北市新莊區', name: '新莊' }
-    ],
-    motherAges: [
-      '未滿15歲', '15～19歲', '20～24歲', '25～29歲', '30～34歲', '35～39歲', '40～44歲', '45～49歲', '50歲以上'
-    ],
-    birthOrders: [
-      '1胎', '2胎', '3胎', '4胎', '5胎', '6胎', '7胎', '8胎', '9胎以上'
-    ],
-    sex: [
-      '男', '女'
-    ],
+    sites: vm.$_statSites,
+    motherAges: vm.$_statMotherAges,
+    birthOrders: vm.$_statBirthOrders,
+    sex: vm.$_statSex,
     sexSelected: null,
     siteSelected: null,
     motherAgeSelected: null,
