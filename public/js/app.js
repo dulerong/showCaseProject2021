@@ -2017,6 +2017,11 @@ __webpack_require__.r(__webpack_exports__);
       type: String
     }
   },
+  computed: {
+    isMobile: function isMobile() {
+      return navigator.maxTouchPoints > 0;
+    }
+  },
   methods: {
     isAlign: function isAlign(self) {
       return this.align === self;
@@ -4737,7 +4742,8 @@ var render = function() {
         bottom: _vm.isAlign("bottom"),
         top: _vm.isAlign("top"),
         left: _vm.isAlign("left"),
-        right: _vm.isAlign("right")
+        right: _vm.isAlign("right"),
+        disabled: _vm.isMobile
       },
       scopedSlots: _vm._u(
         [
