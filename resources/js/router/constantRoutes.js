@@ -4,7 +4,7 @@ export const routePath = {
   home: {
     title: 'Home',
     path: '/',
-    name: 'home',
+    name: 'Home Page',
     icon: 'mdi-home'
   },
   search: {
@@ -22,7 +22,7 @@ export const routePath = {
   stat: {
     title: 'Statistics',
     path: '/stat',
-    name: 'stat',
+    name: 'Stat Page',
     icon: 'mdi-file-chart'
   },
   login: {
