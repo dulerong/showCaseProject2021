@@ -10,6 +10,7 @@ import { store } from './store/'
 import './axios'
 import './plugins/day'
 import './validation'
+import './plugins/statPageConstants'
 
 Vue.config.productionTip = false
 
