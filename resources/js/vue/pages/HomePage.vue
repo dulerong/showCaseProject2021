@@ -1,5 +1,5 @@
 <template lang="pug">
-h1 Home page
+h1 No content yet
 </template>
 
 <script>
