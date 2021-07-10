@@ -9,6 +9,7 @@ import { store } from './store/'
 // below are plugins
 import './axios'
 import './plugins/day'
+import './validation'
 
 Vue.config.productionTip = false
 
