@@ -1,7 +1,8 @@
 <template lang="pug">
 v-app-bar(app hide-on-scroll)
-  ToolTip(message="ナビバー")
+  ToolTip(message="Side Drawer")
     v-app-bar-nav-icon(@click.stop="toggle")
+  h1 {{ $route.name }}
   v-spacer
   v-menu(open-on-hover transition="slide-y-transition" offset-y)
     template(v-slot:activator="{ on, attrs}")
@@ -15,22 +16,6 @@ v-app-bar(app hide-on-scroll)
           v-list-item-content
             v-list-item-title {{ item.title }}
             v-list-item-subtitle(v-if="!!item.subtitle") {{ item.subtitle }}
-        //- v-list-item
-        //-   v-list-item-icon
-        //-     v-icon(x-large) mdi-account-circle
-        //-   v-list-item-content
-        //-     v-list-item-title Tokyo Gyosei
-        //-     v-list-item-subtitle 権限：管理者
-        //- v-list-item
-        //-   v-list-item-icon
-        //-     v-icon mdi-account-details
-        //-   v-list-item-content
-        //-     v-list-item-title プロフィール
-        //- v-list-item(@click="logout")
-        //-   v-list-item-icon
-        //-     v-icon mdi-exit-to-app
-        //-   v-list-item-content
-        //-     v-list-item-title ログアウト
 </template>
 
 <script>
