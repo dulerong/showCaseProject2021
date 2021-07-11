@@ -1,15 +1,15 @@
 <template lang="pug">
 div
   v-form(v-model="isValid")
-    v-row(no-gutters justify="space-between")
-      div(style="width: 150px")
+    v-row(no-gutters)
         v-select(label="Site" :items="sites" v-model="siteSelected" :rules="rulesSelect" item-text="name" item-value="value" multiple chips clearable)
-      div(style="width: 150px")
-        v-select(label="Mother Age" :items="motherAges" v-model="motherAgeSelected" :rules="rulesSelect" clearable)
-      div(style="width: 150px")
-        v-select(label="Birth Order" :items="birthOrders" v-model="birthOrderSelected" :rules="rulesSelect" clearable)
+    v-row(no-gutters)
+        v-select(label="Mother Age" :items="motherAges" v-model="motherAgeSelected" :rules="rulesSelect" multiple chips clearable)
+    v-row(no-gutters)
+        v-select(label="Birth Order" :items="birthOrders" v-model="birthOrderSelected" :rules="rulesSelect" multiple chips clearable)
+    v-row(no-gutters)
       div(style="width: 150px") 
-        v-select(label="Birth Sex" :items="sex" v-model="sexSelected" :rules="rulesSelect" clearable)
+        v-select(label="Birth Sex" :items="sex" v-model="sexSelected" :rules="rulesSelect" multiple chips clearable)
     v-row(no-gutters justify="space-between" justify-sm="start")
       //- v-btn(class="mr-1" @click="fetchData" :disabled="!isValid" ) Fetch Data
       v-btn(class="mr-1" @click="resetData" color="info") Reset Data
@@ -59,9 +59,10 @@ export default {
     fetchData() {
       this.data = mockData.result.records
         .filter(item => this.siteSelected ? this.siteSelected.includes(item.site_id) : true)
-        .filter(item => this.birthOrderSelected ? item.birth_order === this.birthOrderSelected : true)
-        .filter(item => this.motherAgeSelected ? item.mother_age === this.motherAgeSelected : true)
-        .filter(item => this.sexSelected ? item.birth_sex === this.sexSelected : true)
+        .filter(item => this.birthOrderSelected ? this.birthOrderSelected.includes(item.birth_order) : true)
+        .filter(item => this.motherAgeSelected ?  this.motherAgeSelected.includes(item.mother_age) : true)
+        .filter(item => this.sexSelected ? this.sexSelected.includes(item.birth_sex) : true)
+        .filter(item => item.birth_count > 0)
     },
     clearData() {
       this.data = []
