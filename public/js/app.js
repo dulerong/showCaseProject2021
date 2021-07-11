@@ -5020,11 +5020,11 @@ var render = function() {
         [
           _c(
             "v-row",
-            { attrs: { "no-gutters": "", justify: "space-around" } },
+            { attrs: { "no-gutters": "", justify: "space-between" } },
             [
               _c(
                 "div",
-                { staticStyle: { width: "200px" } },
+                { staticStyle: { width: "150px" } },
                 [
                   _c("v-select", {
                     attrs: {
@@ -5050,7 +5050,7 @@ var render = function() {
               ),
               _c(
                 "div",
-                { staticStyle: { width: "200px" } },
+                { staticStyle: { width: "150px" } },
                 [
                   _c("v-select", {
                     attrs: {
@@ -5072,7 +5072,7 @@ var render = function() {
               ),
               _c(
                 "div",
-                { staticStyle: { width: "200px" } },
+                { staticStyle: { width: "150px" } },
                 [
                   _c("v-select", {
                     attrs: {
@@ -5094,7 +5094,7 @@ var render = function() {
               ),
               _c(
                 "div",
-                { staticStyle: { width: "200px" } },
+                { staticStyle: { width: "150px" } },
                 [
                   _c("v-select", {
                     attrs: {
@@ -5118,7 +5118,13 @@ var render = function() {
           ),
           _c(
             "v-row",
-            { attrs: { "no-gutters": "" } },
+            {
+              attrs: {
+                "no-gutters": "",
+                justify: "space-between",
+                "justify-sm": "start"
+              }
+            },
             [
               _c(
                 "v-btn",
