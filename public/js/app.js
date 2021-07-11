@@ -5394,7 +5394,7 @@ var render = function() {
                   attrs: {
                     color: "success",
                     disabled: !_vm.isValid,
-                    small: _vm.screenWidthUnder400
+                    "x-small": _vm.screenWidthUnder400
                   },
                   on: { click: _vm.fetchData }
                 },
@@ -5404,7 +5404,7 @@ var render = function() {
                 "v-btn",
                 {
                   class: { "mx-2": !_vm.screenWidthUnder400 },
-                  attrs: { color: "info", small: _vm.screenWidthUnder400 },
+                  attrs: { color: "info", "x-small": _vm.screenWidthUnder400 },
                   on: { click: _vm.resetData }
                 },
                 [_vm._v("Reset Data")]
@@ -5413,7 +5413,10 @@ var render = function() {
                 "v-btn",
                 {
                   class: { "mx-2": !_vm.screenWidthUnder400 },
-                  attrs: { color: "warning", small: _vm.screenWidthUnder400 },
+                  attrs: {
+                    color: "warning",
+                    "x-small": _vm.screenWidthUnder400
+                  },
                   on: { click: _vm.clearData }
                 },
                 [_vm._v("Clear Data")]
