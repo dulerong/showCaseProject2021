@@ -1,5 +1,6 @@
 <template lang="pug">
 div
+  h1 New Taipei City Birth Statistics (2019)
   v-form(v-model="isValid")
     v-row(no-gutters)
         v-select(label="Site" :items="sites" v-model="siteSelected" :rules="rulesSelect" item-text="name" item-value="value" multiple chips clearable)
@@ -11,7 +12,7 @@ div
       div(style="width: 150px") 
         v-select(label="Birth Sex" :items="sex" v-model="sexSelected" :rules="rulesSelect" multiple chips clearable)
     v-row(no-gutters justify="space-between" justify-lg="start")
-      v-btn(@click="fetchData" :disabled="!isValid" :small="screenWidthUnder400" :class="{ 'mr-2' : !screenWidthUnder400 }") Fetch Data
+      v-btn(@click="fetchData" color="success" :disabled="!isValid" :small="screenWidthUnder400" :class="{ 'mr-2' : !screenWidthUnder400 }") Fetch Data
       v-btn(@click="resetData" color="info" :small="screenWidthUnder400" :class="{ 'mx-2' : !screenWidthUnder400 }") Reset Data
       v-btn(@click="clearData" color="warning" :small="screenWidthUnder400" :class="{ 'mx-2' : !screenWidthUnder400 }") Clear Data
   v-row(no-gutters class="my-3")
@@ -23,10 +24,8 @@ div
 
 <script>
 import mockData from '~js/mockData/stat'
+import { mapMutations } from 'vuex'
 export default {
-  created() {
-    console.log(screen.width)
-  },
   data: (vm) => ({
     isValid: false,
     sites: vm.$_statSites,
@@ -64,6 +63,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('notification', ['showNotification']),
     fetchData() {
       this.data = mockData.result.records
         .filter(item => this.siteSelected ? this.siteSelected.includes(item.site_id) : true)
@@ -71,12 +71,16 @@ export default {
         .filter(item => this.motherAgeSelected ?  this.motherAgeSelected.includes(item.mother_age) : true)
         .filter(item => this.sexSelected ? this.sexSelected.includes(item.birth_sex) : true)
         .filter(item => item.birth_count > 0)
+
+      this.showNotification({ message: 'Data Fetched', color: 'success' })
     },
     clearData() {
       this.data = []
+      this.showNotification({ message: 'Data Cleared', color: 'warning' })
     },
     resetData() {
       this.data = mockData.result.records
+      this.showNotification({ message: 'Data Reset', color: 'info' })
     },
     getColor(count) {
       return count > 0 ? 'red' : ''

@@ -5,6 +5,7 @@ v-app
   v-main
     div(class="pa-4 mx-auto" style="max-width: 1280px; height: 100%")
       slot
+  SnackBar
   Footer
 </template>
 
@@ -13,6 +14,7 @@ export default {
   components: {
     AppBar: require('~components/AppBar').default,
     NavigationDrawer: require('~components/NavigationDrawer').default,
+    SnackBar: require('~components/SnackBar').default,
     Footer: require('~components/Footer').default,
   },
   data: (vm) => ({

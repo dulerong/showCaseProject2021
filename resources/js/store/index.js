@@ -11,7 +11,7 @@ import Vuex from 'vuex'
 import { home } from './storeModules/home'
 // import { loading } from './storeModules/loading'
 // import { salesTheme } from './storeModules/salesTheme'
-// import { notification } from './storeModules/notification'
+import { notification } from './storeModules/notification'
 // import { stat } from './storeModules/stat'
 // import { calendar } from './storeModules/calendar'
 
@@ -29,7 +29,7 @@ export const store = new Vuex.Store({
     home,
     // loading,
     // salesTheme,
-    // notification,
+    notification,
     // stat,
     // calendar,
   }
