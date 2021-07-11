@@ -1,16 +1,16 @@
 <template lang="pug">
 div
   v-form(v-model="isValid")
-    v-row(no-gutters justify="space-around")
-      div(style="width: 200px")
+    v-row(no-gutters justify="space-between")
+      div(style="width: 150px")
         v-select(label="Site" :items="sites" v-model="siteSelected" :rules="rulesSelect" item-text="name" item-value="value" multiple chips clearable)
-      div(style="width: 200px")
+      div(style="width: 150px")
         v-select(label="Mother Age" :items="motherAges" v-model="motherAgeSelected" :rules="rulesSelect" clearable)
-      div(style="width: 200px")
+      div(style="width: 150px")
         v-select(label="Birth Order" :items="birthOrders" v-model="birthOrderSelected" :rules="rulesSelect" clearable)
-      div(style="width: 200px") 
+      div(style="width: 150px") 
         v-select(label="Birth Sex" :items="sex" v-model="sexSelected" :rules="rulesSelect" clearable)
-    v-row(no-gutters)
+    v-row(no-gutters justify="space-between" justify-sm="start")
       //- v-btn(class="mr-1" @click="fetchData" :disabled="!isValid" ) Fetch Data
       v-btn(class="mr-1" @click="resetData" color="info") Reset Data
       v-btn(class="ml-1" @click="clearData" color="warning") Clear Data
