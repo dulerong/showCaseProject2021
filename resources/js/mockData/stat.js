@@ -2,15 +2,15 @@ const data = {
     "success": true,
     "result": {
         "records": [
-            {
-                "statistic_yyy": "統計年度",
-                "according": "按照別",
-                "site_id": "區域別",
-                "birth_order": "胎次",
-                "birth_sex": "出生者性別",
-                "mother_age": "生母年齡",
-                "birth_count": "嬰兒出生數"
-            },
+            // {
+            //     "statistic_yyy": "統計年度",
+            //     "according": "按照別",
+            //     "site_id": "區域別",
+            //     "birth_order": "胎次",
+            //     "birth_sex": "出生者性別",
+            //     "mother_age": "生母年齡",
+            //     "birth_count": "嬰兒出生數"
+            // },
             {
                 "statistic_yyy": "108",
                 "according": "按登記日期分",
