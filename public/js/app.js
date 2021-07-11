@@ -2284,8 +2284,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     filterSelected: function filterSelected() {
       return "".concat(this.siteSelected, "|").concat(this.motherAgeSelected, "|").concat(this.birthOrderSelected, "|").concat(this.sexSelected);
     },
-    screenWidthUnder400: function screenWidthUnder400() {
-      return screen.width < 400;
+    screenWidthUnder450: function screenWidthUnder450() {
+      return screen.width < 450;
     },
     totalNumberCount: function totalNumberCount() {
       return this.data.reduce(function (total, item) {
@@ -5391,11 +5391,11 @@ var render = function() {
               _c(
                 "v-btn",
                 {
-                  class: { "mr-2": !_vm.screenWidthUnder400 },
+                  class: { "mr-2": !_vm.screenWidthUnder450 },
                   attrs: {
                     color: "success",
                     disabled: !_vm.isValid,
-                    "x-small": _vm.screenWidthUnder400
+                    "x-small": _vm.screenWidthUnder450
                   },
                   on: { click: _vm.fetchData }
                 },
@@ -5404,8 +5404,8 @@ var render = function() {
               _c(
                 "v-btn",
                 {
-                  class: { "mx-2": !_vm.screenWidthUnder400 },
-                  attrs: { color: "info", "x-small": _vm.screenWidthUnder400 },
+                  class: { "mx-2": !_vm.screenWidthUnder450 },
+                  attrs: { color: "info", "x-small": _vm.screenWidthUnder450 },
                   on: { click: _vm.resetData }
                 },
                 [_vm._v("Reset Data")]
@@ -5413,10 +5413,10 @@ var render = function() {
               _c(
                 "v-btn",
                 {
-                  class: { "mx-2": !_vm.screenWidthUnder400 },
+                  class: { "mx-2": !_vm.screenWidthUnder450 },
                   attrs: {
                     color: "warning",
-                    "x-small": _vm.screenWidthUnder400
+                    "x-small": _vm.screenWidthUnder450
                   },
                   on: {
                     click: function($event) {
