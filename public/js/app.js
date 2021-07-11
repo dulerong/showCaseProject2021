@@ -2319,8 +2319,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     clearData: function clearData() {
+      var isButtonClick = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
       this.data = [];
-      this.showNotification({
+      if (isButtonClick) this.showNotification({
         message: 'Data Cleared',
         color: 'warning'
       });
@@ -5417,7 +5418,11 @@ var render = function() {
                     color: "warning",
                     "x-small": _vm.screenWidthUnder400
                   },
-                  on: { click: _vm.clearData }
+                  on: {
+                    click: function($event) {
+                      return _vm.clearData(true)
+                    }
+                  }
                 },
                 [_vm._v("Clear Data")]
               )
