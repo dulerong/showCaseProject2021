@@ -14,7 +14,7 @@ div
     v-row(no-gutters justify="space-between" justify-lg="start")
       v-btn(@click="fetchData" color="success" :disabled="!isValid" :x-small="screenWidthUnder400" :class="{ 'mr-2' : !screenWidthUnder400 }") Fetch Data
       v-btn(@click="resetData" color="info" :x-small="screenWidthUnder400" :class="{ 'mx-2' : !screenWidthUnder400 }") Reset Data
-      v-btn(@click="clearData" color="warning" :x-small="screenWidthUnder400" :class="{ 'mx-2' : !screenWidthUnder400 }") Clear Data
+      v-btn(@click="clearData(true)" color="warning" :x-small="screenWidthUnder400" :class="{ 'mx-2' : !screenWidthUnder400 }") Clear Data
   v-row(no-gutters class="my-3")
     h3 Result: {{ totalNumberCount }} {{ totalNumberCount ? 'born' : '' }}
   v-data-table(:headers="headers" :items="data")
@@ -74,9 +74,9 @@ export default {
 
       this.showNotification({ message: 'Data Fetched', color: 'success' })
     },
-    clearData() {
+    clearData(isButtonClick = false) {
       this.data = []
-      this.showNotification({ message: 'Data Cleared', color: 'warning' })
+      if (isButtonClick) this.showNotification({ message: 'Data Cleared', color: 'warning' })
     },
     resetData() {
       this.data = mockData.result.records
