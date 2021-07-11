@@ -1864,10 +1864,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     ToolTip: __webpack_require__(/*! ~components/ToolTip */ "./resources/js/vue/components/ToolTip.vue").default
+  },
+  props: {
+    toggle: {
+      type: Function,
+      required: true
+    }
   },
   data: function data() {
     return {
@@ -1884,10 +1889,9 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
-  props: {
-    toggle: {
-      type: Function,
-      required: true
+  computed: {
+    isMobile: function isMobile() {
+      return navigator.maxTouchPoints > 0;
     }
   }
 });
@@ -2204,25 +2208,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data(vm) {
     return {
       isValid: false,
-      sites: [{
-        value: '新北市板橋區',
-        name: '板橋'
-      }, {
-        value: '新北市三重區',
-        name: '三重'
-      }, {
-        value: '新北市中和區',
-        name: '中和'
-      }, {
-        value: '新北市永和區',
-        name: '永和'
-      }, {
-        value: '新北市新莊區',
-        name: '新莊'
-      }],
-      motherAges: ['未滿15歲', '15～19歲', '20～24歲', '25～29歲', '30～34歲', '35～39歲', '40～44歲', '45～49歲', '50歲以上'],
-      birthOrders: ['1胎', '2胎', '3胎', '4胎', '5胎', '6胎', '7胎', '8胎', '9胎以上'],
-      sex: ['男', '女'],
+      sites: vm.$_statSites,
+      motherAges: vm.$_statMotherAges,
+      birthOrders: vm.$_statBirthOrders,
+      sex: vm.$_statSex,
       sexSelected: null,
       siteSelected: null,
       motherAgeSelected: null,
@@ -2295,14 +2284,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _vue_App_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./vue/App.vue */ "./resources/js/vue/App.vue");
 /* harmony import */ var _vuetify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
 /* harmony import */ var _router___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router/ */ "./resources/js/router/index.js");
 /* harmony import */ var _store___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/ */ "./resources/js/store/index.js");
 /* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./axios */ "./resources/js/axios.js");
 /* harmony import */ var _plugins_day__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./plugins/day */ "./resources/js/plugins/day.js");
-/* harmony import */ var _validation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./validation */ "./resources/js/validation.js");
+/* harmony import */ var _plugins_validation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./plugins/validation */ "./resources/js/plugins/validation.js");
+/* harmony import */ var _plugins_statPageConstants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./plugins/statPageConstants */ "./resources/js/plugins/statPageConstants.js");
 // require('./bootstrap');
 
 
@@ -2313,8 +2303,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_7__.default.config.productionTip = false;
-new vue__WEBPACK_IMPORTED_MODULE_7__.default({
+
+vue__WEBPACK_IMPORTED_MODULE_8__.default.config.productionTip = false;
+new vue__WEBPACK_IMPORTED_MODULE_8__.default({
   el: '#app',
   vuetify: _vuetify__WEBPACK_IMPORTED_MODULE_1__.default,
   router: _router___WEBPACK_IMPORTED_MODULE_2__.default,
@@ -2463,6 +2454,180 @@ var dateToday = dayjs__WEBPACK_IMPORTED_MODULE_0___default()();
 vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.$_dateToday = dateToday;
 vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.$_dateTodayYYYYMMDD = dateToday.format('YYYY-MM-DD');
 vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.$_time_right_now = dateToday.format('YYYY-MM-DD HH:mm:ss');
+
+/***/ }),
+
+/***/ "./resources/js/plugins/statPageConstants.js":
+/*!***************************************************!*\
+  !*** ./resources/js/plugins/statPageConstants.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+
+var statSites = [{
+  value: '新北市板橋區',
+  name: '板橋'
+}, {
+  value: '新北市三重區',
+  name: '三重'
+}, {
+  value: '新北市中和區',
+  name: '中和'
+}, {
+  value: '新北市永和區',
+  name: '永和'
+}, {
+  value: '新北市新莊區',
+  name: '新莊'
+}, {
+  value: '新北市新店區',
+  name: '新店'
+}, {
+  value: '新北市土城區',
+  name: '土城'
+}, // { value: '新北市蘆洲區', name: '蘆洲' },
+{
+  value: '新北市汐止區',
+  name: '汐止'
+}, {
+  value: '新北市樹林區',
+  name: '樹林'
+}, {
+  value: '新北市鶯歌區',
+  name: '鶯歌'
+}, {
+  value: '新北市三峽區',
+  name: '三峽'
+}, {
+  value: '新北市淡水區',
+  name: '淡水'
+}, {
+  value: '新北市瑞芳區',
+  name: '瑞芳'
+} // { value: '新北市五股區', name: '五股' },
+// { value: '新北市泰山區', name: '泰山' },
+// { value: '新北市林口區', name: '林口' },
+// { value: '新北市深坑區', name: '深坑' },
+// { value: '新北市石碇區', name: '石碇' },
+// { value: '新北市坪林區', name: '坪林' },
+// { value: '新北市三芝區', name: '三芝' },
+// { value: '新北市石門區', name: '石門' },
+// { value: '新北市八里區', name: '八里' },
+// { value: '新北市平溪區', name: '平溪' },
+// { value: '新北市雙溪區', name: '雙溪' },
+// { value: '新北市貢寮區', name: '貢寮' },
+// { value: '新北市金山區', name: '金山' },
+// { value: '新北市萬里區', name: '萬里' },
+// { value: '新北市烏來區', name: '烏來' },
+];
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_statSites = statSites;
+var statMotherAges = ['未滿15歲', '15～19歲', '20～24歲', '25～29歲', '30～34歲', '35～39歲', '40～44歲', '45～49歲', '50歲以上'];
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_statMotherAges = statMotherAges;
+var statBirthOrders = ['1胎', '2胎', '3胎', '4胎', '5胎', '6胎', '7胎', '8胎', '9胎以上'];
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_statBirthOrders = statBirthOrders;
+var statSex = ['男', '女'];
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_statSex = statSex;
+
+/***/ }),
+
+/***/ "./resources/js/plugins/validation.js":
+/*!********************************************!*\
+  !*** ./resources/js/plugins/validation.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "hint": () => (/* binding */ hint),
+/* harmony export */   "validation": () => (/* binding */ validation)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+
+var hint = {
+  age: '1歳以上、９９歳未満',
+  required: '必須',
+  numbers: '半角数字で入力',
+  name: '全角(漢字、ひらがな、カタカナ)で入力',
+  email: '不正メール形式、例：suzuki@tokyo.co.jp',
+  phoneNumber: '半角数字１０〜１１桁必須、先頭にゼロ必須、例：09012345678(携帯), 0312345678(家電), ',
+  postalCode: '半角数字７桁必須、ハイフン無し'
+};
+var validation = {
+  age: function age(value) {
+    return value < 99 && value > 0 || hint.age;
+  },
+  required: function required(value) {
+    return value === 0 ? true : !!value || hint.required;
+  },
+  numbers: function numbers(value) {
+    var pattern = /^[0-9]+$/;
+    return value ? pattern.test(value) || hint.numbers : true;
+  },
+  furigana: function furigana(value) {
+    var pattern = /^[ア-ン゛゜ァ-ォャ-ョー「」、 　]+$/;
+    return pattern.test(value) || '全角、カタカナ必須';
+  },
+  name: function name(value) {
+    // \u30A0-\u30FF --- カタカナ regex https://www.javadrive.jp/regex-basic/sample/index8.html
+    // \u3040-\u309F --- ひらがな regex https://www.javadrive.jp/regex-basic/sample/index8.html
+    // \u4E00-\u9FFF --- 漢字    regex https://www.javadrive.jp/regex-basic/sample/index9.html
+    var pattern = /^$|^[\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF々 　]+$/;
+    return pattern.test(value) || hint.name;
+  },
+  address: function address(value) {
+    var pattern = /^[\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF々０-９ー 0-9- A-Ｚａ-ｚ　 ]+$/;
+    return pattern.test(value) || '全角(漢字、数字、英語、ひらがな、カタカナ、ハイフン), 半角(英数字、ハイフン)で入力';
+  },
+  text: function text(value) {
+    var pattern = /^[\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF\n々￥０-９ー　、。・：\w A-Ｚａ-ｚ,.?! -]+$/;
+    return value === null || value === '' ? true : pattern.test(value) || '全角：漢字、英数字、ひらがな、カタカナ、スペース、符号（、。・：？！）半角：英数字、符号（,.?!-）、スペース';
+  },
+  email: function email(value) {
+    var pattern = /^[\w-\.+]+@([\w-]+\.)+[\w-]{2,4}$/;
+    return pattern.test(value) || hint.email;
+  },
+  phoneNumber: function phoneNumber(value) {
+    // const pattern = /^(?:\d{10}|\d{3}-\d{3}-\d{4}|\d{2}-\d{4}-\d{4}|\d{3}-\d{4}-\d{4})$/
+    var pattern = /^[0]\d{9,10}$/;
+    return pattern.test(value) || hint.phoneNumber;
+  },
+  postalCode: function postalCode(value) {
+    // const pattern = /^\d{3}-\d{4}$/
+    var pattern = /^\d{7}$/;
+    return pattern.test(value) || hint.postalCode;
+  },
+  twoDigitNumber: function twoDigitNumber(value) {
+    var pattern = /^[0-9]{1,2}?$/;
+    return pattern.test(value) || '半角英数、２桁以内';
+  },
+  fiveDigit: function fiveDigit(value) {
+    return value ? value.length <= 5 || '５文字数以内' : true;
+  },
+  tenDigit: function tenDigit(value) {
+    return value ? value.length <= 10 || '１０文字数以内' : true;
+  },
+  twentyDigit: function twentyDigit(value) {
+    return value ? value.length <= 20 || '２０文字数以内' : true;
+  },
+  fourtyDigit: function fourtyDigit(value) {
+    return value ? value.length <= 40 || '４０文字数以内' : true;
+  },
+  oneHundredDigit: function oneHundredDigit(value) {
+    return value ? value.length <= 100 || '１００文字数以内' : true;
+  },
+  twoHundredDigit: function twoHundredDigit(value) {
+    return value ? value.length <= 200 || '２００文字数以内' : true;
+  },
+  password: function password(value) {
+    var pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    return pattern.test(value) || '最小文字数８桁：英数字ごと最低１個必須';
+  }
+};
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_validation = validation;
 
 /***/ }),
 
@@ -2812,104 +2977,6 @@ var home = {
 
   }
 };
-
-/***/ }),
-
-/***/ "./resources/js/validation.js":
-/*!************************************!*\
-  !*** ./resources/js/validation.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "hint": () => (/* binding */ hint),
-/* harmony export */   "validation": () => (/* binding */ validation)
-/* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-
-var hint = {
-  age: '1歳以上、９９歳未満',
-  required: '必須',
-  numbers: '半角数字で入力',
-  name: '全角(漢字、ひらがな、カタカナ)で入力',
-  email: '不正メール形式、例：suzuki@tokyo.co.jp',
-  phoneNumber: '半角数字１０〜１１桁必須、先頭にゼロ必須、例：09012345678(携帯), 0312345678(家電), ',
-  postalCode: '半角数字７桁必須、ハイフン無し'
-};
-var validation = {
-  age: function age(value) {
-    return value < 99 && value > 0 || hint.age;
-  },
-  required: function required(value) {
-    return value === 0 ? true : !!value || hint.required;
-  },
-  numbers: function numbers(value) {
-    var pattern = /^[0-9]+$/;
-    return value ? pattern.test(value) || hint.numbers : true;
-  },
-  furigana: function furigana(value) {
-    var pattern = /^[ア-ン゛゜ァ-ォャ-ョー「」、 　]+$/;
-    return pattern.test(value) || '全角、カタカナ必須';
-  },
-  name: function name(value) {
-    // \u30A0-\u30FF --- カタカナ regex https://www.javadrive.jp/regex-basic/sample/index8.html
-    // \u3040-\u309F --- ひらがな regex https://www.javadrive.jp/regex-basic/sample/index8.html
-    // \u4E00-\u9FFF --- 漢字    regex https://www.javadrive.jp/regex-basic/sample/index9.html
-    var pattern = /^$|^[\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF々 　]+$/;
-    return pattern.test(value) || hint.name;
-  },
-  address: function address(value) {
-    var pattern = /^[\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF々０-９ー 0-9- A-Ｚａ-ｚ　 ]+$/;
-    return pattern.test(value) || '全角(漢字、数字、英語、ひらがな、カタカナ、ハイフン), 半角(英数字、ハイフン)で入力';
-  },
-  text: function text(value) {
-    var pattern = /^[\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FF\n々￥０-９ー　、。・：\w A-Ｚａ-ｚ,.?! -]+$/;
-    return value === null || value === '' ? true : pattern.test(value) || '全角：漢字、英数字、ひらがな、カタカナ、スペース、符号（、。・：？！）半角：英数字、符号（,.?!-）、スペース';
-  },
-  email: function email(value) {
-    var pattern = /^[\w-\.+]+@([\w-]+\.)+[\w-]{2,4}$/;
-    return pattern.test(value) || hint.email;
-  },
-  phoneNumber: function phoneNumber(value) {
-    // const pattern = /^(?:\d{10}|\d{3}-\d{3}-\d{4}|\d{2}-\d{4}-\d{4}|\d{3}-\d{4}-\d{4})$/
-    var pattern = /^[0]\d{9,10}$/;
-    return pattern.test(value) || hint.phoneNumber;
-  },
-  postalCode: function postalCode(value) {
-    // const pattern = /^\d{3}-\d{4}$/
-    var pattern = /^\d{7}$/;
-    return pattern.test(value) || hint.postalCode;
-  },
-  twoDigitNumber: function twoDigitNumber(value) {
-    var pattern = /^[0-9]{1,2}?$/;
-    return pattern.test(value) || '半角英数、２桁以内';
-  },
-  fiveDigit: function fiveDigit(value) {
-    return value ? value.length <= 5 || '５文字数以内' : true;
-  },
-  tenDigit: function tenDigit(value) {
-    return value ? value.length <= 10 || '１０文字数以内' : true;
-  },
-  twentyDigit: function twentyDigit(value) {
-    return value ? value.length <= 20 || '２０文字数以内' : true;
-  },
-  fourtyDigit: function fourtyDigit(value) {
-    return value ? value.length <= 40 || '４０文字数以内' : true;
-  },
-  oneHundredDigit: function oneHundredDigit(value) {
-    return value ? value.length <= 100 || '１００文字数以内' : true;
-  },
-  twoHundredDigit: function twoHundredDigit(value) {
-    return value ? value.length <= 200 || '２００文字数以内' : true;
-  },
-  password: function password(value) {
-    var pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    return pattern.test(value) || '最小文字数８桁：英数字ごと最低１個必須';
-  }
-};
-vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_validation = validation;
 
 /***/ }),
 
@@ -4412,7 +4479,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-app-bar",
-    { attrs: { app: "", "hide-on-scroll": "" } },
+    { attrs: { app: "", "hide-on-scroll": !_vm.isMobile } },
     [
       _c(
         "ToolTip",
@@ -4429,7 +4496,6 @@ var render = function() {
         ],
         1
       ),
-      _c("h1", [_vm._v(_vm._s(_vm.$route.name))]),
       _c("v-spacer"),
       _c(
         "v-menu",
