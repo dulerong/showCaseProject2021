@@ -1,8 +1,7 @@
 <template lang="pug">
-v-app-bar(app hide-on-scroll)
+v-app-bar(app :hide-on-scroll="!isMobile")
   ToolTip(message="Side Drawer")
     v-app-bar-nav-icon(@click.stop="toggle")
-  h1 {{ $route.name }}
   v-spacer
   v-menu(open-on-hover transition="slide-y-transition" offset-y)
     template(v-slot:activator="{ on, attrs}")
@@ -23,6 +22,12 @@ export default {
   components: {
     ToolTip: require('~components/ToolTip').default
   },
+  props: {
+    toggle: {
+      type: Function,
+      required: true
+    }
+  },
   data: () => ({
     listItem: [
       { icon: 'mdi-account-circle', title: 'Show Case', subtitle: 'Auth：Admin' },
@@ -30,10 +35,9 @@ export default {
       { icon: 'mdi-exit-to-app', title: 'Logout' }
     ]
   }),
-  props: {
-    toggle: {
-      type: Function,
-      required: true
+  computed: {
+    isMobile() {
+      return navigator.maxTouchPoints > 0
     }
   },
 }
