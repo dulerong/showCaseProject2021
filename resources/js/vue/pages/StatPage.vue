@@ -10,10 +10,12 @@ div
     v-row(no-gutters)
       div(style="width: 150px") 
         v-select(label="Birth Sex" :items="sex" v-model="sexSelected" :rules="rulesSelect" multiple chips clearable)
-    v-row(no-gutters justify="space-between" justify-sm="start")
-      //- v-btn(class="mr-1" @click="fetchData" :disabled="!isValid" ) Fetch Data
-      v-btn(class="mr-1" @click="resetData" color="info") Reset Data
-      v-btn(class="ml-1" @click="clearData" color="warning") Clear Data
+    v-row(no-gutters justify="space-between" justify-lg="start")
+      v-btn(@click="fetchData" :disabled="!isValid" :small="screenWidthUnder400" :class="{ 'mr-2' : !screenWidthUnder400 }") Fetch Data
+      v-btn(@click="resetData" color="info" :small="screenWidthUnder400" :class="{ 'mx-2' : !screenWidthUnder400 }") Reset Data
+      v-btn(@click="clearData" color="warning" :small="screenWidthUnder400" :class="{ 'mx-2' : !screenWidthUnder400 }") Clear Data
+  v-row(no-gutters class="my-3")
+    h3 Result: {{ totalNumberCount }} {{ totalNumberCount ? 'born' : '' }}
   v-data-table(:headers="headers" :items="data")
     template(v-slot:item.birth_count="{ item }")
       v-chip(:color="getColor(item.birth_count)" dark) {{ item.birth_count }}
@@ -23,7 +25,7 @@ div
 import mockData from '~js/mockData/stat'
 export default {
   created() {
-    this.data = mockData.result.records
+    console.log(screen.width)
   },
   data: (vm) => ({
     isValid: false,
@@ -48,11 +50,17 @@ export default {
   computed: {
     filterSelected() {
       return `${this.siteSelected}|${this.motherAgeSelected}|${this.birthOrderSelected}|${this.sexSelected}`
+    },
+    screenWidthUnder400() {
+      return screen.width < 400
+    },
+    totalNumberCount() {
+      return this.data.reduce((total, item) => total + Number(item.birth_count), 0)
     }
   },
   watch: {
     filterSelected: function () {
-      this.fetchData()
+      this.clearData()
     }
   },
   methods: {
