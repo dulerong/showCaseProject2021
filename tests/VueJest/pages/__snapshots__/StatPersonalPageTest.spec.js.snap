@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stat Peronal Page Tests Page renders properly 1`] = `
+<div>
+  <h1>個人集計</h1>
+  <div class="row no-gutters">
+    <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-input--selection-controls v-input--radio-group v-input--radio-group--row">
+      <div class="v-input__control">
+        <div class="v-input__slot" style="height: auto;">
+          <div role="radiogroup" aria-labelledby="input-4" class="v-input--radio-group__input">
+            <legend id="input-4" class="v-label theme--light" style="left: 0px; position: relative;">表示タイプ</legend>
+            <div class="v-radio theme--light v-item--active">
+              <div class="v-input--selection-controls__input"><i aria-hidden="true" class="v-icon notranslate mdi mdi-radiobox-marked theme--light primary--text"></i><input aria-checked="true" id="input-5" role="radio" type="radio" name="radio-4" value="1">
+                <div class="v-input--selection-controls__ripple primary--text"></div>
+              </div><label for="input-5" class="v-label theme--light" style="left: 0px; position: relative;">表</label>
+            </div>
+            <div class="v-radio theme--light">
+              <div class="v-input--selection-controls__input"><i aria-hidden="true" class="v-icon notranslate mdi mdi-radiobox-blank theme--light"></i><input aria-checked="false" id="input-7" role="radio" type="radio" name="radio-4" value="2">
+                <div class="v-input--selection-controls__ripple"></div>
+              </div><label for="input-7" class="v-label theme--light" style="left: 0px; position: relative;">グラフ</label>
+            </div>
+          </div>
+        </div>
+        <div class="v-messages theme--light">
+          <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+        </div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="mr-1" style="width: 120px;">
+      <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--enclosed v-text-field--outlined v-select">
+        <div class="v-input__control">
+          <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-11" class="v-input__slot white">
+            <fieldset aria-hidden="true">
+              <legend style="width: 0px;"><span>​</span></legend>
+            </fieldset>
+            <div class="v-select__slot"><label for="input-11" class="v-label v-label--active theme--light" style="left: 0px; position: absolute;">期</label>
+              <div class="v-select__selections">
+                <div class="v-select__selection v-select__selection--comma">41</div><input id="input-11" readonly="readonly" type="text" aria-readonly="false" autocomplete="off">
+              </div>
+              <div class="v-input__append-inner">
+                <div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div>
+              </div><input type="hidden" value="41">
+            </div>
+            <div class="v-menu">
+              <!---->
+            </div>
+          </div>
+          <div class="v-text-field__details">
+            <div class="v-messages theme--light">
+              <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr role="separator" aria-orientation="horizontal" class="mb-6 v-divider theme--light" style="border: 1px solid white;">
+  <statisticpersonal-stub termselected="41"></statisticpersonal-stub>
+</div>
+`;

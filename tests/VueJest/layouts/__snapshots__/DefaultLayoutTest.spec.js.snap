@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component Tests App renders properly 1`] = `
+<v-app-stub id="app">
+  <topbar-stub toggle="function () { [native code] }"></topbar-stub>
+  <sidebar-stub drawer="[object Object]"></sidebar-stub>
+  <snackbar-stub></snackbar-stub>
+  <v-main-stub tag="main" style="background-color: rgb(236, 240, 245);">
+    <div class="px-4 pb-4 mx-auto" style="max-width: 1280px;"></div>
+  </v-main-stub>
+  <footer-stub></footer-stub>
+  <loading-stub></loading-stub>
+</v-app-stub>
+`;

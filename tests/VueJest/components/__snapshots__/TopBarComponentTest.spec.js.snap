@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopBar Component Test Component renders properly 1`] = `
+<header class="v-sheet theme--light v-toolbar v-toolbar--flat v-app-bar v-app-bar--fixed" style="height: 64px; margin-top: 0px; transform: translateY(0px); left: 0px; right: 0px; border-bottom: 4px solid #1976D2;">
+  <div class="v-toolbar__content" style="height: 64px;"><button type="button" class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--light v-size--default"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu theme--light"></i></span></button>
+    <div class="spacer"></div>
+    <div class="v-input v-input--hide-details theme--light v-input--selection-controls v-input--checkbox">
+      <div class="v-input__control">
+        <div class="v-input__slot">
+          <div class="v-input--selection-controls__input"><i aria-hidden="true" class="v-icon notranslate mdi mdi-checkbox-blank-outline theme--light"></i><input aria-checked="false" id="input-9" role="checkbox" type="checkbox" value="">
+            <div class="v-input--selection-controls__ripple"></div>
+          </div>
+        </div>
+      </div>
+    </div><button type="button" class="v-btn v-btn--has-bg theme--light v-size--default" style="height: 100%;"><span class="v-btn__content"><img src="/images/icon/profile.svg"><div class="v-toolbar__title">Dr. Jaylon Parker</div></span></button>
+  </div>
+</header>
+`;

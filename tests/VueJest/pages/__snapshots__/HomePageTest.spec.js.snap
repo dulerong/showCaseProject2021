@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Page Tests Page renders properly 1`] = `
+<div>
+  <h1>ホーム</h1>
+  <v-card-stub loaderheight="4" tag="div">
+    <v-card-title-stub>本日来場予約一覧</v-card-title-stub>
+    <v-divider-stub></v-divider-stub>
+    <div class="ma-5">
+      <v-row-stub tag="div" nogutters="true" class="mb-5">
+        <div style="width: 100px;">
+          <v-select-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="10" appendicon="$dropdown" backgroundcolor="" hidedetails="true" label="件表示" loaderheight="2" clearicon="$clear" outlined="true" type="text" valuecomparator="function deepEqual(a, b) {
+  if (a === b) return true;
+
+  if (a instanceof Date &amp;&amp; b instanceof Date &amp;&amp; a.getTime() !== b.getTime()) {
+    // If the values are Date, compare them as timestamps
+    return false;
+  }
+
+  if (a !== Object(a) || b !== Object(b)) {
+    // If the values aren't objects, they were already checked for equality
+    return false;
+  }
+
+  var props = Object.keys(a);
+
+  if (props.length !== Object.keys(b).length) {
+    // Different number of props, don't bother to check
+    return false;
+  }
+
+  return props.every(function (p) {
+    return deepEqual(a[p], b[p]);
+  });
+}" nodatatext="$vuetify.noDataText" items="5,10,15,20,25" itemcolor="primary" itemdisabled="disabled" itemtext="text" itemvalue="value" menuprops="[object Object]"></v-select-stub>
+        </div>
+        <v-spacer-stub></v-spacer-stub>
+        <div style="width: 200px;">
+          <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="" backgroundcolor="" hidedetails="true" label="氏名検索" loaderheight="2" clearable="true" clearicon="$clear" outlined="true" prependinnericon="mdi-magnify" type="text"></v-text-field-stub>
+        </div>
+      </v-row-stub>
+      <v-row-stub tag="div" nogutters="true" class="header">
+        <v-col-stub cols="1" tag="div">ID</v-col-stub>
+        <v-col-stub cols="2" tag="div">氏名</v-col-stub>
+        <v-col-stub cols="2" tag="div">営業担当</v-col-stub>
+        <v-col-stub cols="2" tag="div">来場場所</v-col-stub>
+        <v-col-stub cols="2" tag="div">ブランド</v-col-stub>
+        <v-col-stub cols="2" tag="div">来場日時</v-col-stub>
+        <v-col-stub cols="1" tag="div">照会</v-col-stub>
+      </v-row-stub>
+      <v-row-stub tag="div" nogutters="true" class="data">
+        <v-col-stub cols="1" tag="div">212</v-col-stub>
+        <v-col-stub cols="2" tag="div">武蔵</v-col-stub>
+        <v-col-stub cols="2" tag="div">Dr. Jaylon Parker</v-col-stub>
+        <v-col-stub cols="2" tag="div">宇部店</v-col-stub>
+        <v-col-stub cols="2" tag="div">いえとち本舗</v-col-stub>
+        <v-col-stub cols="2" tag="div">2021-06-03 14:01:00</v-col-stub>
+        <v-col-stub cols="1" tag="div">
+          <v-btn-stub tag="button" activeclass="" small="true" depressed="true" type="button">照 会</v-btn-stub>
+        </v-col-stub>
+      </v-row-stub>
+      <v-row-stub tag="div" nogutters="true" align="center">
+        <h4>1 件中 1 から 1 まで表示</h4>
+        <v-spacer-stub></v-spacer-stub>
+        <v-pagination-stub length="1" nexticon="$next" previcon="$prev" value="1" pagearialabel="$vuetify.pagination.ariaLabel.page" currentpagearialabel="$vuetify.pagination.ariaLabel.currentPage" previousarialabel="$vuetify.pagination.ariaLabel.previous" nextarialabel="$vuetify.pagination.ariaLabel.next" wrapperarialabel="$vuetify.pagination.ariaLabel.wrapper"></v-pagination-stub>
+      </v-row-stub>
+    </div>
+  </v-card-stub>
+</div>
+`;
