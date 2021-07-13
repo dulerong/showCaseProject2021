@@ -1,5 +1,5 @@
 <template lang="pug">
-h1 No content yet
+h1 No content yet, coming soon later...
 </template>
 
 <script>
