@@ -12,9 +12,9 @@ div
       div(style="width: 150px") 
         v-select(label="Birth Sex" :items="sex" v-model="sexSelected" :rules="rulesSelect" multiple chips clearable)
     v-row(no-gutters justify="space-between" justify-lg="start")
-      v-btn(@click="fetchData" color="success" :disabled="!isValid" :x-small="screenWidthUnder450" :class="{ 'mr-2' : !screenWidthUnder450 }") Fetch Data
-      v-btn(@click="resetFilter" color="info" :x-small="screenWidthUnder450" :class="{ 'mx-2' : !screenWidthUnder450 }") Reset Filter
-      v-btn(@click="clearData(true)" color="warning" :x-small="screenWidthUnder450" :class="{ 'mx-2' : !screenWidthUnder450 }") Clear Data
+      v-btn(@click="fetchData" color="success" :disabled="!isValid" :small="screenWidthUnder450" :class="{ 'mr-2' : !screenWidthUnder450 }") Fetch Data
+      v-btn(@click="resetFilter" color="info" :small="screenWidthUnder450" :class="{ 'mx-2' : !screenWidthUnder450 }") Reset Filter
+      v-btn(@click="clearData(true)" color="warning" :small="screenWidthUnder450" :class="{ 'mx-2' : !screenWidthUnder450 }") Clear Data
   v-row(no-gutters class="my-3")
     h3 Result: {{ totalNumberCount }} {{ totalNumberCount ? 'born' : '' }}
   v-data-table(:headers="headers" :items="data")
