@@ -3,6 +3,10 @@ v-app-bar(app :hide-on-scroll="!isMobile")
   ToolTip(message="Side Drawer")
     v-app-bar-nav-icon(@click.stop="toggle")
   v-spacer
+  ToolTip(message="Settings")
+    v-btn(icon @click.stop="toggleSide")
+      v-icon(large) mdi-settings-outline
+  v-divider(vertical class="mx-1")
   v-menu(open-on-hover transition="slide-y-transition" offset-y)
     template(v-slot:activator="{ on, attrs}")
       v-btn(depressed height="100%" v-bind="attrs" v-on="on")
@@ -24,6 +28,10 @@ export default {
   },
   props: {
     toggle: {
+      type: Function,
+      required: true
+    },
+    toggleSide: {
       type: Function,
       required: true
     }
