@@ -13,7 +13,7 @@ div
         v-select(label="Birth Sex" :items="sex" v-model="sexSelected" :rules="rulesSelect" multiple chips clearable)
     v-row(no-gutters justify="space-between" justify-lg="start")
       v-btn(@click="fetchData" color="success" :disabled="!isValid" :x-small="screenWidthUnder450" :class="{ 'mr-2' : !screenWidthUnder450 }") Fetch Data
-      v-btn(@click="resetData" color="info" :x-small="screenWidthUnder450" :class="{ 'mx-2' : !screenWidthUnder450 }") Reset Data
+      v-btn(@click="resetFilter" color="info" :x-small="screenWidthUnder450" :class="{ 'mx-2' : !screenWidthUnder450 }") Reset Filter
       v-btn(@click="clearData(true)" color="warning" :x-small="screenWidthUnder450" :class="{ 'mx-2' : !screenWidthUnder450 }") Clear Data
   v-row(no-gutters class="my-3")
     h3 Result: {{ totalNumberCount }} {{ totalNumberCount ? 'born' : '' }}
@@ -47,6 +47,9 @@ export default {
     data: [],
   }),
   computed: {
+    isFilterOn() {
+      return !!this.siteSelected || !!this.motherAgeSelected || !!this.birthOrderSelected || !!this.sexSelected
+    },
     filterSelected() {
       return `${this.siteSelected}|${this.motherAgeSelected}|${this.birthOrderSelected}|${this.sexSelected}`
     },
@@ -65,11 +68,13 @@ export default {
   methods: {
     ...mapMutations('notification', ['showNotification']),
     fetchData() {
+      if (!this.isFilterOn) return
+
       this.data = mockData.result.records
-        .filter(item => this.siteSelected ? this.siteSelected.includes(item.site_id) : true)
-        .filter(item => this.birthOrderSelected ? this.birthOrderSelected.includes(item.birth_order) : true)
-        .filter(item => this.motherAgeSelected ?  this.motherAgeSelected.includes(item.mother_age) : true)
-        .filter(item => this.sexSelected ? this.sexSelected.includes(item.birth_sex) : true)
+        .filter(item => this.siteSelected && this.siteSelected.length > 0 ? this.siteSelected.includes(item.site_id) : true)
+        .filter(item => this.birthOrderSelected && this.birthOrderSelected.length > 0 ? this.birthOrderSelected.includes(item.birth_order) : true)
+        .filter(item => this.motherAgeSelected && this.motherAgeSelected.length > 0 ?  this.motherAgeSelected.includes(item.mother_age) : true)
+        .filter(item => this.sexSelected && this.sexSelected.length > 0 ? this.sexSelected.includes(item.birth_sex) : true)
         .filter(item => item.birth_count > 0)
 
       this.showNotification({ message: 'Data Fetched', color: 'success' })
@@ -78,9 +83,12 @@ export default {
       this.data = []
       if (isButtonClick) this.showNotification({ message: 'Data Cleared', color: 'warning' })
     },
-    resetData() {
-      this.data = mockData.result.records
-      this.showNotification({ message: 'Data Reset', color: 'info' })
+    resetFilter() {
+      this.siteSelected = null
+      this.motherAgeSelected = null
+      this.birthOrderSelected = null
+      this.sexSelected = null
+      this.showNotification({ message: 'Filter Reset', color: 'info' })
     },
     getColor(count) {
       return count > 0 ? 'red' : ''
