@@ -1890,10 +1890,12 @@ __webpack_require__.r(__webpack_exports__);
         subtitle: 'Auth：Admin'
       }, {
         icon: 'mdi-account-details',
-        title: 'Profile'
+        title: 'Profile',
+        to: 'login'
       }, {
         icon: 'mdi-exit-to-app',
-        title: 'Logout'
+        title: 'Logout',
+        to: 'login'
       }]
     };
   },
@@ -2204,6 +2206,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -2248,11 +2251,86 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  created: function created() {
+    this.greetingMessage = this.makeGreetMessage(this.$_hour_right_now);
+  },
+  data: function data() {
+    return {
+      greetingMessage: null,
+      username: null,
+      password: null,
+      showPassword: false,
+      loading: false
+    };
+  },
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('notification', ['showNotification'])), {}, {
+    makeGreetMessage: function makeGreetMessage(time) {
+      switch (true) {
+        case time < 12:
+          return 'Good morning';
+
+        case time >= 12 && time < 18:
+          return 'Good afternoon';
+
+        case time >= 18 && time <= 23:
+          return 'Good evening';
+      }
+    },
+    login: function login() {
+      var _this = this;
+
+      this.loading = true;
+      setTimeout(function () {
+        _this.loading = false;
+
+        _this.$router.push({
+          name: _this.$_routePath.home.name
+        });
+
+        _this.showNotification({
+          message: 'Welcome back!'
+        });
+      }, 2500);
+    }
+  })
+});
 
 /***/ }),
 
@@ -2609,6 +2687,7 @@ var dateToday = dayjs__WEBPACK_IMPORTED_MODULE_0___default()();
 vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.$_dateToday = dateToday;
 vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.$_dateTodayYYYYMMDD = dateToday.format('YYYY-MM-DD');
 vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.$_time_right_now = dateToday.format('YYYY-MM-DD HH:mm:ss');
+vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.$_hour_right_now = dateToday.format('HH');
 
 /***/ }),
 
@@ -2872,7 +2951,7 @@ var navigation = [{
 // },
 {
   title: 'OTHERS',
-  children: [routePath.login, routePath.memberPasswordReset]
+  children: [routePath.memberPasswordReset]
 } // {
 //   title: '暫定的（削除予定）',
 //   children: [
@@ -4865,17 +4944,16 @@ var render = function() {
                 }
               }
             },
-            [
-              _c("v-icon", { attrs: { large: "" } }, [
-                _vm._v("mdi-settings-outline")
-              ])
-            ],
+            [_c("v-icon", [_vm._v("mdi-settings-outline")])],
             1
           )
         ],
         1
       ),
-      _c("v-divider", { staticClass: "mx-1", attrs: { vertical: "" } }),
+      _c("v-divider", {
+        staticClass: "mx-1",
+        attrs: { vertical: "", inset: "" }
+      }),
       _c(
         "v-menu",
         {
@@ -4920,7 +4998,7 @@ var render = function() {
                 _vm._l(_vm.listItem, function(item, i) {
                   return _c(
                     "v-list-item",
-                    { key: i, attrs: { link: "" } },
+                    { key: i, attrs: { link: !!item.to, to: item.to } },
                     [
                       _c(
                         "v-list-item-icon",
@@ -5454,7 +5532,23 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("v-app", [_c("v-main", [_vm._t("default")], 2)], 1)
+  return _c(
+    "v-app",
+    [
+      _c("v-main", [
+        _c(
+          "div",
+          {
+            staticClass: "pa-4 mx-auto",
+            staticStyle: { "max-width": "1280px", height: "100%" }
+          },
+          [_vm._t("default")],
+          2
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -5504,7 +5598,88 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Login Page")])
+  return _c(
+    "v-card",
+    { staticClass: "mx-auto pa-4", staticStyle: { width: "375px" } },
+    [
+      _c("h1", [_vm._v(_vm._s(_vm.greetingMessage) + ",")]),
+      _c(
+        "v-form",
+        [
+          _c("v-text-field", {
+            attrs: {
+              label: "User Name",
+              hint: "Showcase use only (You don't have to enter username)",
+              clearable: ""
+            },
+            model: {
+              value: _vm.username,
+              callback: function($$v) {
+                _vm.username = $$v
+              },
+              expression: "username"
+            }
+          }),
+          _c("v-text-field", {
+            attrs: {
+              label: "Password",
+              type: _vm.showPassword ? "text" : "password",
+              "append-icon": _vm.showPassword ? "mdi-eye" : "mdi-eye-off",
+              hint: "Showcase use only (You don't have to enter password)",
+              clearable: ""
+            },
+            on: {
+              "click:append": function($event) {
+                _vm.showPassword = !_vm.showPassword
+              }
+            },
+            model: {
+              value: _vm.password,
+              callback: function($$v) {
+                _vm.password = $$v
+              },
+              expression: "password"
+            }
+          })
+        ],
+        1
+      ),
+      _c(
+        "v-row",
+        {
+          staticClass: "mt-1",
+          attrs: { "no-gutters": "", justify: "space-between" }
+        },
+        [
+          _c(
+            "v-btn",
+            {
+              attrs: { depressed: "", loading: _vm.loading },
+              on: { click: _vm.login }
+            },
+            [
+              _c("v-icon", { attrs: { left: "" } }, [_vm._v("mdi-login")]),
+              _vm._v("Login")
+            ],
+            1
+          ),
+          _c(
+            "v-btn",
+            { attrs: { outlined: "" } },
+            [
+              _c("v-icon", { attrs: { left: "" } }, [
+                _vm._v("mdi-clipboard-account")
+              ]),
+              _vm._v("Sign up")
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
