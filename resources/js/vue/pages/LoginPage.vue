@@ -1,7 +1,6 @@
 <template lang="pug">
 v-card(class="mx-auto pa-4" style="width: 375px")
   h1 {{ greetingMessage }},
-  h1 Login Page
   v-form
     v-text-field(
       label="User Name"
@@ -28,6 +27,7 @@ v-card(class="mx-auto pa-4" style="width: 375px")
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   created() {
     this.greetingMessage = this.makeGreetMessage(this.$_hour_right_now)
@@ -40,6 +40,7 @@ export default {
     loading: false,
   }),
   methods: {
+    ...mapMutations('notification', ['showNotification']),
     makeGreetMessage(time) {
       switch(true) {
         case time < 12:
@@ -55,6 +56,7 @@ export default {
       setTimeout(() => {
         this.loading = false
         this.$router.push({ name: this.$_routePath.home.name })
+        this.showNotification({ message: 'Welcome back!' })
       }, 2500)
     }
   }
