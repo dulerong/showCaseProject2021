@@ -81,7 +81,6 @@ export const navigation = [
   {
     title: 'OTHERS',
     children: [
-      routePath.login,
       routePath.memberPasswordReset,
     ]
   },

@@ -5,15 +5,15 @@ v-app-bar(app :hide-on-scroll="!isMobile")
   v-spacer
   ToolTip(message="Settings")
     v-btn(icon @click.stop="toggleSide")
-      v-icon(large) mdi-settings-outline
-  v-divider(vertical class="mx-1")
+      v-icon mdi-settings-outline
+  v-divider(vertical class="mx-1" inset)
   v-menu(open-on-hover transition="slide-y-transition" offset-y)
     template(v-slot:activator="{ on, attrs}")
       v-btn(depressed height="100%" v-bind="attrs" v-on="on")
         v-toolbar-title Username
     v-card(class="pa-3")
       v-list
-        v-list-item(v-for="(item, i) in listItem" :key="i" link)
+        v-list-item(v-for="(item, i) in listItem" :key="i" :link="!!item.to" :to="item.to")
           v-list-item-icon
             v-icon(:x-large="item.icon === 'mdi-account-circle'") {{ item.icon }}
           v-list-item-content
@@ -39,8 +39,8 @@ export default {
   data: () => ({
     listItem: [
       { icon: 'mdi-account-circle', title: 'Show Case', subtitle: 'Auth：Admin' },
-      { icon: 'mdi-account-details', title: 'Profile' },
-      { icon: 'mdi-exit-to-app', title: 'Logout' }
+      { icon: 'mdi-account-details', title: 'Profile', to: 'login' },
+      { icon: 'mdi-exit-to-app', title: 'Logout', to: 'login' }
     ]
   }),
   computed: {
