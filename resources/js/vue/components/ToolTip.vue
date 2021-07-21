@@ -1,5 +1,5 @@
 <template lang="pug">
-v-tooltip(:bottom="isAlign('bottom')" :top="isAlign('top')" :left="isAlign('left')" :right="isAlign('right')" :disabled="$_IS_TOUCH_SCREEN")
+v-tooltip(:bottom="isAlign('bottom')" :top="isAlign('top')" :left="isAlign('left')" :right="isAlign('right')" :disabled="isMobile")
   template(v-slot:activator="{ on, attrs }")
     div(v-bind="attrs" v-on="on")
       slot
@@ -15,6 +15,11 @@ export default {
     },
     message: {
       type: String,
+    }
+  },
+  computed: {
+    isMobile() {
+      return navigator.maxTouchPoints > 0
     }
   },
   methods: {

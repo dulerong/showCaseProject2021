@@ -1,5 +1,5 @@
 <template lang="pug">
-v-app-bar(app :hide-on-scroll="!$_IS_TOUCH_SCREEN")
+v-app-bar(app :hide-on-scroll="!isMobile")
   ToolTip(message="Side Drawer")
     v-app-bar-nav-icon(@click.stop="toggle")
   v-spacer
@@ -43,5 +43,10 @@ export default {
       { icon: 'mdi-exit-to-app', title: 'Logout', to: 'login' }
     ]
   }),
+  computed: {
+    isMobile() {
+      return navigator.maxTouchPoints > 0
+    }
+  },
 }
 </script>
