@@ -11,6 +11,7 @@ import './axios'
 import './plugins/day'
 import './plugins/validation'
 import './plugins/statPageConstants'
+import './plugins/checkMobile'
 
 Vue.config.productionTip = false
 
