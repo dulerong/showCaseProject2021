@@ -5592,7 +5592,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("No content yet, coming soon later...")])
+  return _c("h1", [_vm._v("No content yet, coming soon later...7/21...")])
 }
 var staticRenderFns = []
 render._withStripped = true
