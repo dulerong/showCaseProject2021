@@ -4,7 +4,7 @@ v-footer(padless absolute app)
     v-card-text
       v-row(no-gutters justify="center")
         v-btn(v-for="(icon, i) in icons" :key="i" icon class="mx-4")
-          ToolTip(:message="icon.hint")
+          ToolTip(:message="$_language[$route.params.lang].footer.tooltip[icon.hint]")
             v-icon {{ icon.name }}
     v-divider
     v-card-text
@@ -21,8 +21,6 @@ export default {
     icons: [
       { name: 'mdi-home', hint: 'home' },
       { name: 'mdi-email', hint: 'email' },
-      { name: 'mdi-calendar', hint: 'calendar' },
-      { name: 'mdi-delete', hint: 'delete' },
     ]
   })
 }

@@ -1,5 +1,5 @@
 <template lang="pug">
-h1 Home page, no content yet, coming soon later...7/21...
+h1 {{ $_language[$route.params.lang][$route.name].title }}
 </template>
 
 <script>
