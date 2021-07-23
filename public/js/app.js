@@ -3123,7 +3123,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__.default({
 var langList = ['en', 'ch'];
 router.beforeEach(function (to, from, next) {
   var lang = to.params.lang;
-  if (!langList.includes(lang)) next({
+  if (to.path === '/') next({
+    name: 'login',
+    params: {
+      lang: 'en'
+    }
+  });else if (!langList.includes(lang)) next({
     name: to.name,
     params: {
       lang: 'en'
