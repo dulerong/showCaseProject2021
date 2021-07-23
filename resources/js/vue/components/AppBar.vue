@@ -3,6 +3,17 @@ v-app-bar(app :hide-on-scroll="!$_IS_TOUCH_SCREEN")
   ToolTip(message="Side Drawer")
     v-app-bar-nav-icon(@click.stop="toggle")
   v-spacer
+  v-menu(open-on-hover transition="slide-y-transition" offset-y)
+    template(v-slot:activator="{ on, attrs }")
+      v-btn(text class="pa-0" v-bind="attrs" v-on="on")
+        v-icon mdi-translate
+        v-icon(small) mdi-chevron-down
+    v-card(class="px-2")
+      v-list
+        v-list-item
+          v-list-item-content(class="font-weight-bold") Languages
+        v-list-item(v-for="(item, i) in listLanguages" :key="item" link)
+          v-list-item-content {{ item }}
   ToolTip(message="Settings")
     v-btn(icon @click.stop="toggleSide")
       v-icon mdi-settings-outline
@@ -41,6 +52,10 @@ export default {
       { icon: 'mdi-account-circle', title: 'Show Case', subtitle: 'Auth：Admin' },
       { icon: 'mdi-account-details', title: 'Profile', to: 'login' },
       { icon: 'mdi-exit-to-app', title: 'Logout', to: 'login' }
+    ],
+    listLanguages: [
+      'English',
+      'Chinese',
     ]
   }),
 }
