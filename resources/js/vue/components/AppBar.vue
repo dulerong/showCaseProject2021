@@ -30,7 +30,7 @@ v-app-bar(app :hide-on-scroll="!$_IS_TOUCH_SCREEN")
           v-list-item-content
             v-list-item-title Show Case
             v-list-item-subtitle Auth: Admin
-        v-list-item(v-for="(item, i) in listItem" :key="i" :to="item.to")
+        v-list-item(v-for="(item, i) in listItem" :key="i" :to="{ name: item.to, params: { lang: $route.params.lang } }" exact)
           v-list-item-icon
             v-icon(:x-large="item.icon === 'mdi-account-circle'") {{ item.icon }}
           v-list-item-content
