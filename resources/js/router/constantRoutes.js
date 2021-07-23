@@ -3,7 +3,7 @@ import Vue from 'vue'
 export const routePath = {
   home: {
     title: 'Home',
-    path: '/',
+    path: '/:lang',
     name: 'Home Page',
     icon: 'mdi-home'
   },
@@ -21,13 +21,13 @@ export const routePath = {
   },
   stat: {
     title: 'Statistics',
-    path: '/stat',
+    path: '/:lang/stat',
     name: 'Stat Page',
     icon: 'mdi-file-chart'
   },
   login: {
     title: 'LOGIN',
-    path: '/login', 
+    path: '/:lang/login', 
     name: 'login',
     icon: 'mdi-login'
   },
@@ -57,8 +57,6 @@ export const navigation = [
     title: 'GENERAL',
     children: [
       routePath.home,
-      routePath.search,
-      routePath.manage,
       routePath.stat,
     ]
   },
@@ -78,12 +76,12 @@ export const navigation = [
   //     routePath.calendar,
   //   ]
   // },
-  {
-    title: 'OTHERS',
-    children: [
-      routePath.memberPasswordReset,
-    ]
-  },
+  // {
+  //   title: 'OTHERS',
+  //   children: [
+  //     routePath.memberPasswordReset,
+  //   ]
+  // },
   // {
   //   title: '暫定的（削除予定）',
   //   children: [
