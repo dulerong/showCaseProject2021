@@ -12,9 +12,9 @@ div
       div(style="width: 150px") 
         v-select(label="Birth Sex" :items="sex" v-model="sexSelected" :rules="rulesSelect" multiple chips clearable)
     v-row(no-gutters justify="space-between" justify-lg="start")
-      v-btn(@click="fetchData" color="success" :disabled="!isValid" :small="screenWidthUnder450" :class="{ 'mr-2' : !screenWidthUnder450 }") Fetch Data
-      v-btn(@click="resetFilter" color="info" :small="screenWidthUnder450" :class="{ 'mx-2' : !screenWidthUnder450 }") Reset Filter
-      v-btn(@click="clearData(true)" color="warning" :small="screenWidthUnder450" :class="{ 'mx-2' : !screenWidthUnder450 }") Clear Data
+      v-btn(@click="fetchData" color="success" :disabled="!isValid" :small="$_screenWidthUnder450" :class="{ 'mr-2' : !$_screenWidthUnder450 }") Fetch Data
+      v-btn(@click="resetFilter" color="info" :small="$_screenWidthUnder450" :class="{ 'mx-2' : !$_screenWidthUnder450 }") Reset Filter
+      v-btn(@click="clearData(true)" color="warning" :small="$_screenWidthUnder450" :class="{ 'mx-2' : !$_screenWidthUnder450 }") Clear Data
   v-row(no-gutters class="my-3")
     h3 Result: {{ totalNumberCount }} {{ totalNumberCount ? 'born' : '' }}
   v-data-table(:headers="headers" :items="data")
@@ -52,9 +52,6 @@ export default {
     },
     filterSelected() {
       return `${this.siteSelected}|${this.motherAgeSelected}|${this.birthOrderSelected}|${this.sexSelected}`
-    },
-    screenWidthUnder450() {
-      return screen.width < 450
     },
     totalNumberCount() {
       return this.data.reduce((total, item) => total + Number(item.birth_count), 0)
