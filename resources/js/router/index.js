@@ -14,6 +14,15 @@ const router = new VueRouter({
   },
 })
 
+const langList = ['en', 'ch']
+
+router.beforeEach((to, from, next) => {
+  const { lang } = to.params
+  console.log(to)
+  if (!langList.includes(lang)) next({ name: to.name, params: { lang: 'en' } })
+  else next()
+})
+
 // router.beforeEach((to, from, next) => {
 //   if (to.meta.layout !== from.meta.layout) store.commit('notification/hideNotification')
 

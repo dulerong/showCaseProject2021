@@ -1868,6 +1868,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     ToolTip: __webpack_require__(/*! ~components/ToolTip */ "./resources/js/vue/components/ToolTip.vue").default
@@ -1885,17 +1901,20 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       listItem: [{
-        icon: 'mdi-account-circle',
-        title: 'Show Case',
-        subtitle: 'Auth：Admin'
-      }, {
         icon: 'mdi-account-details',
-        title: 'Profile',
+        title: 'profile',
         to: 'login'
       }, {
         icon: 'mdi-exit-to-app',
-        title: 'Logout',
+        title: 'logout',
         to: 'login'
+      }],
+      listLanguages: [{
+        title: 'English',
+        value: 'en'
+      }, {
+        title: '中文',
+        value: 'ch'
       }]
     };
   }
@@ -1940,12 +1959,6 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         name: 'mdi-email',
         hint: 'email'
-      }, {
-        name: 'mdi-calendar',
-        hint: 'calendar'
-      }, {
-        name: 'mdi-delete',
-        hint: 'delete'
       }]
     };
   }
@@ -2429,9 +2442,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     filterSelected: function filterSelected() {
       return "".concat(this.siteSelected, "|").concat(this.motherAgeSelected, "|").concat(this.birthOrderSelected, "|").concat(this.sexSelected);
     },
-    screenWidthUnder450: function screenWidthUnder450() {
-      return screen.width < 450;
-    },
     totalNumberCount: function totalNumberCount() {
       return this.data.reduce(function (total, item) {
         return total + Number(item.birth_count);
@@ -2445,20 +2455,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapMutations)('notification', ['showNotification'])), {}, {
     fetchData: function fetchData() {
-      var _this = this;
-
       if (!this.isFilterOn) return;
-      this.data = _js_mockData_stat__WEBPACK_IMPORTED_MODULE_0__.default.result.records.filter(function (item) {
-        return _this.siteSelected && _this.siteSelected.length > 0 ? _this.siteSelected.includes(item.site_id) : true;
-      }).filter(function (item) {
-        return _this.birthOrderSelected && _this.birthOrderSelected.length > 0 ? _this.birthOrderSelected.includes(item.birth_order) : true;
-      }).filter(function (item) {
-        return _this.motherAgeSelected && _this.motherAgeSelected.length > 0 ? _this.motherAgeSelected.includes(item.mother_age) : true;
-      }).filter(function (item) {
-        return _this.sexSelected && _this.sexSelected.length > 0 ? _this.sexSelected.includes(item.birth_sex) : true;
-      }).filter(function (item) {
-        return item.birth_count > 0;
-      });
+      this.data = this.filterData(_js_mockData_stat__WEBPACK_IMPORTED_MODULE_0__.default.result.records, this.siteSelected, this.birthOrderSelected, this.motherAgeSelected, this.sexSelected);
       this.showNotification({
         message: 'Data Fetched',
         color: 'success'
@@ -2482,6 +2480,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         color: 'info'
       });
     },
+    filterData: function filterData(data, siteSelected, birthOrderSelected, motherAgeSelected, sexSelected) {
+      return data.filter(function (item) {
+        return siteSelected && siteSelected.length > 0 ? siteSelected.includes(item.site_id) : true;
+      }).filter(function (item) {
+        return birthOrderSelected && birthOrderSelected.length > 0 ? birthOrderSelected.includes(item.birth_order) : true;
+      }).filter(function (item) {
+        return motherAgeSelected && motherAgeSelected.length > 0 ? motherAgeSelected.includes(item.mother_age) : true;
+      }).filter(function (item) {
+        return sexSelected && sexSelected.length > 0 ? sexSelected.includes(item.birth_sex) : true;
+      }).filter(function (item) {
+        return item.birth_count > 0;
+      });
+    },
     getColor: function getColor(count) {
       return count > 0 ? 'red' : '';
     }
@@ -2498,7 +2509,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _vue_App_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./vue/App.vue */ "./resources/js/vue/App.vue");
 /* harmony import */ var _vuetify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
 /* harmony import */ var _router___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router/ */ "./resources/js/router/index.js");
@@ -2508,6 +2519,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _plugins_validation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./plugins/validation */ "./resources/js/plugins/validation.js");
 /* harmony import */ var _plugins_statPageConstants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./plugins/statPageConstants */ "./resources/js/plugins/statPageConstants.js");
 /* harmony import */ var _plugins_checkMobile__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./plugins/checkMobile */ "./resources/js/plugins/checkMobile.js");
+/* harmony import */ var _plugins_checkScreenSize__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./plugins/checkScreenSize */ "./resources/js/plugins/checkScreenSize.js");
+/* harmony import */ var _plugins_language__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./plugins/language */ "./resources/js/plugins/language.js");
 // require('./bootstrap');
 
 
@@ -2520,8 +2533,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_9__.default.config.productionTip = false;
-new vue__WEBPACK_IMPORTED_MODULE_9__.default({
+
+
+vue__WEBPACK_IMPORTED_MODULE_11__.default.config.productionTip = false;
+new vue__WEBPACK_IMPORTED_MODULE_11__.default({
   el: '#app',
   vuetify: _vuetify__WEBPACK_IMPORTED_MODULE_1__.default,
   router: _router___WEBPACK_IMPORTED_MODULE_2__.default,
@@ -2685,6 +2700,26 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_IS_TOUCH_SCREEN = IS_TOUCH_
 
 /***/ }),
 
+/***/ "./resources/js/plugins/checkScreenSize.js":
+/*!*************************************************!*\
+  !*** ./resources/js/plugins/checkScreenSize.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "screenWidthUnder450": () => (/* binding */ screenWidthUnder450)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+
+var screenWidthUnder450 = function screenWidthUnder450() {
+  return screen.width < 450;
+};
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_screenWidthUnder450 = screenWidthUnder450();
+
+/***/ }),
+
 /***/ "./resources/js/plugins/day.js":
 /*!*************************************!*\
   !*** ./resources/js/plugins/day.js ***!
@@ -2707,6 +2742,69 @@ vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.$_dateToday = dateToday;
 vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.$_dateTodayYYYYMMDD = dateToday.format('YYYY-MM-DD');
 vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.$_time_right_now = dateToday.format('YYYY-MM-DD HH:mm:ss');
 vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.$_hour_right_now = dateToday.format('HH');
+
+/***/ }),
+
+/***/ "./resources/js/plugins/language.js":
+/*!******************************************!*\
+  !*** ./resources/js/plugins/language.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "language": () => (/* binding */ language)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+
+var language = {
+  en: {
+    appBar: {
+      translate: 'Languages',
+      userButton: {
+        profile: 'Profile',
+        logout: 'Logout'
+      },
+      tooltip: {
+        sideDrawer: 'Side Drawer',
+        settings: 'Settings'
+      }
+    },
+    footer: {
+      tooltip: {
+        home: 'home',
+        email: 'email'
+      }
+    },
+    home: {
+      title: 'Home page (ENG), no content yet, coming soon later...7/21...'
+    }
+  },
+  ch: {
+    appBar: {
+      translate: '其他語言',
+      userButton: {
+        profile: '個人檔案',
+        logout: '登出'
+      },
+      tooltip: {
+        sideDrawer: '橫向抽屜',
+        settings: '設定'
+      }
+    },
+    footer: {
+      tooltip: {
+        home: '首頁',
+        email: '電子郵件'
+      }
+    },
+    home: {
+      title: 'Home page (CHN), 目前無內容, 之後會陸續補上...7/21...'
+    }
+  }
+};
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_language = language;
 
 /***/ }),
 
@@ -2901,8 +2999,8 @@ __webpack_require__.r(__webpack_exports__);
 var routePath = {
   home: {
     title: 'Home',
-    path: '/',
-    name: 'Home Page',
+    path: '/:lang',
+    name: 'home',
     icon: 'mdi-home'
   },
   search: {
@@ -2919,13 +3017,13 @@ var routePath = {
   },
   stat: {
     title: 'Statistics',
-    path: '/stat',
-    name: 'Stat Page',
+    path: '/:lang/stat',
+    name: 'stat',
     icon: 'mdi-file-chart'
   },
   login: {
     title: 'LOGIN',
-    path: '/login',
+    path: '/:lang/login',
     name: 'login',
     icon: 'mdi-login'
   },
@@ -2951,8 +3049,8 @@ var routePath = {
 vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_routePath = routePath;
 var navigation = [{
   title: 'GENERAL',
-  children: [routePath.home, routePath.search, routePath.manage, routePath.stat]
-}, // {
+  children: [routePath.home, routePath.stat]
+} // {
 //   title: '集計管理',
 //   children: [
 //     routePath.statpersonal,
@@ -2968,10 +3066,13 @@ var navigation = [{
 //     routePath.calendar,
 //   ]
 // },
-{
-  title: 'OTHERS',
-  children: [routePath.memberPasswordReset]
-} // {
+// {
+//   title: 'OTHERS',
+//   children: [
+//     routePath.memberPasswordReset,
+//   ]
+// },
+// {
 //   title: '暫定的（削除予定）',
 //   children: [
 //     routePath.test
@@ -3012,6 +3113,17 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__.default({
       behavior: 'smooth'
     };
   }
+});
+var langList = ['en', 'ch'];
+router.beforeEach(function (to, from, next) {
+  var lang = to.params.lang;
+  console.log(to);
+  if (!langList.includes(lang)) next({
+    name: to.name,
+    params: {
+      lang: 'en'
+    }
+  });else next();
 }); // router.beforeEach((to, from, next) => {
 //   if (to.meta.layout !== from.meta.layout) store.commit('notification/hideNotification')
 //   if (to.matched.some(record => record.meta.requiresAuth)) {
@@ -3077,25 +3189,7 @@ __webpack_require__.r(__webpack_exports__);
   meta: {
     layout: _layouts_login__WEBPACK_IMPORTED_MODULE_2__.default
   }
-}, // { 
-//   path: routePath.memberPasswordReset.path, 
-//   name: routePath.memberPasswordReset.name, 
-//   component: MemberPasswordResetPage, 
-//   meta: { layout:  DefaultLayout, requiresAuth: true } 
-// },
-// { 
-//   path: routePath.forgotPassword.path, 
-//   name: routePath.forgotPassword.name, 
-//   component: ForgotPasswordPage, 
-//   meta: { layout:  LoginLayout, requiresVisitor: true } 
-// },
-// { 
-//   path: routePath.test.path, 
-//   name: routePath.test.name, 
-//   component: TestPage, 
-//   meta: { layout:  DefaultLayout } 
-// },
-{
+}, {
   path: '*',
   component: _pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_6__.default,
   meta: {
@@ -4934,7 +5028,12 @@ var render = function() {
     [
       _c(
         "ToolTip",
-        { attrs: { message: "Side Drawer" } },
+        {
+          attrs: {
+            message:
+              _vm.$_language[_vm.$route.params.lang].appBar.tooltip.sideDrawer
+          }
+        },
         [
           _c("v-app-bar-nav-icon", {
             on: {
@@ -4949,8 +5048,104 @@ var render = function() {
       ),
       _c("v-spacer"),
       _c(
+        "v-menu",
+        {
+          attrs: {
+            "open-on-hover": "",
+            transition: "slide-y-transition",
+            "offset-y": ""
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "activator",
+              fn: function(ref) {
+                var on = ref.on
+                var attrs = ref.attrs
+                return [
+                  _c(
+                    "v-btn",
+                    _vm._g(
+                      _vm._b(
+                        { staticClass: "pa-0", attrs: { text: "" } },
+                        "v-btn",
+                        attrs,
+                        false
+                      ),
+                      on
+                    ),
+                    [
+                      _c("v-icon", [_vm._v("mdi-translate")]),
+                      _c("v-icon", { attrs: { small: "" } }, [
+                        _vm._v("mdi-chevron-down")
+                      ])
+                    ],
+                    1
+                  )
+                ]
+              }
+            }
+          ])
+        },
+        [
+          _c(
+            "v-card",
+            { staticClass: "px-2" },
+            [
+              _c(
+                "v-list",
+                [
+                  _c(
+                    "v-list-item",
+                    [
+                      _c(
+                        "v-list-item-content",
+                        { staticClass: "font-weight-bold" },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              _vm.$_language[_vm.$route.params.lang].appBar
+                                .translate
+                            )
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._l(_vm.listLanguages, function(item, i) {
+                    return _c(
+                      "v-list-item",
+                      {
+                        key: item.value,
+                        attrs: {
+                          link: "",
+                          to: {
+                            name: _vm.$route.name,
+                            params: { lang: item.value }
+                          }
+                        }
+                      },
+                      [_c("v-list-item-content", [_vm._v(_vm._s(item.title))])],
+                      1
+                    )
+                  })
+                ],
+                2
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _c(
         "ToolTip",
-        { attrs: { message: "Settings" } },
+        {
+          attrs: {
+            message:
+              _vm.$_language[_vm.$route.params.lang].appBar.tooltip.settings
+          }
+        },
         [
           _c(
             "v-btn",
@@ -5014,43 +5209,75 @@ var render = function() {
             [
               _c(
                 "v-list",
-                _vm._l(_vm.listItem, function(item, i) {
-                  return _c(
+                [
+                  _c(
                     "v-list-item",
-                    { key: i, attrs: { link: !!item.to, to: item.to } },
                     [
                       _c(
                         "v-list-item-icon",
-                        [
-                          _c(
-                            "v-icon",
-                            {
-                              attrs: {
-                                "x-large": item.icon === "mdi-account-circle"
-                              }
-                            },
-                            [_vm._v(_vm._s(item.icon))]
-                          )
-                        ],
+                        [_c("v-icon", [_vm._v("mdi-account-circle")])],
                         1
                       ),
                       _c(
                         "v-list-item-content",
                         [
-                          _c("v-list-item-title", [_vm._v(_vm._s(item.title))]),
-                          !!item.subtitle
-                            ? _c("v-list-item-subtitle", [
-                                _vm._v(_vm._s(item.subtitle))
-                              ])
-                            : _vm._e()
+                          _c("v-list-item-title", [_vm._v("Show Case")]),
+                          _c("v-list-item-subtitle", [_vm._v("Auth: Admin")])
                         ],
                         1
                       )
                     ],
                     1
-                  )
-                }),
-                1
+                  ),
+                  _vm._l(_vm.listItem, function(item, i) {
+                    return _c(
+                      "v-list-item",
+                      {
+                        key: i,
+                        attrs: {
+                          to: {
+                            name: item.to,
+                            params: { lang: _vm.$route.params.lang }
+                          },
+                          exact: ""
+                        }
+                      },
+                      [
+                        _c(
+                          "v-list-item-icon",
+                          [
+                            _c(
+                              "v-icon",
+                              {
+                                attrs: {
+                                  "x-large": item.icon === "mdi-account-circle"
+                                }
+                              },
+                              [_vm._v(_vm._s(item.icon))]
+                            )
+                          ],
+                          1
+                        ),
+                        _c(
+                          "v-list-item-content",
+                          [
+                            _c("v-list-item-title", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.$_language[_vm.$route.params.lang].appBar
+                                    .userButton[item.title]
+                                )
+                              )
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  })
+                ],
+                2
               )
             ],
             1
@@ -5106,7 +5333,13 @@ var render = function() {
                     [
                       _c(
                         "ToolTip",
-                        { attrs: { message: icon.hint } },
+                        {
+                          attrs: {
+                            message:
+                              _vm.$_language[_vm.$route.params.lang].footer
+                                .tooltip[icon.hint]
+                          }
+                        },
                         [_c("v-icon", [_vm._v(_vm._s(icon.name))])],
                         1
                       )
@@ -5220,7 +5453,16 @@ var render = function() {
             _vm._l(subgroup.children, function(tab, i) {
               return _c(
                 "v-list-item",
-                { key: i, attrs: { to: tab.path } },
+                {
+                  key: i,
+                  attrs: {
+                    to: {
+                      name: tab.name,
+                      params: { lang: _vm.$route.params.lang }
+                    },
+                    exact: ""
+                  }
+                },
                 [
                   _c(
                     "v-list-item-icon",
@@ -5592,7 +5834,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("No content yet, coming soon later...7/21...")])
+  return _c("h1", [
+    _vm._v(
+      _vm._s(_vm.$_language[_vm.$route.params.lang][_vm.$route.name].title)
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -5877,11 +6123,11 @@ var render = function() {
               _c(
                 "v-btn",
                 {
-                  class: { "mr-2": !_vm.screenWidthUnder450 },
+                  class: { "mr-2": !_vm.$_screenWidthUnder450 },
                   attrs: {
                     color: "success",
                     disabled: !_vm.isValid,
-                    small: _vm.screenWidthUnder450
+                    small: _vm.$_screenWidthUnder450
                   },
                   on: { click: _vm.fetchData }
                 },
@@ -5890,8 +6136,8 @@ var render = function() {
               _c(
                 "v-btn",
                 {
-                  class: { "mx-2": !_vm.screenWidthUnder450 },
-                  attrs: { color: "info", small: _vm.screenWidthUnder450 },
+                  class: { "mx-2": !_vm.$_screenWidthUnder450 },
+                  attrs: { color: "info", small: _vm.$_screenWidthUnder450 },
                   on: { click: _vm.resetFilter }
                 },
                 [_vm._v("Reset Filter")]
@@ -5899,8 +6145,8 @@ var render = function() {
               _c(
                 "v-btn",
                 {
-                  class: { "mx-2": !_vm.screenWidthUnder450 },
-                  attrs: { color: "warning", small: _vm.screenWidthUnder450 },
+                  class: { "mx-2": !_vm.$_screenWidthUnder450 },
+                  attrs: { color: "warning", small: _vm.$_screenWidthUnder450 },
                   on: {
                     click: function($event) {
                       return _vm.clearData(true)
