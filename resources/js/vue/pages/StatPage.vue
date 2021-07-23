@@ -67,12 +67,7 @@ export default {
     fetchData() {
       if (!this.isFilterOn) return
 
-      this.data = mockData.result.records
-        .filter(item => this.siteSelected && this.siteSelected.length > 0 ? this.siteSelected.includes(item.site_id) : true)
-        .filter(item => this.birthOrderSelected && this.birthOrderSelected.length > 0 ? this.birthOrderSelected.includes(item.birth_order) : true)
-        .filter(item => this.motherAgeSelected && this.motherAgeSelected.length > 0 ?  this.motherAgeSelected.includes(item.mother_age) : true)
-        .filter(item => this.sexSelected && this.sexSelected.length > 0 ? this.sexSelected.includes(item.birth_sex) : true)
-        .filter(item => item.birth_count > 0)
+      this.data = this.filterData(mockData.result.records, this.siteSelected, this.birthOrderSelected, this.motherAgeSelected, this.sexSelected)
 
       this.showNotification({ message: 'Data Fetched', color: 'success' })
     },
@@ -86,6 +81,14 @@ export default {
       this.birthOrderSelected = null
       this.sexSelected = null
       this.showNotification({ message: 'Filter Reset', color: 'info' })
+    },
+    filterData(data, siteSelected, birthOrderSelected, motherAgeSelected, sexSelected) {
+      return data
+        .filter(item => siteSelected && siteSelected.length > 0 ? siteSelected.includes(item.site_id) : true)
+        .filter(item => birthOrderSelected && birthOrderSelected.length > 0 ? birthOrderSelected.includes(item.birth_order) : true)
+        .filter(item => motherAgeSelected && motherAgeSelected.length > 0 ?  motherAgeSelected.includes(item.mother_age) : true)
+        .filter(item => sexSelected && sexSelected.length > 0 ? sexSelected.includes(item.birth_sex) : true)
+        .filter(item => item.birth_count > 0)
     },
     getColor(count) {
       return count > 0 ? 'red' : ''
