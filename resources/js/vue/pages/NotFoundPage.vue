@@ -1,5 +1,5 @@
 <template lang="pug">
-h1 Page Not Found
+h1 {{ $_language[$route.params.lang].notFound.title }}
 </template>
 
 <script>
