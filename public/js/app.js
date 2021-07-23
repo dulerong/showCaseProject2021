@@ -2779,6 +2779,9 @@ var language = {
     },
     home: {
       title: 'Home page (ENG), no content yet, coming soon later...7/21...'
+    },
+    notFound: {
+      title: 'Page Not Found'
     }
   },
   ch: {
@@ -2801,6 +2804,9 @@ var language = {
     },
     home: {
       title: 'Home page (CHN), 目前無內容, 之後會陸續補上...7/21...'
+    },
+    notFound: {
+      title: '頁面不存在'
     }
   }
 };
@@ -5968,7 +5974,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Page Not Found")])
+  return _c("h1", [
+    _vm._v(_vm._s(_vm.$_language[_vm.$route.params.lang].notFound.title))
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
