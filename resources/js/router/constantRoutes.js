@@ -3,8 +3,8 @@ import Vue from 'vue'
 export const routePath = {
   home: {
     title: 'Home',
-    path: '/',
-    name: 'Home Page',
+    path: '/:lang',
+    name: 'home',
     icon: 'mdi-home'
   },
   search: {
@@ -21,13 +21,13 @@ export const routePath = {
   },
   stat: {
     title: 'Statistics',
-    path: '/stat',
-    name: 'Stat Page',
+    path: '/:lang/stat',
+    name: 'stat',
     icon: 'mdi-file-chart'
   },
   login: {
     title: 'LOGIN',
-    path: '/login', 
+    path: '/:lang/login', 
     name: 'login',
     icon: 'mdi-login'
   },
@@ -57,8 +57,6 @@ export const navigation = [
     title: 'GENERAL',
     children: [
       routePath.home,
-      routePath.search,
-      routePath.manage,
       routePath.stat,
     ]
   },
@@ -78,12 +76,12 @@ export const navigation = [
   //     routePath.calendar,
   //   ]
   // },
-  {
-    title: 'OTHERS',
-    children: [
-      routePath.memberPasswordReset,
-    ]
-  },
+  // {
+  //   title: 'OTHERS',
+  //   children: [
+  //     routePath.memberPasswordReset,
+  //   ]
+  // },
   // {
   //   title: '暫定的（削除予定）',
   //   children: [
