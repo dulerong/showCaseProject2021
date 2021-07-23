@@ -33,7 +33,7 @@ export default [
     meta: { layout: LoginLayout }
   },
   {
-    path: '*',
+    path: '/:lang/*',
     component: NotFoundPage,
     meta: { layout: DefaultLayout, requiresAuth: true }
   }
