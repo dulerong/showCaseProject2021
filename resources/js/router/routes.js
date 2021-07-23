@@ -32,24 +32,6 @@ export default [
     component: LoginPage,
     meta: { layout: LoginLayout }
   },
-  // { 
-  //   path: routePath.memberPasswordReset.path, 
-  //   name: routePath.memberPasswordReset.name, 
-  //   component: MemberPasswordResetPage, 
-  //   meta: { layout:  DefaultLayout, requiresAuth: true } 
-  // },
-  // { 
-  //   path: routePath.forgotPassword.path, 
-  //   name: routePath.forgotPassword.name, 
-  //   component: ForgotPasswordPage, 
-  //   meta: { layout:  LoginLayout, requiresVisitor: true } 
-  // },
-  // { 
-  //   path: routePath.test.path, 
-  //   name: routePath.test.name, 
-  //   component: TestPage, 
-  //   meta: { layout:  DefaultLayout } 
-  // },
   {
     path: '*',
     component: NotFoundPage,
