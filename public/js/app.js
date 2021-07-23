@@ -3128,8 +3128,7 @@ router.beforeEach(function (to, from, next) {
     params: {
       lang: 'en'
     }
-  });
-  if (!langList.includes(lang)) next({
+  });else if (!langList.includes(lang)) next({
     name: to.name,
     params: {
       lang: 'en'
