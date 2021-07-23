@@ -18,7 +18,6 @@ const langList = ['en', 'ch']
 
 router.beforeEach((to, from, next) => {
   const { lang } = to.params
-  console.log(to)
   if (!langList.includes(lang)) next({ name: to.name, params: { lang: 'en' } })
   else next()
 })

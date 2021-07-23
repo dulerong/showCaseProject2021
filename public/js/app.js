@@ -3117,7 +3117,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__.default({
 var langList = ['en', 'ch'];
 router.beforeEach(function (to, from, next) {
   var lang = to.params.lang;
-  console.log(to);
   if (!langList.includes(lang)) next({
     name: to.name,
     params: {
@@ -3190,7 +3189,7 @@ __webpack_require__.r(__webpack_exports__);
     layout: _layouts_login__WEBPACK_IMPORTED_MODULE_2__.default
   }
 }, {
-  path: '*',
+  path: '/:lang/*',
   component: _pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_6__.default,
   meta: {
     layout: _layouts_default__WEBPACK_IMPORTED_MODULE_1__.default,
