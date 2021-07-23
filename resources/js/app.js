@@ -13,6 +13,7 @@ import './plugins/validation'
 import './plugins/statPageConstants'
 import './plugins/checkMobile'
 import './plugins/checkScreenSize'
+import './plugins/language'
 
 Vue.config.productionTip = false
 
