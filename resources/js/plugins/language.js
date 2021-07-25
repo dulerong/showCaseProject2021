@@ -13,6 +13,17 @@ export const language = {
         settings: 'Settings'
       }
     },
+    naviDrawer: {
+      mainTitle: 'WEB Application',
+      subTitle: 'Front End',
+      GENERAL: {
+        name: 'GENERAL',
+        children: {
+          home: 'Home',
+          stat: 'Statistics'
+        }
+      }
+    },
     footer: {
       tooltip: {
         home: 'home',
@@ -39,6 +50,17 @@ export const language = {
       tooltip: {
         sideDrawer: '橫向抽屜',
         settings: '設定'
+      }
+    },
+    naviDrawer: {
+      mainTitle: 'WEB應用程式',
+      subTitle: '前端',
+      GENERAL: {
+        name: '一般',
+        children: {
+          home: '首頁',
+          stat: '統計數據'
+        }
       }
     },
     footer: {
