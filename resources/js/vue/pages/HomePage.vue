@@ -1,5 +1,5 @@
 <template lang="pug">
-h1 {{ $_language[$route.params.lang][$route.name].title }}
+h1 {{ $t("home.title") }}
 </template>
 
 <script>
