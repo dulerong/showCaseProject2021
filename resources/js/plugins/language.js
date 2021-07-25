@@ -22,6 +22,9 @@ export const language = {
     home: {
       title: 'Home page (ENG), no content yet, coming soon later...7/21...'
     },
+    about: {
+      title: 'About Page'
+    },
     notFound: {
       title: 'Page Not Found'
     }
@@ -46,6 +49,9 @@ export const language = {
     },
     home: {
       title: 'Home page (CHN), 目前無內容, 之後會陸續補上...7/21...'
+    },
+    about: {
+      title: '簡介'
     },
     notFound: {
       title: '頁面不存在'
