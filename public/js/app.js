@@ -2701,20 +2701,18 @@ var data={"success":true,"result":{"records":[// {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+ // const USER_AGENT_DATA_MOBILE = navigator.userAgentData.mobile
 
-var USER_AGENT_DATA_MOBILE = navigator.userAgentData.mobile; // const MOBILE_REGEX = [
-//   /Android/i,
-//   /webOS/i,
-//   /iPhone/i,
-//   /iPad/i,
-//   /iPod/i,
-//   /BlackBerry/i,
-//   /Windows Phone/i
-// ]
-// const IS_MOBILE = () => MOBILE_REGEX.some(item => navigator.userAgent.match(item))
+var MOBILE_REGEX = [/Android/i, /webOS/i, /iPhone/i, /iPad/i, /iPod/i, /BlackBerry/i, /Windows Phone/i];
+
+var IS_MOBILE = function IS_MOBILE() {
+  return MOBILE_REGEX.some(function (item) {
+    return navigator.userAgent.match(item);
+  });
+};
 
 var IS_TOUCH_SCREEN = function IS_TOUCH_SCREEN() {
-  return navigator.maxTouchPoints > 0 || USER_AGENT_DATA_MOBILE;
+  return navigator.maxTouchPoints > 0 || IS_MOBILE();
 }; // iOS 12 or below has no navigator.maxTouchPoints, hence need to check userAgent
 
 
