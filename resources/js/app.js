@@ -5,6 +5,7 @@ import App from './vue/App.vue'
 import vuetify from './vuetify'
 import router from './router/'
 import { store } from './store/'
+import i18n from './i18n'
 
 // below are plugins
 import './axios'
@@ -22,5 +23,6 @@ new Vue ({
   vuetify,
   router,
   store,
+  i18n,
   components: { App }
 })
