@@ -12,7 +12,7 @@ v-app-bar(app :hide-on-scroll="!$_IS_TOUCH_SCREEN")
       v-list
         v-list-item
           v-list-item-content(class="font-weight-bold") {{ $t('appBar.translate') }}
-        v-list-item(v-for="(item, i) in listLanguages" :key="item.value" link :to="{ name: $route.name, params: { lang: item.value }}")
+        v-list-item(v-for="(item, i) in listLanguages" :key="item.value" link :to="{ params: { lang: item.value }}")
           v-list-item-content {{ item.title }}
   ToolTip(:message="$t('appBar.translate')")
     v-btn(icon @click.stop="toggleSide")
