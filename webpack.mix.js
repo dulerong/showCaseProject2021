@@ -22,6 +22,20 @@ mix.webpackConfig({
   }
 })
 
+// Extend Mix with the "i18n" method, that loads the vue-i18n-loader
+mix.extend( 'i18n', new class {
+  webpackRules() {
+    return [
+      {
+        resourceQuery: /blockType=i18n/,
+        type:          'javascript/auto',
+        loader:        '@intlify/vue-i18n-loader',
+      },
+    ];
+  }
+}(),
+);
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -33,7 +47,9 @@ mix.webpackConfig({
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').vue()
+// Make sure to call the .i18n() (to load the loader) before .js(..., ...)
+mix.i18n()
+  .js('resources/js/app.js', 'public/js').vue()
   .postCss('resources/css/app.css', 'public/css', [
       //
   ]);

@@ -3,7 +3,7 @@ import Vue from 'vue'
 export const routePath = {
   home: {
     title: 'Home',
-    path: '/:lang',
+    path: '',
     name: 'home',
     icon: 'mdi-home'
   },
@@ -21,13 +21,13 @@ export const routePath = {
   },
   stat: {
     title: 'Statistics',
-    path: '/:lang/stat',
+    path: 'stat',
     name: 'stat',
     icon: 'mdi-file-chart'
   },
   login: {
     title: 'LOGIN',
-    path: '/:lang/login', 
+    path: 'login', 
     name: 'login',
     icon: 'mdi-login'
   },

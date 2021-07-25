@@ -13,6 +13,17 @@ export const language = {
         settings: 'Settings'
       }
     },
+    naviDrawer: {
+      mainTitle: 'WEB Application',
+      subTitle: 'Front End',
+      GENERAL: {
+        name: 'GENERAL',
+        children: {
+          home: 'Home',
+          stat: 'Statistics'
+        }
+      }
+    },
     footer: {
       tooltip: {
         home: 'home',
@@ -21,6 +32,9 @@ export const language = {
     },
     home: {
       title: 'Home page (ENG), no content yet, coming soon later...7/21...'
+    },
+    about: {
+      title: 'About Page'
     },
     notFound: {
       title: 'Page Not Found'
@@ -38,6 +52,17 @@ export const language = {
         settings: '設定'
       }
     },
+    naviDrawer: {
+      mainTitle: 'WEB應用程式',
+      subTitle: '前端',
+      GENERAL: {
+        name: '一般',
+        children: {
+          home: '首頁',
+          stat: '統計數據'
+        }
+      }
+    },
     footer: {
       tooltip: {
         home: '首頁',
@@ -46,6 +71,9 @@ export const language = {
     },
     home: {
       title: 'Home page (CHN), 目前無內容, 之後會陸續補上...7/21...'
+    },
+    about: {
+      title: '簡介'
     },
     notFound: {
       title: '頁面不存在'

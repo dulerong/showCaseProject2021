@@ -1,5 +1,5 @@
 <template lang="pug">
-h1 {{ $_language[$route.params.lang].notFound.title }}
+h1 {{ $t("notFound.title") }}
 </template>
 
 <script>
