@@ -1,6 +1,6 @@
 <template lang="pug">
 v-app-bar(app :hide-on-scroll="!$_IS_TOUCH_SCREEN")
-  ToolTip(:message="$_language[$route.params.lang].appBar.tooltip.sideDrawer")
+  ToolTip(:message="$t('appBar.tooltip.sideDrawer')")
     v-app-bar-nav-icon(@click.stop="toggle")
   v-spacer
   v-menu(open-on-hover transition="slide-y-transition" offset-y)
@@ -11,10 +11,10 @@ v-app-bar(app :hide-on-scroll="!$_IS_TOUCH_SCREEN")
     v-card(class="px-2")
       v-list
         v-list-item
-          v-list-item-content(class="font-weight-bold") {{ $_language[$route.params.lang].appBar.translate }}
+          v-list-item-content(class="font-weight-bold") {{ $t('appBar.translate') }}
         v-list-item(v-for="(item, i) in listLanguages" :key="item.value" link :to="{ name: $route.name, params: { lang: item.value }}")
           v-list-item-content {{ item.title }}
-  ToolTip(:message="$_language[$route.params.lang].appBar.tooltip.settings")
+  ToolTip(:message="$t('appBar.translate')")
     v-btn(icon @click.stop="toggleSide")
       v-icon mdi-settings-outline
   v-divider(vertical class="mx-1" inset)
@@ -34,7 +34,7 @@ v-app-bar(app :hide-on-scroll="!$_IS_TOUCH_SCREEN")
           v-list-item-icon
             v-icon(:x-large="item.icon === 'mdi-account-circle'") {{ item.icon }}
           v-list-item-content
-            v-list-item-title {{ $_language[$route.params.lang].appBar.userButton[item.title] }}
+            v-list-item-title {{ $t(`appBar.userButton.${item.title}`) }}
 </template>
 
 <script>
