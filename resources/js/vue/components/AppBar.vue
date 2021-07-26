@@ -8,7 +8,7 @@ v-app-bar(app :hide-on-scroll="!$_IS_TOUCH_SCREEN")
     v-btn(icon @click.stop="toggleSide")
       v-icon mdi-settings-outline
   v-divider(vertical class="mx-1" inset)
-  v-menu(open-on-hover transition="slide-y-transition" offset-y)
+  v-menu(:open-on-hover="!$_IS_TOUCH_SCREEN" transition="slide-y-transition" offset-y)
     template(v-slot:activator="{ on, attrs}")
       v-btn(depressed height="100%" v-bind="attrs" v-on="on")
         v-toolbar-title Username
