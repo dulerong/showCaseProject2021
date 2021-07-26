@@ -1,6 +1,8 @@
 <template lang="pug">
 v-card(class="mx-auto pa-4" style="width: 375px")
-  h1 {{ greetingMessage }},
+  v-row(no-gutters justify="space-between" align="center")
+    h1 {{ greetingMessage }},
+    MenuLanguage
   v-form
     v-text-field(
       :label="$t('login.textField.username.label')"
@@ -29,6 +31,9 @@ v-card(class="mx-auto pa-4" style="width: 375px")
 <script>
 import { mapMutations } from 'vuex'
 export default {
+  components: {
+    MenuLanguage: require('~components/MenuLanguage').default
+  },
   created() {
     this.greetingMessage = this.makeGreetMessage(this.$_hour_right_now)
   },
