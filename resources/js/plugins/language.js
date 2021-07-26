@@ -42,6 +42,28 @@ export const language = {
     about: {
       title: 'About Page'
     },
+    login: {
+      greeting: {
+        morning: 'Good morning',
+        afternoon: 'Good afternoon',
+        evening: 'Good evening',
+        welcome: 'Welcome back!'
+      },
+      button: {
+        login: 'LOGIN',
+        signUp: 'SIGN UP'
+      },
+      textField: {
+        username: {
+          label: 'User Name',
+          hint: "Showcase use only (You don't have to enter username)"
+        },
+        password: {
+          label: 'Password',
+          hint: "Showcase use only (You don't have to enter password)"
+        }
+      }
+    },
     notFound: {
       title: 'Page Not Found'
     }
@@ -86,6 +108,28 @@ export const language = {
     },
     about: {
       title: '簡介'
+    },
+    login: {
+      greeting: {
+        morning: '早安',
+        afternoon: '午安',
+        evening: '晚安',
+        welcome: '歡迎回來!'
+      },
+      button: {
+        login: '登入',
+        signUp: '註冊'
+      },
+      textField: {
+        username: {
+          label: '使用者名稱',
+          hint: "展示用 (不需輸入)"
+        },
+        password: {
+          label: '密碼',
+          hint: "展示用 (不需輸入)"
+        }
+      }
     },
     notFound: {
       title: '頁面不存在'
