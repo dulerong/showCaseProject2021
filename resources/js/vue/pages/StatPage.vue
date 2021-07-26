@@ -5,7 +5,7 @@ div
     v-row(no-gutters)
         v-select(:label="$t('stat.form.site')" :items="sites" v-model="siteSelected" item-text="name" item-value="value" multiple chips clearable)
     v-row(no-gutters)
-        v-select(:label="$t('stat.form.motherAge')" :items="motherAges" v-model="motherAgeSelected" multiple chips clearable)
+        v-select(:label="$t('stat.form.motherAge')" :items="motherAges" v-model="motherAgeSelected" item-text="name" item-value="value" multiple chips clearable)
     v-row(no-gutters)
         v-select(:label="$t('stat.form.birthOrder')" :items="birthOrders" v-model="birthOrderSelected" multiple chips clearable)
     v-row(no-gutters)
@@ -28,7 +28,7 @@ import { mapMutations } from 'vuex'
 export default {
   data: (vm) => ({
     isValid: false,
-    motherAges: vm.$_statMotherAges,
+    // motherAges: vm.$_statMotherAges,
     birthOrders: vm.$_statBirthOrders,
     sex: vm.$_statSex,
     sexSelected: null,
@@ -58,6 +58,9 @@ export default {
     },
     sites() {
       return this.$_statSites.map(item => ({ ...item, name: this.$t(`stat.site.${item.name}`) }))
+    },
+    motherAges() {
+      return this.$_statMotherAges.map(item => ({ ...item, name: this.$t(`stat.motherAges.${item.name}`) }))
     }
   },
   watch: {
@@ -72,18 +75,18 @@ export default {
 
       this.data = this.filterData(mockData.result.records, this.siteSelected, this.birthOrderSelected, this.motherAgeSelected, this.sexSelected)
 
-      this.showNotification({ message: 'Data Fetched', color: 'success' })
+      this.showNotification({ message: this.$t("stat.notification.fetch"), color: 'success' })
     },
     clearData(isButtonClick = false) {
       this.data = []
-      if (isButtonClick) this.showNotification({ message: 'Data Cleared', color: 'warning' })
+      if (isButtonClick) this.showNotification({ message: this.$t("stat.notification.clear"), color: 'warning' })
     },
     resetFilter() {
       this.siteSelected = null
       this.motherAgeSelected = null
       this.birthOrderSelected = null
       this.sexSelected = null
-      this.showNotification({ message: 'Filter Reset', color: 'info' })
+      this.showNotification({ message: this.$t("stat.notification.reset"), color: 'info' })
     },
     filterData(data, siteSelected, birthOrderSelected, motherAgeSelected, sexSelected) {
       return data
