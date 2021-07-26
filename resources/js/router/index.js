@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routes from './routes'
 import i18n from '../i18n'
+import vuetify from '../vuetify'
 // import { store } from './store'
 // import { routePath } from './constantsRoutes'
 
@@ -21,8 +22,8 @@ router.beforeEach((to, from, next) => {
   const { lang } = to.params
   if (!langList.includes(lang)) return next('en') // if requested language not available, set locale to english and redirect to homepage
 
-  // set the current language for i18n.
-  i18n.locale = lang
+  i18n.locale = lang // set current language for i18n.
+  vuetify.framework.lang.current = lang // set current language for vuetify
   next()
 
   // if (to.path === '/') next({ name: 'login', params: { lang: 'en' } })
