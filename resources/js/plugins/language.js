@@ -24,10 +24,16 @@ export const language = {
         }
       }
     },
+    settingDrawer: {
+      title: 'Settings',
+      theme: 'Theme',
+      light: 'Light',
+      dark: 'Dark',
+    },
     footer: {
       tooltip: {
-        home: 'home',
-        email: 'email',
+        home: 'Home',
+        stat: 'Statistics',
       }
     },
     home: {
@@ -63,10 +69,16 @@ export const language = {
         }
       }
     },
+    settingDrawer: {
+      title: '設定選項',
+      theme: '主題模式',
+      light: '光明',
+      dark: '暗黑',
+    },
     footer: {
       tooltip: {
         home: '首頁',
-        email: '電子郵件',
+        stat: '統計數據',
       }
     },
     home: {
