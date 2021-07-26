@@ -42,6 +42,59 @@ export const language = {
     about: {
       title: 'About Page'
     },
+    stat: {
+      title: 'New Taipei City Birth Statistics (Year: 2019)',
+      result: 'Total Born',
+      form: {
+        site: 'District',
+        motherAge: 'Mother Age',
+        birthOrder: 'Birth Order',
+        birthSex: 'Birth Sex'
+      },
+      button: {
+        fetch: 'FETCH DATA',
+        reset: 'RESET FILTER',
+        clear: 'CLEAR DATA'
+      },
+      notification: {
+        fetch: 'Data Fetched',
+        reset: 'Filter Reset',
+        clear: 'Data Cleared'
+      },
+      tableHeader: {
+        site: 'District',
+        motherAge: 'Mother Age',
+        birthOrder: 'Birth Order',
+        birthSex: 'Birth Sex',
+        birthCount: 'Birth Count'
+      },
+      site: {
+        banqiao: 'Banqiao',
+        sanchong: 'Sanchong',
+        zhonghe: 'Zhonghe',
+        yonghe: 'Yonghe',
+        xinzhuang: 'Xinzhuang',
+        xindian: 'Xindian',
+        tucheng: 'Tucheng',
+        xizhi: 'Xizhi',
+        shuling: 'Shuling',
+        yingge: 'Yingge',
+        sanxia: 'Sanxia',
+        danshui: 'Danshui',
+        ruifang: 'Ruifang',
+      },
+      motherAges: {
+        ageUnder15: 'Under 15',
+        age15To19: '15 - 19',
+        age20To24: '20 - 24',
+        age25To29: '25 - 29',
+        age30To34: '30 - 34',
+        age35To39: '35 - 39',
+        age40To44: '40 - 44',
+        age45To49: '45 - 49',
+        age50Above: '50 and above'
+      }
+    },
     login: {
       greeting: {
         morning: 'Good morning',
@@ -108,6 +161,59 @@ export const language = {
     },
     about: {
       title: '簡介'
+    },
+    stat: {
+      title: '新北市出生數據統計 (2019年)',
+      result: '總出生人數',
+      form: {
+        site: '區域',
+        motherAge: '母親年齡',
+        birthOrder: '胎數',
+        birthSex: '性別'
+      },
+      button: {
+        fetch: '查詢資料',
+        reset: '重設選項',
+        clear: '清除資料'
+      },
+      notification: {
+        fetch: '資料取得',
+        reset: '選項清空',
+        clear: '資料清除'
+      },
+      tableHeader: {
+        site: '區域',
+        motherAge: '母親年齡',
+        birthOrder: '胎數',
+        birthSex: '性別',
+        birthCount: '出生人數'
+      },
+      site: {
+        banqiao: '板橋',
+        sanchong: '三重',
+        zhonghe: '中和',
+        yonghe: '永和',
+        xinzhuang: '新莊',
+        xindian: '新店',
+        tucheng: '土城',
+        xizhi: '汐止',
+        shuling: '樹林',
+        yingge: '鶯歌',
+        sanxia: '三峽',
+        danshui: '淡水',
+        ruifang: '瑞芳',
+      },
+      motherAges: {
+        ageUnder15: '未滿15歲',
+        age15To19: '15～19歲',
+        age20To24: '20～24歲',
+        age25To29: '25～29歲',
+        age30To34: '30～34歲',
+        age35To39: '35～39歲',
+        age40To44: '40～44歲',
+        age45To49: '45～49歲',
+        age50Above: '50歲以上'
+      },
     },
     login: {
       greeting: {
