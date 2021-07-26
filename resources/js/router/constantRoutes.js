@@ -90,3 +90,9 @@ export const navigation = [
   // }
 ]
 Vue.prototype.$_navigation = navigation
+
+export const footer_navigation = [
+  routePath.home,
+  routePath.stat,
+]
+Vue.prototype.$_footer_navigation = footer_navigation
