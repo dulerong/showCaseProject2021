@@ -10,7 +10,7 @@ div
         v-select(:label="$t('stat.form.birthOrder')" :items="birthOrders" v-model="birthOrderSelected" multiple chips clearable)
     v-row(no-gutters)
       div(style="width: 150px") 
-        v-select(:label="$t('stat.form.birthSex')" :items="sex" v-model="sexSelected"  multiple chips clearable)
+        v-select(:label="$t('stat.form.birthSex')" :items="birthSex" v-model="sexSelected" item-text="name" item-value="value" multiple chips clearable)
     v-row(no-gutters justify="space-between" justify-lg="start")
       v-btn(@click="fetchData" color="success" :disabled="!isValid" :small="$_screenWidthUnder450" :class="{ 'mr-2' : !$_screenWidthUnder450 }") {{ $t("stat.button.fetch") }}
       v-btn(@click="resetFilter" color="info" :small="$_screenWidthUnder450" :class="{ 'mx-2' : !$_screenWidthUnder450 }") {{ $t("stat.button.reset") }}
@@ -28,9 +28,7 @@ import { mapMutations } from 'vuex'
 export default {
   data: (vm) => ({
     isValid: false,
-    // motherAges: vm.$_statMotherAges,
     birthOrders: vm.$_statBirthOrders,
-    sex: vm.$_statSex,
     sexSelected: null,
     siteSelected: null,
     motherAgeSelected: null,
@@ -61,6 +59,9 @@ export default {
     },
     motherAges() {
       return this.$_statMotherAges.map(item => ({ ...item, name: this.$t(`stat.motherAges.${item.name}`) }))
+    },
+    birthSex() {
+      return this.$_statSex.map(item => ({ ...item, name: this.$t(`stat.birthSex.${item.name}`) }))
     }
   },
   watch: {
