@@ -109,10 +109,6 @@ export default {
     getColor(count) {
       return count > 0 ? 'red' : ''
     },
-    sortFunction(a, b) {
-      console.log(a.order, b.order)
-      return a.order - b.order
-    }
   }
 }
 </script>
