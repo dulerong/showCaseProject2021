@@ -64,11 +64,17 @@ export default {
     },
     birthSex() {
       return this.$_statSex.map(item => ({ ...item, name: this.$t(`stat.birthSex.${item.name}`) }))
+    },
+    locale() {
+      return this.$i18n.locale
     }
   },
   watch: {
     filterSelected: function () {
       this.clearData()
+    },
+    locale: function () {
+      this.fetchData()
     }
   },
   methods: {
@@ -77,6 +83,15 @@ export default {
       if (!this.isFilterOn) return
 
       this.data = this.filterData(mockData.result.records, this.siteSelected, this.birthOrderSelected, this.motherAgeSelected, this.sexSelected)
+      this.data = this.$_translateData(this.data)
+      this.data = this.data
+        .map(item => ({
+          ...item,
+          site_id: this.$t(`stat.site.${item.site_id}`),
+          mother_age: this.$t(`stat.motherAges.${item.mother_age}`),
+          birth_order: this.$t(`stat.birthOrders.${item.birth_order}`),
+          birth_sex: this.$t(`stat.birthSex.${item.birth_sex}`)
+        }))
 
       this.showNotification({ message: this.$t("stat.notification.fetch"), color: 'success' })
     },
