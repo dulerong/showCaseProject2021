@@ -2445,14 +2445,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         sortable: false,
         value: 'site_id'
       }, {
+        text: this.$t("stat.tableHeader.motherAge"),
+        value: 'mother_age',
+        sort: this.$_sortMotherAges
+      }, {
         text: this.$t("stat.tableHeader.birthOrder"),
         value: 'birth_order'
       }, {
         text: this.$t("stat.tableHeader.birthSex"),
         value: 'birth_sex'
-      }, {
-        text: this.$t("stat.tableHeader.motherAge"),
-        value: 'mother_age'
       }, {
         text: this.$t("stat.tableHeader.birthCount"),
         value: 'birth_count'
@@ -2493,17 +2494,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           name: _this4.$t("stat.birthSex.".concat(item.name))
         });
       });
+    },
+    locale: function locale() {
+      return this.$i18n.locale;
     }
   },
   watch: {
     filterSelected: function filterSelected() {
       this.clearData();
+    },
+    locale: function locale() {
+      this.fetchData();
     }
   },
   methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapMutations)('notification', ['showNotification'])), {}, {
     fetchData: function fetchData() {
+      var _this5 = this;
+
       if (!this.isFilterOn) return;
-      this.data = this.filterData(_js_mockData_stat__WEBPACK_IMPORTED_MODULE_0__.default.result.records, this.siteSelected, this.birthOrderSelected, this.motherAgeSelected, this.sexSelected);
+      this.data = this.$_filterStatData(_js_mockData_stat__WEBPACK_IMPORTED_MODULE_0__.default.result.records, this.siteSelected, this.birthOrderSelected, this.motherAgeSelected, this.sexSelected);
+      this.data = this.$_translateData(this.data);
+      this.data = this.data.map(function (item) {
+        return _objectSpread(_objectSpread({}, item), {}, {
+          site_id: _this5.$t("stat.site.".concat(item.site_id)),
+          mother_age: _this5.$t("stat.motherAges.".concat(item.mother_age)),
+          birth_order: _this5.$t("stat.birthOrders.".concat(item.birth_order)),
+          birth_sex: _this5.$t("stat.birthSex.".concat(item.birth_sex))
+        });
+      });
       this.showNotification({
         message: this.$t("stat.notification.fetch"),
         color: 'success'
@@ -2525,19 +2543,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.showNotification({
         message: this.$t("stat.notification.reset"),
         color: 'info'
-      });
-    },
-    filterData: function filterData(data, siteSelected, birthOrderSelected, motherAgeSelected, sexSelected) {
-      return data.filter(function (item) {
-        return siteSelected && siteSelected.length > 0 ? siteSelected.includes(item.site_id) : true;
-      }).filter(function (item) {
-        return birthOrderSelected && birthOrderSelected.length > 0 ? birthOrderSelected.includes(item.birth_order) : true;
-      }).filter(function (item) {
-        return motherAgeSelected && motherAgeSelected.length > 0 ? motherAgeSelected.includes(item.mother_age) : true;
-      }).filter(function (item) {
-        return sexSelected && sexSelected.length > 0 ? sexSelected.includes(item.birth_sex) : true;
-      }).filter(function (item) {
-        return item.birth_count > 0;
       });
     },
     getColor: function getColor(count) {
@@ -3119,7 +3124,28 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_language = language;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "filterStatData": () => (/* binding */ filterStatData),
+/* harmony export */   "sortMotherAges": () => (/* binding */ sortMotherAges),
+/* harmony export */   "translateData": () => (/* binding */ translateData),
+/* harmony export */   "translateDisctrict": () => (/* binding */ translateDisctrict),
+/* harmony export */   "translateMotherAges": () => (/* binding */ translateMotherAges),
+/* harmony export */   "translateBirthOrders": () => (/* binding */ translateBirthOrders),
+/* harmony export */   "translateBirthSex": () => (/* binding */ translateBirthSex)
+/* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+var _excluded = ["statistic_yyy", "according"];
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 
 var statSites = [{
   value: '新北市板橋區',
@@ -3228,6 +3254,156 @@ var statSex = [{
   name: 'female'
 }];
 vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_statSex = statSex;
+var filterStatData = function filterStatData(data, siteSelected, birthOrderSelected, motherAgeSelected, sexSelected) {
+  return data.filter(function (item) {
+    return siteSelected && siteSelected.length > 0 ? siteSelected.includes(item.site_id) : true;
+  }).filter(function (item) {
+    return birthOrderSelected && birthOrderSelected.length > 0 ? birthOrderSelected.includes(item.birth_order) : true;
+  }).filter(function (item) {
+    return motherAgeSelected && motherAgeSelected.length > 0 ? motherAgeSelected.includes(item.mother_age) : true;
+  }).filter(function (item) {
+    return sexSelected && sexSelected.length > 0 ? sexSelected.includes(item.birth_sex) : true;
+  }).filter(function (item) {
+    return item.birth_count > 0;
+  });
+};
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_filterStatData = filterStatData;
+var sortMotherAges = function sortMotherAges(a, b) {
+  a = a.slice(0, 1);
+  b = b.slice(0, 1);
+  if (isNaN(a)) a = 0;
+  if (isNaN(b)) b = 0;
+  return a - b;
+};
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_sortMotherAges = sortMotherAges;
+var translateData = function translateData(data) {
+  return data.map(function (_ref) {
+    var statistic_yyy = _ref.statistic_yyy,
+        according = _ref.according,
+        item = _objectWithoutProperties(_ref, _excluded);
+
+    return item;
+  }).map(function (item) {
+    return _objectSpread(_objectSpread({}, item), {}, {
+      site_id: translateDisctrict(item.site_id),
+      mother_age: translateMotherAges(item.mother_age),
+      birth_order: translateBirthOrders(item.birth_order),
+      birth_sex: translateBirthSex(item.birth_sex)
+    });
+  });
+};
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_translateData = translateData;
+var translateDisctrict = function translateDisctrict(site) {
+  switch (site) {
+    case '新北市板橋區':
+      return 'banqiao';
+
+    case '新北市三重區':
+      return 'sanchong';
+
+    case '新北市中和區':
+      return 'zhonghe';
+
+    case '新北市永和區':
+      return 'yonghe';
+
+    case '新北市新莊區':
+      return 'xinzhuang';
+
+    case '新北市新店區':
+      return 'xindian';
+
+    case '新北市土城區':
+      return 'tucheng';
+
+    case '新北市汐止區':
+      return 'xizhi';
+
+    case '新北市樹林區':
+      return 'shuling';
+
+    case '新北市鶯歌區':
+      return 'yingge';
+
+    case '新北市三峽區':
+      return 'sanxia';
+
+    case '新北市淡水區':
+      return 'danshui';
+
+    case '新北市瑞芳區':
+      return 'ruifang';
+  }
+};
+var translateMotherAges = function translateMotherAges(age) {
+  switch (age) {
+    case '未滿15歲':
+      return 'ageUnder15';
+
+    case '15～19歲':
+      return 'age15To19';
+
+    case '20～24歲':
+      return 'age20To24';
+
+    case '25～29歲':
+      return 'age25To29';
+
+    case '30～34歲':
+      return 'age30To34';
+
+    case '35～39歲':
+      return 'age35To39';
+
+    case '40～44歲':
+      return 'age40To44';
+
+    case '45～49歲':
+      return 'age45To49';
+
+    case '50歲以上':
+      return 'age50Above';
+  }
+};
+var translateBirthOrders = function translateBirthOrders(order) {
+  switch (order) {
+    case '1胎':
+      return 'birth1';
+
+    case '2胎':
+      return 'birth2';
+
+    case '3胎':
+      return 'birth3';
+
+    case '4胎':
+      return 'birth4';
+
+    case '5胎':
+      return 'birth5';
+
+    case '6胎':
+      return 'birth6';
+
+    case '7胎':
+      return 'birth7';
+
+    case '8胎':
+      return 'birth8';
+
+    case '9胎以上':
+      return 'birth9';
+  }
+};
+var translateBirthSex = function translateBirthSex(sex) {
+  switch (sex) {
+    case '男':
+      return 'male';
+
+    case '女':
+      return 'female';
+  }
+};
 
 /***/ }),
 
@@ -3460,8 +3636,8 @@ vue__WEBPACK_IMPORTED_MODULE_3__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
   routes: _routes__WEBPACK_IMPORTED_MODULE_0__.default,
   mode: 'history',
-  scrollBehavior: function scrollBehavior() {
-    return {
+  scrollBehavior: function scrollBehavior(to, from) {
+    return to.name === from.name ? {} : {
       x: 0,
       y: 0,
       behavior: 'smooth'
