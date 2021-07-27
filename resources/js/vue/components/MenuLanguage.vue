@@ -23,6 +23,7 @@ export default {
   methods: {
     switchLocale(value) {
       this.$i18n.locale = value
+      this.$vuetify.lang.current = value
     }
   }
 }
