@@ -18,15 +18,15 @@ const statSites = [
 Vue.prototype.$_statSites = statSites
 
 const statMotherAges = [
-  { value: '未滿15歲', name: 'ageUnder15', order: 1 },
-  { value: '15～19歲', name: 'age15To19', order: 2 },
-  { value: '20～24歲', name: 'age20To24', order: 3 },
-  { value: '25～29歲', name: 'age25To29', order: 4 },
-  { value: '30～34歲', name: 'age30To34', order: 5 },
-  { value: '35～39歲', name: 'age35To39', order: 6 },
-  { value: '40～44歲', name: 'age40To44', order: 7 },
-  { value: '45～49歲', name: 'age45To49', order: 8 },
-  { value: '50歲以上', name: 'age50Above', order: 9 }
+  { value: '未滿15歲', name: 'ageUnder15' },
+  { value: '15～19歲', name: 'age15To19' },
+  { value: '20～24歲', name: 'age20To24' },
+  { value: '25～29歲', name: 'age25To29' },
+  { value: '30～34歲', name: 'age30To34' },
+  { value: '35～39歲', name: 'age35To39' },
+  { value: '40～44歲', name: 'age40To44' },
+  { value: '45～49歲', name: 'age45To49' },
+  { value: '50歲以上', name: 'age50Above' }
 ]
 Vue.prototype.$_statMotherAges = statMotherAges
 
@@ -60,8 +60,11 @@ export const filterStatData = (data, siteSelected, birthOrderSelected, motherAge
 Vue.prototype.$_filterStatData = filterStatData
 
 export const sortMotherAges = (a, b) => {
-  a = statMotherAges.find(item => item.value === a).order
-  b = statMotherAges.find(item => item.value === b).order
+  a = a.slice(0, 1)
+  b = b.slice(0, 1)
+
+  if (isNaN(a)) a = 0
+  if (isNaN(b)) b = 0
 
   return a - b
 }
