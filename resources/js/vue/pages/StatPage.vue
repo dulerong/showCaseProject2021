@@ -82,7 +82,7 @@ export default {
     fetchData() {
       if (!this.isFilterOn) return
 
-      this.data = this.filterData(mockData.result.records, this.siteSelected, this.birthOrderSelected, this.motherAgeSelected, this.sexSelected)
+      this.data = this.$_filterStatData(mockData.result.records, this.siteSelected, this.birthOrderSelected, this.motherAgeSelected, this.sexSelected)
       this.data = this.$_translateData(this.data)
       this.data = this.data
         .map(item => ({
@@ -105,14 +105,6 @@ export default {
       this.birthOrderSelected = null
       this.sexSelected = null
       this.showNotification({ message: this.$t("stat.notification.reset"), color: 'info' })
-    },
-    filterData(data, siteSelected, birthOrderSelected, motherAgeSelected, sexSelected) {
-      return data
-        .filter(item => siteSelected && siteSelected.length > 0 ? siteSelected.includes(item.site_id) : true)
-        .filter(item => birthOrderSelected && birthOrderSelected.length > 0 ? birthOrderSelected.includes(item.birth_order) : true)
-        .filter(item => motherAgeSelected && motherAgeSelected.length > 0 ?  motherAgeSelected.includes(item.mother_age) : true)
-        .filter(item => sexSelected && sexSelected.length > 0 ? sexSelected.includes(item.birth_sex) : true)
-        .filter(item => item.birth_count > 0)
     },
     getColor(count) {
       return count > 0 ? 'red' : ''
