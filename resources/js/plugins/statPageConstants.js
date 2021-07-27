@@ -49,6 +49,16 @@ const statSex = [
 ]
 Vue.prototype.$_statSex = statSex
 
+export const filterStatData = (data, siteSelected, birthOrderSelected, motherAgeSelected, sexSelected) => {
+  return data
+    .filter(item => siteSelected && siteSelected.length > 0 ? siteSelected.includes(item.site_id) : true)
+    .filter(item => birthOrderSelected && birthOrderSelected.length > 0 ? birthOrderSelected.includes(item.birth_order) : true)
+    .filter(item => motherAgeSelected && motherAgeSelected.length > 0 ?  motherAgeSelected.includes(item.mother_age) : true)
+    .filter(item => sexSelected && sexSelected.length > 0 ? sexSelected.includes(item.birth_sex) : true)
+    .filter(item => item.birth_count > 0)
+}
+Vue.prototype.$_filterStatData = filterStatData
+
 export const translateData = (data) => {
   return data
     .map(({statistic_yyy, according, ...item}) => item)
