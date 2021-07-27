@@ -1874,19 +1874,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    ToolTip: __webpack_require__(/*! ~components/ToolTip */ "./resources/js/vue/components/ToolTip.vue").default
+    ToolTip: __webpack_require__(/*! ~components/ToolTip */ "./resources/js/vue/components/ToolTip.vue").default,
+    MenuLanguage: __webpack_require__(/*! ~components/MenuLanguage */ "./resources/js/vue/components/MenuLanguage.vue").default
   },
   props: {
     toggle: {
@@ -1908,13 +1899,6 @@ __webpack_require__.r(__webpack_exports__);
         icon: 'mdi-exit-to-app',
         title: 'logout',
         to: 'login'
-      }],
-      listLanguages: [{
-        title: 'English',
-        value: 'en'
-      }, {
-        title: '中文',
-        value: 'ch'
       }]
     };
   }
@@ -1950,15 +1934,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     ToolTip: __webpack_require__(/*! ~components/ToolTip */ "./resources/js/vue/components/ToolTip.vue").default
-  },
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/components/MenuLanguage.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/components/MenuLanguage.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      icons: [{
-        name: 'mdi-home',
-        hint: 'home'
+      listLanguages: [{
+        title: 'English',
+        value: 'en'
       }, {
-        name: 'mdi-email',
-        hint: 'email'
+        title: '中文',
+        value: 'ch'
       }]
     };
   }
@@ -2279,10 +2293,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    MenuLanguage: __webpack_require__(/*! ~components/MenuLanguage */ "./resources/js/vue/components/MenuLanguage.vue").default
+  },
   created: function created() {
-    this.greetingMessage = this.makeGreetMessage(this.$_hour_right_now);
+    this.greetingMessage = this.makeGreetMessage();
+  },
+  updated: function updated() {
+    this.greetingMessage = this.makeGreetMessage();
   },
   data: function data() {
     return {
@@ -2294,16 +2316,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('notification', ['showNotification'])), {}, {
-    makeGreetMessage: function makeGreetMessage(time) {
+    makeGreetMessage: function makeGreetMessage() {
+      var time = this.$_hour_right_now;
+
       switch (true) {
         case time < 12:
-          return 'Good morning';
+          return this.$t("login.greeting.morning");
 
         case time >= 12 && time < 18:
-          return 'Good afternoon';
+          return this.$t("login.greeting.afternoon");
 
         case time >= 18 && time <= 23:
-          return 'Good evening';
+          return this.$t("login.greeting.evening");
       }
     },
     login: function login() {
@@ -2318,7 +2342,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
 
         _this.showNotification({
-          message: 'Welcome back!'
+          message: _this.$t("login.greeting.welcome")
         });
       }, 2500);
     }
@@ -2395,33 +2419,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data(vm) {
     return {
       isValid: false,
-      sites: vm.$_statSites,
-      motherAges: vm.$_statMotherAges,
-      birthOrders: vm.$_statBirthOrders,
-      sex: vm.$_statSex,
       sexSelected: null,
       siteSelected: null,
       motherAgeSelected: null,
       birthOrderSelected: null,
-      rulesSelect: [],
-      headers: [{
-        text: 'Site',
-        align: 'start',
-        sortable: false,
-        value: 'site_id'
-      }, {
-        text: 'Birth Order',
-        value: 'birth_order'
-      }, {
-        text: 'Birth Sex',
-        value: 'birth_sex'
-      }, {
-        text: 'Mother Age',
-        value: 'mother_age'
-      }, {
-        text: 'Birth Count',
-        value: 'birth_count'
-      }],
       data: []
     };
   },
@@ -2436,6 +2437,62 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.data.reduce(function (total, item) {
         return total + Number(item.birth_count);
       }, 0);
+    },
+    headers: function headers() {
+      return [{
+        text: this.$t("stat.tableHeader.site"),
+        align: 'start',
+        sortable: false,
+        value: 'site_id'
+      }, {
+        text: this.$t("stat.tableHeader.birthOrder"),
+        value: 'birth_order'
+      }, {
+        text: this.$t("stat.tableHeader.birthSex"),
+        value: 'birth_sex'
+      }, {
+        text: this.$t("stat.tableHeader.motherAge"),
+        value: 'mother_age'
+      }, {
+        text: this.$t("stat.tableHeader.birthCount"),
+        value: 'birth_count'
+      }];
+    },
+    sites: function sites() {
+      var _this = this;
+
+      return this.$_statSites.map(function (item) {
+        return _objectSpread(_objectSpread({}, item), {}, {
+          name: _this.$t("stat.site.".concat(item.name))
+        });
+      });
+    },
+    motherAges: function motherAges() {
+      var _this2 = this;
+
+      return this.$_statMotherAges.map(function (item) {
+        return _objectSpread(_objectSpread({}, item), {}, {
+          name: _this2.$t("stat.motherAges.".concat(item.name))
+        });
+      });
+    },
+    birthOrders: function birthOrders() {
+      var _this3 = this;
+
+      return this.$_statBirthOrders.map(function (item) {
+        return _objectSpread(_objectSpread({}, item), {}, {
+          name: _this3.$t("stat.birthOrders.".concat(item.name))
+        });
+      });
+    },
+    birthSex: function birthSex() {
+      var _this4 = this;
+
+      return this.$_statSex.map(function (item) {
+        return _objectSpread(_objectSpread({}, item), {}, {
+          name: _this4.$t("stat.birthSex.".concat(item.name))
+        });
+      });
     }
   },
   watch: {
@@ -2448,7 +2505,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (!this.isFilterOn) return;
       this.data = this.filterData(_js_mockData_stat__WEBPACK_IMPORTED_MODULE_0__.default.result.records, this.siteSelected, this.birthOrderSelected, this.motherAgeSelected, this.sexSelected);
       this.showNotification({
-        message: 'Data Fetched',
+        message: this.$t("stat.notification.fetch"),
         color: 'success'
       });
     },
@@ -2456,7 +2513,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var isButtonClick = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
       this.data = [];
       if (isButtonClick) this.showNotification({
-        message: 'Data Cleared',
+        message: this.$t("stat.notification.clear"),
         color: 'warning'
       });
     },
@@ -2466,7 +2523,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.birthOrderSelected = null;
       this.sexSelected = null;
       this.showNotification({
-        message: 'Filter Reset',
+        message: this.$t("stat.notification.reset"),
         color: 'info'
       });
     },
@@ -2802,10 +2859,16 @@ var language = {
         }
       }
     },
+    settingDrawer: {
+      title: 'Settings',
+      theme: 'Theme',
+      light: 'Light',
+      dark: 'Dark'
+    },
     footer: {
       tooltip: {
-        home: 'home',
-        email: 'email'
+        home: 'Home',
+        stat: 'Statistics'
       }
     },
     home: {
@@ -2813,6 +2876,96 @@ var language = {
     },
     about: {
       title: 'About Page'
+    },
+    stat: {
+      title: 'New Taipei City Birth Statistics (Year: 2019)',
+      result: 'Total Born',
+      form: {
+        site: 'District',
+        motherAge: 'Mother Age',
+        birthOrder: 'Birth Order',
+        birthSex: 'Birth Sex'
+      },
+      button: {
+        fetch: 'FETCH DATA',
+        reset: 'RESET FILTER',
+        clear: 'CLEAR DATA'
+      },
+      notification: {
+        fetch: 'Data Fetched',
+        reset: 'Filter Reset',
+        clear: 'Data Cleared'
+      },
+      tableHeader: {
+        site: 'District',
+        motherAge: 'Mother Age',
+        birthOrder: 'Birth Order',
+        birthSex: 'Birth Sex',
+        birthCount: 'Birth Count'
+      },
+      site: {
+        banqiao: 'Banqiao',
+        sanchong: 'Sanchong',
+        zhonghe: 'Zhonghe',
+        yonghe: 'Yonghe',
+        xinzhuang: 'Xinzhuang',
+        xindian: 'Xindian',
+        tucheng: 'Tucheng',
+        xizhi: 'Xizhi',
+        shuling: 'Shuling',
+        yingge: 'Yingge',
+        sanxia: 'Sanxia',
+        danshui: 'Danshui',
+        ruifang: 'Ruifang'
+      },
+      motherAges: {
+        ageUnder15: 'Under 15',
+        age15To19: '15 - 19',
+        age20To24: '20 - 24',
+        age25To29: '25 - 29',
+        age30To34: '30 - 34',
+        age35To39: '35 - 39',
+        age40To44: '40 - 44',
+        age45To49: '45 - 49',
+        age50Above: '50 and above'
+      },
+      birthOrders: {
+        birth1: '1st',
+        birth2: '2nd',
+        birth3: '3rd',
+        birth4: '4th',
+        birth5: '5th',
+        birth6: '6th',
+        birth7: '7th',
+        birth8: '8th',
+        birth9: '9th and above'
+      },
+      birthSex: {
+        male: 'Male',
+        female: 'Female'
+      }
+    },
+    login: {
+      greeting: {
+        morning: 'Good morning',
+        afternoon: 'Good afternoon',
+        evening: 'Good evening',
+        welcome: 'Welcome back!'
+      },
+      button: {
+        login: 'LOGIN',
+        signUp: 'SIGN UP'
+      },
+      textField: {
+        username: {
+          label: 'User Name',
+          hint: "Showcase use only (You don't have to enter username)"
+        },
+        password: {
+          label: 'Password',
+          hint: "Showcase use only (You don't have to enter password)"
+        }
+      }
     },
     notFound: {
       title: 'Page Not Found'
@@ -2841,10 +2994,16 @@ var language = {
         }
       }
     },
+    settingDrawer: {
+      title: '設定選項',
+      theme: '主題模式',
+      light: '光明',
+      dark: '暗黑'
+    },
     footer: {
       tooltip: {
         home: '首頁',
-        email: '電子郵件'
+        stat: '統計數據'
       }
     },
     home: {
@@ -2852,6 +3011,96 @@ var language = {
     },
     about: {
       title: '簡介'
+    },
+    stat: {
+      title: '新北市出生數據統計 (2019年)',
+      result: '總出生人數',
+      form: {
+        site: '區域',
+        motherAge: '母親年齡',
+        birthOrder: '胎數',
+        birthSex: '性別'
+      },
+      button: {
+        fetch: '查詢資料',
+        reset: '重設選項',
+        clear: '清除資料'
+      },
+      notification: {
+        fetch: '資料取得',
+        reset: '選項清空',
+        clear: '資料清除'
+      },
+      tableHeader: {
+        site: '區域',
+        motherAge: '母親年齡',
+        birthOrder: '胎數',
+        birthSex: '性別',
+        birthCount: '出生人數'
+      },
+      site: {
+        banqiao: '板橋',
+        sanchong: '三重',
+        zhonghe: '中和',
+        yonghe: '永和',
+        xinzhuang: '新莊',
+        xindian: '新店',
+        tucheng: '土城',
+        xizhi: '汐止',
+        shuling: '樹林',
+        yingge: '鶯歌',
+        sanxia: '三峽',
+        danshui: '淡水',
+        ruifang: '瑞芳'
+      },
+      motherAges: {
+        ageUnder15: '未滿15歲',
+        age15To19: '15～19歲',
+        age20To24: '20～24歲',
+        age25To29: '25～29歲',
+        age30To34: '30～34歲',
+        age35To39: '35～39歲',
+        age40To44: '40～44歲',
+        age45To49: '45～49歲',
+        age50Above: '50歲以上'
+      },
+      birthOrders: {
+        birth1: '1胎',
+        birth2: '2胎',
+        birth3: '3胎',
+        birth4: '4胎',
+        birth5: '5胎',
+        birth6: '6胎',
+        birth7: '7胎',
+        birth8: '8胎',
+        birth9: '9胎以上'
+      },
+      birthSex: {
+        male: '男',
+        female: '女'
+      }
+    },
+    login: {
+      greeting: {
+        morning: '早安',
+        afternoon: '午安',
+        evening: '晚安',
+        welcome: '歡迎回來!'
+      },
+      button: {
+        login: '登入',
+        signUp: '註冊'
+      },
+      textField: {
+        username: {
+          label: '使用者名稱',
+          hint: "展示用 (不需輸入)"
+        },
+        password: {
+          label: '密碼',
+          hint: "展示用 (不需輸入)"
+        }
+      }
     },
     notFound: {
       title: '頁面不存在'
@@ -2874,66 +3123,110 @@ __webpack_require__.r(__webpack_exports__);
 
 var statSites = [{
   value: '新北市板橋區',
-  name: '板橋'
+  name: 'banqiao'
 }, {
   value: '新北市三重區',
-  name: '三重'
+  name: 'sanchong'
 }, {
   value: '新北市中和區',
-  name: '中和'
+  name: 'zhonghe'
 }, {
   value: '新北市永和區',
-  name: '永和'
+  name: 'yonghe'
 }, {
   value: '新北市新莊區',
-  name: '新莊'
+  name: 'xinzhuang'
 }, {
   value: '新北市新店區',
-  name: '新店'
+  name: 'xindian'
 }, {
   value: '新北市土城區',
-  name: '土城'
-}, // { value: '新北市蘆洲區', name: '蘆洲' },
-{
+  name: 'tucheng'
+}, {
   value: '新北市汐止區',
-  name: '汐止'
+  name: 'xizhi'
 }, {
   value: '新北市樹林區',
-  name: '樹林'
+  name: 'shuling'
 }, {
   value: '新北市鶯歌區',
-  name: '鶯歌'
+  name: 'yingge'
 }, {
   value: '新北市三峽區',
-  name: '三峽'
+  name: 'sanxia'
 }, {
   value: '新北市淡水區',
-  name: '淡水'
+  name: 'danshui'
 }, {
   value: '新北市瑞芳區',
-  name: '瑞芳'
-} // { value: '新北市五股區', name: '五股' },
-// { value: '新北市泰山區', name: '泰山' },
-// { value: '新北市林口區', name: '林口' },
-// { value: '新北市深坑區', name: '深坑' },
-// { value: '新北市石碇區', name: '石碇' },
-// { value: '新北市坪林區', name: '坪林' },
-// { value: '新北市三芝區', name: '三芝' },
-// { value: '新北市石門區', name: '石門' },
-// { value: '新北市八里區', name: '八里' },
-// { value: '新北市平溪區', name: '平溪' },
-// { value: '新北市雙溪區', name: '雙溪' },
-// { value: '新北市貢寮區', name: '貢寮' },
-// { value: '新北市金山區', name: '金山' },
-// { value: '新北市萬里區', name: '萬里' },
-// { value: '新北市烏來區', name: '烏來' },
-];
+  name: 'ruifang'
+}];
 vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_statSites = statSites;
-var statMotherAges = ['未滿15歲', '15～19歲', '20～24歲', '25～29歲', '30～34歲', '35～39歲', '40～44歲', '45～49歲', '50歲以上'];
+var statMotherAges = [{
+  value: '未滿15歲',
+  name: 'ageUnder15'
+}, {
+  value: '15～19歲',
+  name: 'age15To19'
+}, {
+  value: '20～24歲',
+  name: 'age20To24'
+}, {
+  value: '25～29歲',
+  name: 'age25To29'
+}, {
+  value: '30～34歲',
+  name: 'age30To34'
+}, {
+  value: '35～39歲',
+  name: 'age35To39'
+}, {
+  value: '40～44歲',
+  name: 'age40To44'
+}, {
+  value: '45～49歲',
+  name: 'age45To49'
+}, {
+  value: '50歲以上',
+  name: 'age50Above'
+}];
 vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_statMotherAges = statMotherAges;
-var statBirthOrders = ['1胎', '2胎', '3胎', '4胎', '5胎', '6胎', '7胎', '8胎', '9胎以上'];
+var statBirthOrders = [{
+  value: '1胎',
+  name: 'birth1'
+}, {
+  value: '2胎',
+  name: 'birth2'
+}, {
+  value: '3胎',
+  name: 'birth3'
+}, {
+  value: '4胎',
+  name: 'birth4'
+}, {
+  value: '5胎',
+  name: 'birth5'
+}, {
+  value: '6胎',
+  name: 'birth6'
+}, {
+  value: '7胎',
+  name: 'birth7'
+}, {
+  value: '8胎',
+  name: 'birth8'
+}, {
+  value: '9胎以上',
+  name: 'birth9'
+}];
 vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_statBirthOrders = statBirthOrders;
-var statSex = ['男', '女'];
+var statSex = [{
+  value: '男',
+  name: 'male'
+}, {
+  value: '女',
+  name: 'female'
+}];
 vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_statSex = statSex;
 
 /***/ }),
@@ -3046,7 +3339,8 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_validation = validation;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "routePath": () => (/* binding */ routePath),
-/* harmony export */   "navigation": () => (/* binding */ navigation)
+/* harmony export */   "navigation": () => (/* binding */ navigation),
+/* harmony export */   "footer_navigation": () => (/* binding */ footer_navigation)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 
@@ -3134,6 +3428,8 @@ var navigation = [{
 // }
 ];
 vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_navigation = navigation;
+var footer_navigation = [routePath.home, routePath.stat];
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_footer_navigation = footer_navigation;
 
 /***/ }),
 
@@ -3148,18 +3444,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes */ "./resources/js/router/routes.js");
 /* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../i18n */ "./resources/js/i18n.js");
+/* harmony import */ var _vuetify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../vuetify */ "./resources/js/vuetify.js");
+
 
 
 
  // import { store } from './store'
 // import { routePath } from './constantsRoutes'
 
-vue__WEBPACK_IMPORTED_MODULE_2__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_3__.default);
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__.default({
+vue__WEBPACK_IMPORTED_MODULE_3__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_4__.default);
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
   routes: _routes__WEBPACK_IMPORTED_MODULE_0__.default,
   mode: 'history',
   scrollBehavior: function scrollBehavior() {
@@ -3174,9 +3472,11 @@ var langList = ['en', 'ch'];
 router.beforeEach(function (to, from, next) {
   var lang = to.params.lang;
   if (!langList.includes(lang)) return next('en'); // if requested language not available, set locale to english and redirect to homepage
-  // set the current language for i18n.
 
-  _i18n__WEBPACK_IMPORTED_MODULE_1__.default.locale = lang;
+  _i18n__WEBPACK_IMPORTED_MODULE_1__.default.locale = lang; // set current language for i18n.
+
+  _vuetify__WEBPACK_IMPORTED_MODULE_2__.default.framework.lang.current = lang; // set current language for vuetify
+
   next(); // if (to.path === '/') next({ name: 'login', params: { lang: 'en' } })
   // if (!langList.includes(lang)) next({ name: to.name, params: { lang: 'en' } })
   // else next()
@@ -3474,15 +3774,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vuetify_dist_vuetify_min_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuetify/dist/vuetify.min.css */ "./node_modules/vuetify/dist/vuetify.min.css");
+/* harmony import */ var vuetify_es5_locale_zh_Hant__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuetify/es5/locale/zh-Hant */ "./node_modules/vuetify/es5/locale/zh-Hant.js");
+/* harmony import */ var vuetify_es5_locale_en__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuetify/es5/locale/en */ "./node_modules/vuetify/es5/locale/en.js");
 
 
  // Translation provided by Vuetify (javascript)
-// import ja from 'vuetify/es5/locale/ja'
+
+
 
 vue__WEBPACK_IMPORTED_MODULE_1__.default.use((vuetify__WEBPACK_IMPORTED_MODULE_2___default()));
 var opts = {
-  lang: {// locales: { ja },
-    // current: 'ja'
+  lang: {
+    locales: {
+      en: vuetify_es5_locale_en__WEBPACK_IMPORTED_MODULE_3__.default,
+      ch: vuetify_es5_locale_zh_Hant__WEBPACK_IMPORTED_MODULE_4__.default
+    },
+    current: 'en'
   },
   theme: {
     themes: {
@@ -6489,6 +6796,45 @@ component.options.__file = "resources/js/vue/components/Footer.vue"
 
 /***/ }),
 
+/***/ "./resources/js/vue/components/MenuLanguage.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/vue/components/MenuLanguage.vue ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MenuLanguage_vue_vue_type_template_id_1583f039_lang_pug___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MenuLanguage.vue?vue&type=template&id=1583f039&lang=pug& */ "./resources/js/vue/components/MenuLanguage.vue?vue&type=template&id=1583f039&lang=pug&");
+/* harmony import */ var _MenuLanguage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MenuLanguage.vue?vue&type=script&lang=js& */ "./resources/js/vue/components/MenuLanguage.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _MenuLanguage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _MenuLanguage_vue_vue_type_template_id_1583f039_lang_pug___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MenuLanguage_vue_vue_type_template_id_1583f039_lang_pug___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/vue/components/MenuLanguage.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/vue/components/NavigationDrawer.vue":
 /*!**********************************************************!*\
   !*** ./resources/js/vue/components/NavigationDrawer.vue ***!
@@ -6948,6 +7294,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/vue/components/MenuLanguage.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/vue/components/MenuLanguage.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MenuLanguage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MenuLanguage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/components/MenuLanguage.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MenuLanguage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/vue/components/NavigationDrawer.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************!*\
   !*** ./resources/js/vue/components/NavigationDrawer.vue?vue&type=script&lang=js& ***!
@@ -7155,6 +7517,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_template_id_0710b506_lang_pug___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_template_id_0710b506_lang_pug___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/pug-plain-loader/index.js!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Footer.vue?vue&type=template&id=0710b506&lang=pug& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/components/Footer.vue?vue&type=template&id=0710b506&lang=pug&");
+
+
+/***/ }),
+
+/***/ "./resources/js/vue/components/MenuLanguage.vue?vue&type=template&id=1583f039&lang=pug&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/vue/components/MenuLanguage.vue?vue&type=template&id=1583f039&lang=pug& ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_MenuLanguage_vue_vue_type_template_id_1583f039_lang_pug___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_MenuLanguage_vue_vue_type_template_id_1583f039_lang_pug___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_MenuLanguage_vue_vue_type_template_id_1583f039_lang_pug___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/pug-plain-loader/index.js!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MenuLanguage.vue?vue&type=template&id=1583f039&lang=pug& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/components/MenuLanguage.vue?vue&type=template&id=1583f039&lang=pug&");
 
 
 /***/ }),
@@ -7412,87 +7791,7 @@ var render = function() {
         1
       ),
       _c("v-spacer"),
-      _c(
-        "v-menu",
-        {
-          attrs: {
-            "open-on-hover": "",
-            transition: "slide-y-transition",
-            "offset-y": ""
-          },
-          scopedSlots: _vm._u([
-            {
-              key: "activator",
-              fn: function(ref) {
-                var on = ref.on
-                var attrs = ref.attrs
-                return [
-                  _c(
-                    "v-btn",
-                    _vm._g(
-                      _vm._b(
-                        { staticClass: "pa-0", attrs: { text: "" } },
-                        "v-btn",
-                        attrs,
-                        false
-                      ),
-                      on
-                    ),
-                    [
-                      _c("v-icon", [_vm._v("mdi-translate")]),
-                      _c("v-icon", { attrs: { small: "" } }, [
-                        _vm._v("mdi-chevron-down")
-                      ])
-                    ],
-                    1
-                  )
-                ]
-              }
-            }
-          ])
-        },
-        [
-          _c(
-            "v-card",
-            { staticClass: "px-2" },
-            [
-              _c(
-                "v-list",
-                [
-                  _c(
-                    "v-list-item",
-                    [
-                      _c(
-                        "v-list-item-content",
-                        { staticClass: "font-weight-bold" },
-                        [_vm._v(_vm._s(_vm.$t("appBar.translate")))]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._l(_vm.listLanguages, function(item, i) {
-                    return _c(
-                      "v-list-item",
-                      {
-                        key: item.value,
-                        attrs: {
-                          link: "",
-                          to: { params: { lang: item.value } }
-                        }
-                      },
-                      [_c("v-list-item-content", [_vm._v(_vm._s(item.title))])],
-                      1
-                    )
-                  })
-                ],
-                2
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
+      _c("MenuLanguage"),
       _c(
         "ToolTip",
         { attrs: { message: _vm.$t("appBar.translate") } },
@@ -7522,7 +7821,7 @@ var render = function() {
         "v-menu",
         {
           attrs: {
-            "open-on-hover": "",
+            "open-on-hover": !_vm.$_IS_TOUCH_SCREEN,
             transition: "slide-y-transition",
             "offset-y": ""
           },
@@ -7675,19 +7974,30 @@ var render = function() {
               _c(
                 "v-row",
                 { attrs: { "no-gutters": "", justify: "center" } },
-                _vm._l(_vm.icons, function(icon, i) {
+                _vm._l(_vm.$_footer_navigation, function(item, i) {
                   return _c(
                     "v-btn",
-                    { key: i, staticClass: "mx-4", attrs: { icon: "" } },
+                    {
+                      key: i,
+                      staticClass: "mx-4",
+                      attrs: {
+                        icon: "",
+                        to: {
+                          name: item.name,
+                          params: { lang: _vm.$i18n.locale }
+                        },
+                        exact: ""
+                      }
+                    },
                     [
                       _c(
                         "ToolTip",
                         {
                           attrs: {
-                            message: _vm.$t("footer.tooltip." + icon.hint)
+                            message: _vm.$t("footer.tooltip." + item.name)
                           }
                         },
-                        [_c("v-icon", [_vm._v(_vm._s(icon.name))])],
+                        [_c("v-icon", [_vm._v(_vm._s(item.icon))])],
                         1
                       )
                     ],
@@ -7710,6 +8020,108 @@ var render = function() {
               ])
             ],
             1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/components/MenuLanguage.vue?vue&type=template&id=1583f039&lang=pug&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/components/MenuLanguage.vue?vue&type=template&id=1583f039&lang=pug& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-menu",
+    {
+      attrs: {
+        "open-on-hover": !_vm.$_IS_TOUCH_SCREEN,
+        transition: "slide-y-transition",
+        "offset-y": ""
+      },
+      scopedSlots: _vm._u([
+        {
+          key: "activator",
+          fn: function(ref) {
+            var on = ref.on
+            var attrs = ref.attrs
+            return [
+              _c(
+                "v-btn",
+                _vm._g(
+                  _vm._b(
+                    { staticClass: "pa-0", attrs: { text: "" } },
+                    "v-btn",
+                    attrs,
+                    false
+                  ),
+                  on
+                ),
+                [
+                  _c("v-icon", [_vm._v("mdi-translate")]),
+                  _c("v-icon", { attrs: { small: "" } }, [
+                    _vm._v("mdi-chevron-down")
+                  ])
+                ],
+                1
+              )
+            ]
+          }
+        }
+      ])
+    },
+    [
+      _c(
+        "v-card",
+        { staticClass: "px-2" },
+        [
+          _c(
+            "v-list",
+            [
+              _c(
+                "v-list-item",
+                [
+                  _c(
+                    "v-list-item-content",
+                    { staticClass: "font-weight-bold" },
+                    [_vm._v(_vm._s(_vm.$t("appBar.translate")))]
+                  )
+                ],
+                1
+              ),
+              _vm._l(_vm.listLanguages, function(item, i) {
+                return _c(
+                  "v-list-item",
+                  {
+                    key: item.value,
+                    attrs: { link: "", to: { params: { lang: item.value } } }
+                  },
+                  [_c("v-list-item-content", [_vm._v(_vm._s(item.title))])],
+                  1
+                )
+              })
+            ],
+            2
           )
         ],
         1
@@ -7901,7 +8313,7 @@ var render = function() {
             "v-list-item-content",
             [
               _c("v-list-item-title", { staticClass: "text-h6" }, [
-                _vm._v("Settings")
+                _vm._v(_vm._s(_vm.$t("settingDrawer.title")))
               ])
             ],
             1
@@ -7916,7 +8328,9 @@ var render = function() {
           _c(
             "v-list-item-content",
             [
-              _c("v-list-item-title", [_vm._v("Theme")]),
+              _c("v-list-item-title", [
+                _vm._v(_vm._s(_vm.$t("settingDrawer.theme")))
+              ]),
               _c(
                 "v-row",
                 { attrs: { "no-gutters": "", justify: "space-around" } },
@@ -7931,7 +8345,7 @@ var render = function() {
                       _c("v-icon", { attrs: { left: "" } }, [
                         _vm._v("mdi-weather-sunny")
                       ]),
-                      _vm._v("Light")
+                      _vm._v(_vm._s(_vm.$t("settingDrawer.light")))
                     ],
                     1
                   ),
@@ -7945,7 +8359,7 @@ var render = function() {
                       _c("v-icon", { attrs: { left: "" } }, [
                         _vm._v("mdi-weather-night")
                       ]),
-                      _vm._v("Dark")
+                      _vm._v(_vm._s(_vm.$t("settingDrawer.dark")))
                     ],
                     1
                   )
@@ -8250,14 +8664,24 @@ var render = function() {
     "v-card",
     { staticClass: "mx-auto pa-4", staticStyle: { width: "375px" } },
     [
-      _c("h1", [_vm._v(_vm._s(_vm.greetingMessage) + ",")]),
+      _c(
+        "v-row",
+        {
+          attrs: { "no-gutters": "", justify: "space-between", align: "center" }
+        },
+        [
+          _c("h1", [_vm._v(_vm._s(_vm.greetingMessage) + ",")]),
+          _c("MenuLanguage")
+        ],
+        1
+      ),
       _c(
         "v-form",
         [
           _c("v-text-field", {
             attrs: {
-              label: "User Name",
-              hint: "Showcase use only (You don't have to enter username)",
+              label: _vm.$t("login.textField.username.label"),
+              hint: _vm.$t("login.textField.username.hint"),
               clearable: ""
             },
             model: {
@@ -8270,10 +8694,10 @@ var render = function() {
           }),
           _c("v-text-field", {
             attrs: {
-              label: "Password",
+              label: _vm.$t("login.textField.password.label"),
               type: _vm.showPassword ? "text" : "password",
               "append-icon": _vm.showPassword ? "mdi-eye" : "mdi-eye-off",
-              hint: "Showcase use only (You don't have to enter password)",
+              hint: _vm.$t("login.textField.password.hint"),
               clearable: ""
             },
             on: {
@@ -8295,7 +8719,7 @@ var render = function() {
       _c(
         "v-row",
         {
-          staticClass: "mt-1",
+          staticClass: "mt-5",
           attrs: { "no-gutters": "", justify: "space-between" }
         },
         [
@@ -8307,7 +8731,7 @@ var render = function() {
             },
             [
               _c("v-icon", { attrs: { left: "" } }, [_vm._v("mdi-login")]),
-              _vm._v("Login")
+              _vm._v(_vm._s(_vm.$t("login.button.login")))
             ],
             1
           ),
@@ -8318,7 +8742,7 @@ var render = function() {
               _c("v-icon", { attrs: { left: "" } }, [
                 _vm._v("mdi-clipboard-account")
               ]),
-              _vm._v("Sign up")
+              _vm._v(_vm._s(_vm.$t("login.button.signUp")))
             ],
             1
           )
@@ -8380,7 +8804,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("h1", [_vm._v("New Taipei City Birth Statistics (2019)")]),
+      _c("h1", [_vm._v(_vm._s(_vm.$t("stat.title")))]),
       _c(
         "v-form",
         {
@@ -8399,9 +8823,8 @@ var render = function() {
             [
               _c("v-select", {
                 attrs: {
-                  label: "Site",
+                  label: _vm.$t("stat.form.site"),
                   items: _vm.sites,
-                  rules: _vm.rulesSelect,
                   "item-text": "name",
                   "item-value": "value",
                   multiple: "",
@@ -8425,9 +8848,10 @@ var render = function() {
             [
               _c("v-select", {
                 attrs: {
-                  label: "Mother Age",
+                  label: _vm.$t("stat.form.motherAge"),
                   items: _vm.motherAges,
-                  rules: _vm.rulesSelect,
+                  "item-text": "name",
+                  "item-value": "value",
                   multiple: "",
                   chips: "",
                   clearable: ""
@@ -8449,9 +8873,10 @@ var render = function() {
             [
               _c("v-select", {
                 attrs: {
-                  label: "Birth Order",
+                  label: _vm.$t("stat.form.birthOrder"),
                   items: _vm.birthOrders,
-                  rules: _vm.rulesSelect,
+                  "item-text": "name",
+                  "item-value": "value",
                   multiple: "",
                   chips: "",
                   clearable: ""
@@ -8474,9 +8899,10 @@ var render = function() {
               [
                 _c("v-select", {
                   attrs: {
-                    label: "Birth Sex",
-                    items: _vm.sex,
-                    rules: _vm.rulesSelect,
+                    label: _vm.$t("stat.form.birthSex"),
+                    items: _vm.birthSex,
+                    "item-text": "name",
+                    "item-value": "value",
                     multiple: "",
                     chips: "",
                     clearable: ""
@@ -8514,7 +8940,7 @@ var render = function() {
                   },
                   on: { click: _vm.fetchData }
                 },
-                [_vm._v("Fetch Data")]
+                [_vm._v(_vm._s(_vm.$t("stat.button.fetch")))]
               ),
               _c(
                 "v-btn",
@@ -8523,7 +8949,7 @@ var render = function() {
                   attrs: { color: "info", small: _vm.$_screenWidthUnder450 },
                   on: { click: _vm.resetFilter }
                 },
-                [_vm._v("Reset Filter")]
+                [_vm._v(_vm._s(_vm.$t("stat.button.reset")))]
               ),
               _c(
                 "v-btn",
@@ -8536,7 +8962,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Clear Data")]
+                [_vm._v(_vm._s(_vm.$t("stat.button.clear")))]
               )
             ],
             1
@@ -8547,7 +8973,8 @@ var render = function() {
       _c("v-row", { staticClass: "my-3", attrs: { "no-gutters": "" } }, [
         _c("h3", [
           _vm._v(
-            "Result: " +
+            _vm._s(_vm.$t("stat.result")) +
+              ": " +
               _vm._s(_vm.totalNumberCount) +
               " " +
               _vm._s(_vm.totalNumberCount ? "born" : "")
@@ -69259,6 +69686,180 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_vue__;
 /******/ })["default"];
 });
 //# sourceMappingURL=vuetify.js.map
+
+/***/ }),
+
+/***/ "./node_modules/vuetify/es5/locale/en.js":
+/*!***********************************************!*\
+  !*** ./node_modules/vuetify/es5/locale/en.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+var _default = {
+  badge: 'Badge',
+  close: 'Close',
+  dataIterator: {
+    noResultsText: 'No matching records found',
+    loadingText: 'Loading items...'
+  },
+  dataTable: {
+    itemsPerPageText: 'Rows per page:',
+    ariaLabel: {
+      sortDescending: 'Sorted descending.',
+      sortAscending: 'Sorted ascending.',
+      sortNone: 'Not sorted.',
+      activateNone: 'Activate to remove sorting.',
+      activateDescending: 'Activate to sort descending.',
+      activateAscending: 'Activate to sort ascending.'
+    },
+    sortBy: 'Sort by'
+  },
+  dataFooter: {
+    itemsPerPageText: 'Items per page:',
+    itemsPerPageAll: 'All',
+    nextPage: 'Next page',
+    prevPage: 'Previous page',
+    firstPage: 'First page',
+    lastPage: 'Last page',
+    pageText: '{0}-{1} of {2}'
+  },
+  datePicker: {
+    itemsSelected: '{0} selected',
+    nextMonthAriaLabel: 'Next month',
+    nextYearAriaLabel: 'Next year',
+    prevMonthAriaLabel: 'Previous month',
+    prevYearAriaLabel: 'Previous year'
+  },
+  noDataText: 'No data available',
+  carousel: {
+    prev: 'Previous visual',
+    next: 'Next visual',
+    ariaLabel: {
+      delimiter: 'Carousel slide {0} of {1}'
+    }
+  },
+  calendar: {
+    moreEvents: '{0} more'
+  },
+  fileInput: {
+    counter: '{0} files',
+    counterSize: '{0} files ({1} in total)'
+  },
+  timePicker: {
+    am: 'AM',
+    pm: 'PM'
+  },
+  pagination: {
+    ariaLabel: {
+      wrapper: 'Pagination Navigation',
+      next: 'Next page',
+      previous: 'Previous page',
+      page: 'Goto Page {0}',
+      currentPage: 'Current Page, Page {0}'
+    }
+  },
+  rating: {
+    ariaLabel: {
+      icon: 'Rating {0} of {1}'
+    }
+  }
+};
+exports.default = _default;
+//# sourceMappingURL=en.js.map
+
+/***/ }),
+
+/***/ "./node_modules/vuetify/es5/locale/zh-Hant.js":
+/*!****************************************************!*\
+  !*** ./node_modules/vuetify/es5/locale/zh-Hant.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+var _default = {
+  badge: '徽章',
+  close: '關閉',
+  dataIterator: {
+    noResultsText: '沒有符合條件的結果',
+    loadingText: '讀取中...'
+  },
+  dataTable: {
+    itemsPerPageText: '每頁列數：',
+    ariaLabel: {
+      sortDescending: '：降序排列。',
+      sortAscending: '：升序排列。',
+      sortNone: '無排序方式。點擊以升序排列。',
+      activateNone: '點擊以移除排序方式。',
+      activateDescending: '點擊以降序排列。',
+      activateAscending: '點擊以移除排序方式。'
+    },
+    sortBy: '排序方式'
+  },
+  dataFooter: {
+    itemsPerPageText: '每頁項目：',
+    itemsPerPageAll: '全部',
+    nextPage: '下一頁',
+    prevPage: '上一頁',
+    firstPage: '第一頁',
+    lastPage: '最後頁',
+    pageText: '{2} 條中的 {0}~{1} 條'
+  },
+  datePicker: {
+    itemsSelected: '已選擇 {0}',
+    nextMonthAriaLabel: '下個月',
+    nextYearAriaLabel: '明年',
+    prevMonthAriaLabel: '前一個月',
+    prevYearAriaLabel: '前一年'
+  },
+  noDataText: '沒有資料',
+  carousel: {
+    prev: '上一張',
+    next: '下一張',
+    ariaLabel: {
+      delimiter: 'Carousel slide {0} of {1}'
+    }
+  },
+  calendar: {
+    moreEvents: '還有其他 {0} 項'
+  },
+  fileInput: {
+    counter: '{0} 個檔案',
+    counterSize: '{0} 個檔案（共 {1}）'
+  },
+  timePicker: {
+    am: 'AM',
+    pm: 'PM'
+  },
+  pagination: {
+    ariaLabel: {
+      wrapper: '分頁導航',
+      next: '下一頁',
+      previous: '上一頁',
+      page: '轉到頁面 {0}',
+      currentPage: '當前頁 {0}'
+    }
+  },
+  rating: {
+    ariaLabel: {
+      icon: 'Rating {0} of {1}'
+    }
+  }
+};
+exports.default = _default;
+//# sourceMappingURL=zh-Hant.js.map
 
 /***/ }),
 

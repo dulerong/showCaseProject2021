@@ -3,9 +3,9 @@ v-footer(padless absolute app)
   v-card(width="100%")
     v-card-text
       v-row(no-gutters justify="center")
-        v-btn(v-for="(icon, i) in icons" :key="i" icon class="mx-4")
-          ToolTip(:message="$t(`footer.tooltip.${icon.hint}`)")
-            v-icon {{ icon.name }}
+        v-btn(v-for="(item, i) in $_footer_navigation" :key="i" icon class="mx-4" :to="{ name: item.name, params: { lang: $i18n.locale } }" exact)
+          ToolTip(:message="$t(`footer.tooltip.${item.name}`)")
+            v-icon {{ item.icon }}
     v-divider
     v-card-text
       v-row(no-gutters justify="center")
@@ -17,11 +17,5 @@ export default {
   components: {
     ToolTip: require('~components/ToolTip').default,
   },
-  data: () => ({
-    icons: [
-      { name: 'mdi-home', hint: 'home' },
-      { name: 'mdi-email', hint: 'email' },
-    ]
-  })
 }
 </script>

@@ -2,18 +2,18 @@
 v-navigation-drawer(app temporary right v-model="sideDrawer.isMini")
   v-list-item
     v-list-item-content
-      v-list-item-title(class="text-h6") Settings
+      v-list-item-title(class="text-h6") {{ $t("settingDrawer.title") }}
   v-divider
   v-list-item
     v-list-item-content
-      v-list-item-title Theme
+      v-list-item-title {{ $t("settingDrawer.theme") }}
       v-row(no-gutters justify="space-around")
         v-btn(@click="toggleThemeLight" :color="!isDark ? 'success' : '' ")
           v-icon(left) mdi-weather-sunny
-          | Light
+          | {{ $t("settingDrawer.light") }}
         v-btn(@click="toggleThemeDark" :color="isDark ? 'success' : '' ")
           v-icon(left) mdi-weather-night
-          | Dark
+          | {{ $t("settingDrawer.dark") }}
 </template>
 
 <script>

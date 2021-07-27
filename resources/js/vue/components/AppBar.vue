@@ -3,22 +3,12 @@ v-app-bar(app :hide-on-scroll="!$_IS_TOUCH_SCREEN")
   ToolTip(:message="$t('appBar.tooltip.sideDrawer')")
     v-app-bar-nav-icon(@click.stop="toggle")
   v-spacer
-  v-menu(open-on-hover transition="slide-y-transition" offset-y)
-    template(v-slot:activator="{ on, attrs }")
-      v-btn(text class="pa-0" v-bind="attrs" v-on="on")
-        v-icon mdi-translate
-        v-icon(small) mdi-chevron-down
-    v-card(class="px-2")
-      v-list
-        v-list-item
-          v-list-item-content(class="font-weight-bold") {{ $t('appBar.translate') }}
-        v-list-item(v-for="(item, i) in listLanguages" :key="item.value" link :to="{ params: { lang: item.value }}")
-          v-list-item-content {{ item.title }}
+  MenuLanguage
   ToolTip(:message="$t('appBar.translate')")
     v-btn(icon @click.stop="toggleSide")
       v-icon mdi-settings-outline
   v-divider(vertical class="mx-1" inset)
-  v-menu(open-on-hover transition="slide-y-transition" offset-y)
+  v-menu(:open-on-hover="!$_IS_TOUCH_SCREEN" transition="slide-y-transition" offset-y)
     template(v-slot:activator="{ on, attrs}")
       v-btn(depressed height="100%" v-bind="attrs" v-on="on")
         v-toolbar-title Username
@@ -40,7 +30,8 @@ v-app-bar(app :hide-on-scroll="!$_IS_TOUCH_SCREEN")
 <script>
 export default {
   components: {
-    ToolTip: require('~components/ToolTip').default
+    ToolTip: require('~components/ToolTip').default,
+    MenuLanguage: require('~components/MenuLanguage').default
   },
   props: {
     toggle: {
@@ -57,10 +48,6 @@ export default {
       { icon: 'mdi-account-details', title: 'profile', to: 'login' },
       { icon: 'mdi-exit-to-app', title: 'logout', to: 'login' }
     ],
-    listLanguages: [
-      { title: 'English', value: 'en' },
-      { title: '中文', value: 'ch' },
-    ]
   }),
 }
 </script>

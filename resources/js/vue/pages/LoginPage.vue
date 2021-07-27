@@ -1,36 +1,44 @@
 <template lang="pug">
 v-card(class="mx-auto pa-4" style="width: 375px")
-  h1 {{ greetingMessage }},
+  v-row(no-gutters justify="space-between" align="center")
+    h1 {{ greetingMessage }},
+    MenuLanguage
   v-form
     v-text-field(
-      label="User Name"
+      :label="$t('login.textField.username.label')"
       v-model="username"
-      hint="Showcase use only (You don't have to enter username)"
+      :hint="$t('login.textField.username.hint')"
       clearable
     )
     v-text-field(
-      label="Password"
+      :label="$t('login.textField.password.label')"
       v-model="password"
       :type="showPassword? 'text' : 'password' "
       :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-      hint="Showcase use only (You don't have to enter password)"
+      :hint="$t('login.textField.password.hint')"
       @click:append="showPassword = !showPassword"
       clearable
     )
-  v-row(no-gutters justify="space-between" class="mt-1")
+  v-row(no-gutters justify="space-between" class="mt-5")
     v-btn(depressed :loading="loading" @click="login") 
       v-icon(left) mdi-login
-      | Login
+      | {{ $t("login.button.login") }}
     v-btn(outlined)
       v-icon(left) mdi-clipboard-account
-      | Sign up
+      | {{ $t("login.button.signUp") }}
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
 export default {
+  components: {
+    MenuLanguage: require('~components/MenuLanguage').default
+  },
   created() {
-    this.greetingMessage = this.makeGreetMessage(this.$_hour_right_now)
+    this.greetingMessage = this.makeGreetMessage()
+  },
+  updated() {
+    this.greetingMessage = this.makeGreetMessage()
   },
   data: () => ({
     greetingMessage: null,
@@ -41,14 +49,15 @@ export default {
   }),
   methods: {
     ...mapMutations('notification', ['showNotification']),
-    makeGreetMessage(time) {
+    makeGreetMessage() {
+      const time = this.$_hour_right_now
       switch(true) {
         case time < 12:
-          return 'Good morning'
+          return this.$t("login.greeting.morning")
         case time >= 12 && time < 18:
-          return 'Good afternoon'
+          return this.$t("login.greeting.afternoon")
         case time >= 18 && time <= 23:
-          return 'Good evening'
+          return this.$t("login.greeting.evening")
       }
     },
     login() {
@@ -56,7 +65,7 @@ export default {
       setTimeout(() => {
         this.loading = false
         this.$router.push({ name: this.$_routePath.home.name })
-        this.showNotification({ message: 'Welcome back!' })
+        this.showNotification({ message: this.$t("login.greeting.welcome") })
       }, 2500)
     }
   }
