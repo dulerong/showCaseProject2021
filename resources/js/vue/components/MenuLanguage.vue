@@ -8,7 +8,7 @@ v-menu(:open-on-hover="!$_IS_TOUCH_SCREEN" transition="slide-y-transition" offse
     v-list
       v-list-item
         v-list-item-content(class="font-weight-bold") {{ $t('appBar.translate') }}
-      v-list-item(v-for="(item, i) in listLanguages" :key="item.value" link :to="{ params: { lang: item.value }}")
+      v-list-item(v-for="(item, i) in listLanguages" :key="item.value" link @click="switchLocale(item.value)")
         v-list-item-content {{ item.title }}
 </template>
 
@@ -19,6 +19,11 @@ export default {
       { title: 'English', value: 'en' },
       { title: '中文', value: 'ch' },
     ]
-  })
+  }),
+  methods: {
+    switchLocale(value) {
+      this.$i18n.locale = value
+    }
+  }
 }
 </script>
