@@ -11,8 +11,8 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   routes,
   mode: 'history',
-  scrollBehavior() {
-    return { x: 0, y: 0, behavior: 'smooth' }
+  scrollBehavior(to, from) {
+    return to.name === from.name ? {} : { x: 0, y: 0, behavior: 'smooth' }
   },
 })
 

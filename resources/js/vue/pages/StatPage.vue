@@ -47,9 +47,9 @@ export default {
     headers() {
       return [
         { text: this.$t("stat.tableHeader.site"), align: 'start', sortable: false, value: 'site_id', },
+        { text: this.$t("stat.tableHeader.motherAge"), value: 'mother_age', sort: this.$_sortMotherAges },
         { text: this.$t("stat.tableHeader.birthOrder"), value: 'birth_order' },
         { text: this.$t("stat.tableHeader.birthSex"), value: 'birth_sex' },
-        { text: this.$t("stat.tableHeader.motherAge"), value: 'mother_age' },
         { text: this.$t("stat.tableHeader.birthCount"), value: 'birth_count' },
       ]
     },
@@ -64,11 +64,17 @@ export default {
     },
     birthSex() {
       return this.$_statSex.map(item => ({ ...item, name: this.$t(`stat.birthSex.${item.name}`) }))
+    },
+    locale() {
+      return this.$i18n.locale
     }
   },
   watch: {
     filterSelected: function () {
       this.clearData()
+    },
+    locale: function () {
+      this.fetchData()
     }
   },
   methods: {
@@ -76,7 +82,16 @@ export default {
     fetchData() {
       if (!this.isFilterOn) return
 
-      this.data = this.filterData(mockData.result.records, this.siteSelected, this.birthOrderSelected, this.motherAgeSelected, this.sexSelected)
+      this.data = this.$_filterStatData(mockData.result.records, this.siteSelected, this.birthOrderSelected, this.motherAgeSelected, this.sexSelected)
+      this.data = this.$_translateData(this.data)
+      this.data = this.data
+        .map(item => ({
+          ...item,
+          site_id: this.$t(`stat.site.${item.site_id}`),
+          mother_age: this.$t(`stat.motherAges.${item.mother_age}`),
+          birth_order: this.$t(`stat.birthOrders.${item.birth_order}`),
+          birth_sex: this.$t(`stat.birthSex.${item.birth_sex}`)
+        }))
 
       this.showNotification({ message: this.$t("stat.notification.fetch"), color: 'success' })
     },
@@ -91,17 +106,9 @@ export default {
       this.sexSelected = null
       this.showNotification({ message: this.$t("stat.notification.reset"), color: 'info' })
     },
-    filterData(data, siteSelected, birthOrderSelected, motherAgeSelected, sexSelected) {
-      return data
-        .filter(item => siteSelected && siteSelected.length > 0 ? siteSelected.includes(item.site_id) : true)
-        .filter(item => birthOrderSelected && birthOrderSelected.length > 0 ? birthOrderSelected.includes(item.birth_order) : true)
-        .filter(item => motherAgeSelected && motherAgeSelected.length > 0 ?  motherAgeSelected.includes(item.mother_age) : true)
-        .filter(item => sexSelected && sexSelected.length > 0 ? sexSelected.includes(item.birth_sex) : true)
-        .filter(item => item.birth_count > 0)
-    },
     getColor(count) {
       return count > 0 ? 'red' : ''
-    }
+    },
   }
 }
 </script>
