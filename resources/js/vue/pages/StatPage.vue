@@ -47,9 +47,9 @@ export default {
     headers() {
       return [
         { text: this.$t("stat.tableHeader.site"), align: 'start', sortable: false, value: 'site_id', },
+        { text: this.$t("stat.tableHeader.motherAge"), value: 'mother_age' },
         { text: this.$t("stat.tableHeader.birthOrder"), value: 'birth_order' },
         { text: this.$t("stat.tableHeader.birthSex"), value: 'birth_sex' },
-        { text: this.$t("stat.tableHeader.motherAge"), value: 'mother_age' },
         { text: this.$t("stat.tableHeader.birthCount"), value: 'birth_count' },
       ]
     },
