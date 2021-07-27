@@ -7,7 +7,7 @@ div
     v-row(no-gutters)
         v-select(:label="$t('stat.form.motherAge')" :items="motherAges" v-model="motherAgeSelected" item-text="name" item-value="value" multiple chips clearable)
     v-row(no-gutters)
-        v-select(:label="$t('stat.form.birthOrder')" :items="birthOrders" v-model="birthOrderSelected" multiple chips clearable)
+        v-select(:label="$t('stat.form.birthOrder')" :items="birthOrders" v-model="birthOrderSelected" item-text="name" item-value="value" multiple chips clearable)
     v-row(no-gutters)
       div(style="width: 150px") 
         v-select(:label="$t('stat.form.birthSex')" :items="birthSex" v-model="sexSelected" item-text="name" item-value="value" multiple chips clearable)
@@ -28,7 +28,6 @@ import { mapMutations } from 'vuex'
 export default {
   data: (vm) => ({
     isValid: false,
-    birthOrders: vm.$_statBirthOrders,
     sexSelected: null,
     siteSelected: null,
     motherAgeSelected: null,
@@ -59,6 +58,9 @@ export default {
     },
     motherAges() {
       return this.$_statMotherAges.map(item => ({ ...item, name: this.$t(`stat.motherAges.${item.name}`) }))
+    },
+    birthOrders() {
+      return this.$_statBirthOrders.map(item => ({ ...item, name: this.$t(`stat.birthOrders.${item.name}`) }))
     },
     birthSex() {
       return this.$_statSex.map(item => ({ ...item, name: this.$t(`stat.birthSex.${item.name}`) }))
