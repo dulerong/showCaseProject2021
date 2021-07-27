@@ -93,6 +93,21 @@ export const language = {
         age40To44: '40 - 44',
         age45To49: '45 - 49',
         age50Above: '50 and above'
+      },
+      birthOrders: {
+        birth1: '1st',
+        birth2: '2nd',
+        birth3: '3rd',
+        birth4: '4th',
+        birth5: '5th',
+        birth6: '6th',
+        birth7: '7th',
+        birth8: '8th',
+        birth9: '9th and above',
+      },
+      birthSex: {
+        male: 'Male',
+        female: 'Female'
       }
     },
     login: {
@@ -214,6 +229,21 @@ export const language = {
         age45To49: '45～49歲',
         age50Above: '50歲以上'
       },
+      birthOrders: {
+        birth1: '1胎',
+        birth2: '2胎',
+        birth3: '3胎',
+        birth4: '4胎',
+        birth5: '5胎',
+        birth6: '6胎',
+        birth7: '7胎',
+        birth8: '8胎',
+        birth9: '9胎以上',
+      },
+      birthSex: {
+        male: '男',
+        female: '女'
+      }
     },
     login: {
       greeting: {

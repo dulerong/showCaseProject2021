@@ -31,20 +31,20 @@ const statMotherAges = [
 Vue.prototype.$_statMotherAges = statMotherAges
 
 const statBirthOrders = [
-  '1胎',
-  '2胎',
-  '3胎',
-  '4胎',
-  '5胎',
-  '6胎',
-  '7胎',
-  '8胎',
-  '9胎以上'
+  { value: '1胎', name: 'birth1' },
+  { value: '2胎', name: 'birth2' },
+  { value: '3胎', name: 'birth3' },
+  { value: '4胎', name: 'birth4' },
+  { value: '5胎', name: 'birth5' },
+  { value: '6胎', name: 'birth6' },
+  { value: '7胎', name: 'birth7' },
+  { value: '8胎', name: 'birth8' },
+  { value: '9胎以上', name: 'birth9' }
 ]
 Vue.prototype.$_statBirthOrders = statBirthOrders
 
 const statSex = [
-  '男',
-  '女'
+  { value: '男', name: 'male' },
+  { value: '女', name: 'female' }
 ]
 Vue.prototype.$_statSex = statSex
