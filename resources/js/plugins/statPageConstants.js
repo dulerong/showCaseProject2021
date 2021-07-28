@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-const statSites = [
+export const statSites = [
   { value: '新北市板橋區', name: 'banqiao' },
   { value: '新北市三重區', name: 'sanchong' },
   { value: '新北市中和區', name: 'zhonghe' },
@@ -17,7 +17,7 @@ const statSites = [
 ]
 Vue.prototype.$_statSites = statSites
 
-const statMotherAges = [
+export const statMotherAges = [
   { value: '未滿15歲', name: 'ageUnder15' },
   { value: '15～19歲', name: 'age15To19' },
   { value: '20～24歲', name: 'age20To24' },
@@ -30,7 +30,7 @@ const statMotherAges = [
 ]
 Vue.prototype.$_statMotherAges = statMotherAges
 
-const statBirthOrders = [
+export const statBirthOrders = [
   { value: '1胎', name: 'birth1' },
   { value: '2胎', name: 'birth2' },
   { value: '3胎', name: 'birth3' },
@@ -43,7 +43,7 @@ const statBirthOrders = [
 ]
 Vue.prototype.$_statBirthOrders = statBirthOrders
 
-const statSex = [
+export const statSex = [
   { value: '男', name: 'male' },
   { value: '女', name: 'female' }
 ]
