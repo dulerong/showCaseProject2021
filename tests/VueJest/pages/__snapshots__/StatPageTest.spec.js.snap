@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stat Page Page renders properly 1`] = `
+<div>
+  <h1>stat.title</h1>
+  <form novalidate="novalidate" class="v-form">
+    <div class="row no-gutters">
+      <div class="v-input theme--light v-text-field v-select v-select--chips v-select--is-multi">
+        <div class="v-input__control">
+          <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-6" class="v-input__slot">
+            <div class="v-select__slot"><label for="input-6" class="v-label theme--light" style="left: 0px; position: absolute;">stat.form.site</label>
+              <div class="v-select__selections"><input id="input-6" readonly="readonly" type="text" aria-readonly="false" autocomplete="off"></div>
+              <div class="v-input__append-inner">
+                <div></div>
+              </div>
+              <div class="v-input__append-inner">
+                <div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div>
+              </div><input type="hidden">
+            </div>
+            <div class="v-menu">
+              <!---->
+            </div>
+          </div>
+          <div class="v-text-field__details">
+            <div class="v-messages theme--light">
+              <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div class="v-input theme--light v-text-field v-select v-select--chips v-select--is-multi">
+        <div class="v-input__control">
+          <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-11" class="v-input__slot">
+            <div class="v-select__slot"><label for="input-11" class="v-label theme--light" style="left: 0px; position: absolute;">stat.form.motherAge</label>
+              <div class="v-select__selections"><input id="input-11" readonly="readonly" type="text" aria-readonly="false" autocomplete="off"></div>
+              <div class="v-input__append-inner">
+                <div></div>
+              </div>
+              <div class="v-input__append-inner">
+                <div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div>
+              </div><input type="hidden">
+            </div>
+            <div class="v-menu">
+              <!---->
+            </div>
+          </div>
+          <div class="v-text-field__details">
+            <div class="v-messages theme--light">
+              <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div class="v-input theme--light v-text-field v-select v-select--chips v-select--is-multi">
+        <div class="v-input__control">
+          <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-16" class="v-input__slot">
+            <div class="v-select__slot"><label for="input-16" class="v-label theme--light" style="left: 0px; position: absolute;">stat.form.birthOrder</label>
+              <div class="v-select__selections"><input id="input-16" readonly="readonly" type="text" aria-readonly="false" autocomplete="off"></div>
+              <div class="v-input__append-inner">
+                <div></div>
+              </div>
+              <div class="v-input__append-inner">
+                <div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div>
+              </div><input type="hidden">
+            </div>
+            <div class="v-menu">
+              <!---->
+            </div>
+          </div>
+          <div class="v-text-field__details">
+            <div class="v-messages theme--light">
+              <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div style="width: 150px;">
+        <div class="v-input theme--light v-text-field v-select v-select--chips v-select--is-multi">
+          <div class="v-input__control">
+            <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-21" class="v-input__slot">
+              <div class="v-select__slot"><label for="input-21" class="v-label theme--light" style="left: 0px; position: absolute;">stat.form.birthSex</label>
+                <div class="v-select__selections"><input id="input-21" readonly="readonly" type="text" aria-readonly="false" autocomplete="off"></div>
+                <div class="v-input__append-inner">
+                  <div></div>
+                </div>
+                <div class="v-input__append-inner">
+                  <div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div>
+                </div><input type="hidden">
+              </div>
+              <div class="v-menu">
+                <!---->
+              </div>
+            </div>
+            <div class="v-text-field__details">
+              <div class="v-messages theme--light">
+                <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-lg-start no-gutters justify-space-between"><button type="button" disabled="disabled" class="v-btn v-btn--disabled v-btn--has-bg theme--light v-size--default mr-2"><span class="v-btn__content">stat.button.fetch</span></button><button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default info mx-2"><span class="v-btn__content">stat.button.reset</span></button><button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default warning mx-2"><span class="v-btn__content">stat.button.clear</span></button></div>
+  </form>
+  <div class="row my-3 no-gutters">
+    <h3>stat.result: 0 </h3>
+  </div>
+  <div class="v-data-table v-data-table--has-bottom theme--light">
+    <div class="v-data-table__wrapper">
+      <table>
+        <colgroup>
+          <col class="">
+          <col class="">
+          <col class="">
+          <col class="">
+          <col class="">
+        </colgroup>
+        <thead class="v-data-table-header">
+          <tr>
+            <th role="columnheader" scope="col" aria-label="stat.tableHeader.site" class="text-start"><span>stat.tableHeader.site</span></th>
+            <th role="columnheader" scope="col" aria-label="stat.tableHeader.motherAge: Not sorted. Activate to sort ascending." aria-sort="none" class="text-start sortable"><span>stat.tableHeader.motherAge</span><i aria-hidden="true" class="v-icon notranslate v-data-table-header__icon mdi mdi-arrow-up theme--light" style="font-size: 18px;"></i></th>
+            <th role="columnheader" scope="col" aria-label="stat.tableHeader.birthOrder: Not sorted. Activate to sort ascending." aria-sort="none" class="text-start sortable"><span>stat.tableHeader.birthOrder</span><i aria-hidden="true" class="v-icon notranslate v-data-table-header__icon mdi mdi-arrow-up theme--light" style="font-size: 18px;"></i></th>
+            <th role="columnheader" scope="col" aria-label="stat.tableHeader.birthSex: Not sorted. Activate to sort ascending." aria-sort="none" class="text-start sortable"><span>stat.tableHeader.birthSex</span><i aria-hidden="true" class="v-icon notranslate v-data-table-header__icon mdi mdi-arrow-up theme--light" style="font-size: 18px;"></i></th>
+            <th role="columnheader" scope="col" aria-label="stat.tableHeader.birthCount: Not sorted. Activate to sort ascending." aria-sort="none" class="text-start sortable"><span>stat.tableHeader.birthCount</span><i aria-hidden="true" class="v-icon notranslate v-data-table-header__icon mdi mdi-arrow-up theme--light" style="font-size: 18px;"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="v-data-table__empty-wrapper">
+            <td colspan="5">No data available</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="v-data-footer">
+      <div class="v-data-footer__select">Rows per page:<div class="v-input v-input--hide-details v-input--is-label-active v-input--is-dirty theme--light v-text-field v-select">
+          <div class="v-input__control">
+            <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-38" class="v-input__slot">
+              <div class="v-select__slot">
+                <div class="v-select__selections">
+                  <div class="v-select__selection v-select__selection--comma">10</div><input aria-label="Rows per page:" id="input-38" readonly="readonly" type="text" aria-readonly="false" autocomplete="off">
+                </div>
+                <div class="v-input__append-inner">
+                  <div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div>
+                </div><input type="hidden" value="10">
+              </div>
+              <div class="v-menu">
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="v-data-footer__pagination">–</div>
+      <div class="v-data-footer__icons-before"><button type="button" disabled="disabled" class="v-btn v-btn--disabled v-btn--icon v-btn--round v-btn--text theme--light v-size--default" aria-label="Previous page"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-left theme--light"></i></span></button></div>
+      <div class="v-data-footer__icons-after"><button type="button" disabled="disabled" class="v-btn v-btn--disabled v-btn--icon v-btn--round v-btn--text theme--light v-size--default" aria-label="Next page"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-right theme--light"></i></span></button></div>
+    </div>
+  </div>
+</div>
+`;
