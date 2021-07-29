@@ -26,7 +26,7 @@ div
 import mockData from '~js/mockData/stat'
 import { mapMutations } from 'vuex'
 export default {
-  data: (vm) => ({
+  data: () => ({
     isValid: false,
     sexSelected: null,
     siteSelected: null,
