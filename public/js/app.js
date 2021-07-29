@@ -2416,7 +2416,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data(vm) {
+  data: function data() {
     return {
       isValid: false,
       sexSelected: null,
@@ -3125,6 +3125,10 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_language = language;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "statSites": () => (/* binding */ statSites),
+/* harmony export */   "statMotherAges": () => (/* binding */ statMotherAges),
+/* harmony export */   "statBirthOrders": () => (/* binding */ statBirthOrders),
+/* harmony export */   "statSex": () => (/* binding */ statSex),
 /* harmony export */   "filterStatData": () => (/* binding */ filterStatData),
 /* harmony export */   "sortMotherAges": () => (/* binding */ sortMotherAges),
 /* harmony export */   "translateData": () => (/* binding */ translateData),

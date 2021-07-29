@@ -5,6 +5,7 @@ module.exports = {
   ],
   moduleNameMapper: {
     "^~/(.+)$": "<rootDir>/resources/$1",
+    "^~js/(.+)$": "<rootDir>/resources/js/$1",
     "^~pages/(.+)$": "<rootDir>/resources/js/vue/pages/$1",
     "^~layouts/(.+)$": "<rootDir>/resources/js/vue/layouts/$1",
     "^~components/(.+)$": "<rootDir>/resources/js/vue/components/$1",
