@@ -1,11 +1,11 @@
 <template lang="pug">
 v-app-bar(app :hide-on-scroll="!$_IS_TOUCH_SCREEN")
   ToolTip(:message="$t('appBar.tooltip.sideDrawer')")
-    v-app-bar-nav-icon(@click.stop="toggle")
+    v-app-bar-nav-icon(@click.stop="toggle" data-testid="toggleButton")
   v-spacer
   MenuLanguage
   ToolTip(:message="$t('appBar.translate')")
-    v-btn(icon @click.stop="toggleSide")
+    v-btn(icon @click.stop="toggleSide" data-testid="toggleSideButton")
       v-icon mdi-settings-outline
   v-divider(vertical class="mx-1" inset)
   v-menu(:open-on-hover="!$_IS_TOUCH_SCREEN" transition="slide-y-transition" offset-y)
