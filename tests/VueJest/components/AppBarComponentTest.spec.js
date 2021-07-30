@@ -1,25 +1,15 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import Vuetify from 'vuetify'
-import VueRouter from 'vue-router'
-import VueI18n from 'vue-i18n'
 
 import AppBar from '~components/AppBar'
 
 describe('AppBar Component', () => {
   const localVue = createLocalVue()
 
-  localVue.use(VueI18n)
-  localVue.use(VueRouter)
-
   let vuetify
-  let i18n
-  const i18nConfig = {
-    locale: 'en'
-  }
 
   beforeEach(() => {
     vuetify = new Vuetify()
-    i18n = new VueI18n(i18nConfig)
   })
 
   afterEach(() => {    
@@ -30,7 +20,6 @@ describe('AppBar Component', () => {
     return mount(AppBar, {
       localVue,
       vuetify,
-      i18n,
       mocks: {
         $t: (msg) => msg
       },
