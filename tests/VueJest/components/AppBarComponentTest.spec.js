@@ -35,7 +35,7 @@ describe('AppBar Component', () => {
     })
   }
 
-  it('Page renders properly', () => {
+  it('Renders properly', () => {
     const wrapper = mountFunction()
 
     expect(wrapper.exists()).toBe(true)
