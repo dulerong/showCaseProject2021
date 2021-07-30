@@ -1,29 +1,15 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import Vuetify from 'vuetify'
-import VueRouter from 'vue-router'
-import VueI18n from 'vue-i18n'
 
 import AppBar from '~components/AppBar'
-
-import { routes } from '~js/router/routes'
 
 describe('AppBar Component', () => {
   const localVue = createLocalVue()
 
-  localVue.use(VueI18n)
-  localVue.use(VueRouter)
-
   let vuetify
-  let router
-  let i18n
-  const i18nConfig = {
-    locale: 'en'
-  }
 
   beforeEach(() => {
     vuetify = new Vuetify()
-    router = new VueRouter({ routes })
-    i18n = new VueI18n(i18nConfig)
   })
 
   afterEach(() => {    
@@ -34,10 +20,12 @@ describe('AppBar Component', () => {
     return mount(AppBar, {
       localVue,
       vuetify,
-      router,
-      i18n,
       mocks: {
         $t: (msg) => msg
+      },
+      stubs: {
+        MenuLanguage: true,
+        AppBarProfileMenu: true
       },
       propsData: {
         toggle: jest.fn(),
@@ -47,7 +35,7 @@ describe('AppBar Component', () => {
     })
   }
 
-  it('Page renders properly', () => {
+  it('Renders properly', () => {
     const wrapper = mountFunction()
 
     expect(wrapper.exists()).toBe(true)

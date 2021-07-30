@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Child Component Tests ChildComponent props confirm 1`] = `
-<div>
-  <h3>This is a child something I like</h3><button type="button" class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default primary"><span class="v-btn__content">CLICK ME</span></button>
-  <h4>1</h4>
-</div>
-`;
