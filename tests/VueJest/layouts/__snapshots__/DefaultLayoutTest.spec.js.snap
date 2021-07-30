@@ -2,13 +2,13 @@
 
 exports[`App Component Tests App renders properly 1`] = `
 <v-app-stub id="app">
-  <topbar-stub toggle="function () { [native code] }"></topbar-stub>
-  <sidebar-stub drawer="[object Object]"></sidebar-stub>
-  <snackbar-stub></snackbar-stub>
-  <v-main-stub tag="main" style="background-color: rgb(236, 240, 245);">
-    <div class="px-4 pb-4 mx-auto" style="max-width: 1280px;"></div>
+  <appbar-stub toggle="[Function]" toggleside="[Function]"></appbar-stub>
+  <navigationdrawer-stub drawer="[object Object]"></navigationdrawer-stub>
+  <settingdrawer-stub sidedrawer="[object Object]"></settingdrawer-stub>
+  <v-main-stub tag="main">
+    <div class="pa-4 mx-auto" style="max-width: 1280px; height: 100%;"></div>
   </v-main-stub>
+  <snackbar-stub></snackbar-stub>
   <footer-stub></footer-stub>
-  <loading-stub></loading-stub>
 </v-app-stub>
 `;
