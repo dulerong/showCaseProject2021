@@ -4,6 +4,7 @@
   },
   "private": true,
   "scripts": {
+    "cypress": "cypress",
     "test": "jest",
     "dev": "npm run development",
     "development": "mix",
