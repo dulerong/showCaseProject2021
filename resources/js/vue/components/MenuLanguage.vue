@@ -1,7 +1,7 @@
 <template lang="pug">
 v-menu(:open-on-hover="!$_IS_TOUCH_SCREEN" transition="slide-y-transition" offset-y)
   template(v-slot:activator="{ on, attrs }")
-    v-btn(text class="pa-0" v-bind="attrs" v-on="on")
+    v-btn(text class="pa-0" v-bind="attrs" v-on="on" data-testid="menu-language")
       v-icon mdi-translate
       v-icon(small) mdi-chevron-down
   v-card(class="px-2")
