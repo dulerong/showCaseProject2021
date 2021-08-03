@@ -8367,7 +8367,10 @@ var render = function() {
                 "v-btn",
                 _vm._g(
                   _vm._b(
-                    { staticClass: "pa-0", attrs: { text: "" } },
+                    {
+                      staticClass: "pa-0",
+                      attrs: { text: "", "data-testid": "menu-language" }
+                    },
                     "v-btn",
                     attrs,
                     false
