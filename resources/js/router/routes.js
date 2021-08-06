@@ -11,6 +11,7 @@ import LoginPage from '~pages/LoginPage'
 import StatPage from '~pages/StatPage'
 import NotFoundPage from '~pages/NotFoundPage'
 import AboutPage from '~pages/AboutPage'
+import JapanPopulationPage from '~pages/JapanPopulationPage'
 
 // import { store } from './store'
 import i18n from '../i18n'
@@ -42,6 +43,12 @@ export default [
         path: routePath.stat.path,
         name: routePath.stat.name,
         component: StatPage,
+        meta: { layout: DefaultLayout }
+      },
+      {
+        path: routePath.japanPopulation.path,
+        name: routePath.japanPopulation.name,
+        component: JapanPopulationPage,
         meta: { layout: DefaultLayout }
       },
       {
