@@ -25,6 +25,12 @@ export const routePath = {
     name: 'stat',
     icon: 'mdi-file-chart'
   },
+  japanPopulation: {
+    title: 'Japan Population',
+    path: 'japan-population',
+    name: 'japanPopulation',
+    icon: 'mdi-baby-face-outline'
+  },
   login: {
     title: 'LOGIN',
     path: 'login', 
@@ -58,6 +64,7 @@ export const navigation = [
     children: [
       routePath.home,
       routePath.stat,
+      routePath.japanPopulation
     ]
   },
   // {
