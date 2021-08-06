@@ -20,7 +20,8 @@ export const language = {
         name: 'GENERAL',
         children: {
           home: 'Home',
-          stat: 'Statistics'
+          stat: 'Statistics',
+          japanPopulation: 'Japan Population Trend'
         }
       }
     },
@@ -155,7 +156,8 @@ export const language = {
         name: '一般',
         children: {
           home: '首頁',
-          stat: '統計數據'
+          stat: '統計數據',
+          japanPopulation: '日本人口推移'
         }
       }
     },

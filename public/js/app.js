@@ -2268,6 +2268,76 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/pages/JapanPopulationPage.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/pages/JapanPopulationPage.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  created: function created() {
+    var LIST = this.$_prefectures.map(function (item, i) {
+      return {
+        name: item,
+        code: i + 1
+      };
+    });
+    this.prefectureList = LIST;
+  },
+  data: function data() {
+    return {
+      prefectureList: null,
+      prefectureSelected: [],
+      data: []
+    };
+  },
+  watch: {
+    prefectureSelected: function prefectureSelected(val, oldVal) {
+      var DIFF = val.find(function (item) {
+        return !oldVal.includes(item);
+      });
+      this.fetchData(DIFF.code);
+    }
+  },
+  methods: {
+    fetchData: function fetchData(prefCode) {
+      var API_ADDRESS = "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear";
+      var params = {
+        prefCode: prefCode
+      };
+      var headers = {
+        "Content-Type": "application/json",
+        "X-API-KEY": "aER6oVxoTRvLKp1H37p3WZDay48WGZoSYirzpSIP"
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(API_ADDRESS, {
+        params: params,
+        headers: headers
+      }).then(function (res) {
+        return console.log(res);
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/pages/LoginPage.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/pages/LoginPage.vue?vue&type=script&lang=js& ***!
@@ -2582,7 +2652,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _vue_App_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./vue/App.vue */ "./resources/js/vue/App.vue");
 /* harmony import */ var _vuetify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
 /* harmony import */ var _router___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router/ */ "./resources/js/router/index.js");
@@ -2595,6 +2665,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _plugins_checkMobile__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./plugins/checkMobile */ "./resources/js/plugins/checkMobile.js");
 /* harmony import */ var _plugins_checkScreenSize__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./plugins/checkScreenSize */ "./resources/js/plugins/checkScreenSize.js");
 /* harmony import */ var _plugins_language__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./plugins/language */ "./resources/js/plugins/language.js");
+/* harmony import */ var _plugins_japanPrefectures__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./plugins/japanPrefectures */ "./resources/js/plugins/japanPrefectures.js");
 // require('./bootstrap');
 
 
@@ -2610,8 +2681,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_12__.default.config.productionTip = false;
-new vue__WEBPACK_IMPORTED_MODULE_12__.default({
+
+vue__WEBPACK_IMPORTED_MODULE_13__.default.config.productionTip = false;
+new vue__WEBPACK_IMPORTED_MODULE_13__.default({
   el: '#app',
   vuetify: _vuetify__WEBPACK_IMPORTED_MODULE_1__.default,
   router: _router___WEBPACK_IMPORTED_MODULE_2__.default,
@@ -2848,6 +2920,24 @@ vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.$_hour_right_now = dateToday.
 
 /***/ }),
 
+/***/ "./resources/js/plugins/japanPrefectures.js":
+/*!**************************************************!*\
+  !*** ./resources/js/plugins/japanPrefectures.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "prefectures": () => (/* binding */ prefectures)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+
+var prefectures = ['北海道', '青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県', '茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', '東京都', '神奈川県', '新潟県', '富山県', '石川県', '福井県', '山梨県', '長野県', '岐阜県', '静岡県', '愛知県', '三重県', '滋賀県', '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県', '鳥取県', '島根県', '岡山県', '広島県', '山口県', '徳島県', '香川県', '愛媛県', '高知県', '福岡県', '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県'];
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_prefectures = prefectures;
+
+/***/ }),
+
 /***/ "./resources/js/plugins/language.js":
 /*!******************************************!*\
   !*** ./resources/js/plugins/language.js ***!
@@ -2881,7 +2971,8 @@ var language = {
         name: 'GENERAL',
         children: {
           home: 'Home',
-          stat: 'Statistics'
+          stat: 'Statistics',
+          japanPopulation: 'Japan Population Trend'
         }
       }
     },
@@ -3016,7 +3107,8 @@ var language = {
         name: '一般',
         children: {
           home: '首頁',
-          stat: '統計數據'
+          stat: '統計數據',
+          japanPopulation: '日本人口推移'
         }
       }
     },
@@ -3570,6 +3662,12 @@ var routePath = {
     name: 'stat',
     icon: 'mdi-file-chart'
   },
+  japanPopulation: {
+    title: 'Japan Population',
+    path: 'japan-population',
+    name: 'japanPopulation',
+    icon: 'mdi-baby-face-outline'
+  },
   login: {
     title: 'LOGIN',
     path: 'login',
@@ -3598,7 +3696,7 @@ var routePath = {
 vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_routePath = routePath;
 var navigation = [{
   title: 'GENERAL',
-  children: [routePath.home, routePath.stat]
+  children: [routePath.home, routePath.stat, routePath.japanPopulation]
 } // {
 //   title: '集計管理',
 //   children: [
@@ -3715,7 +3813,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_StatPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ~pages/StatPage */ "./resources/js/vue/pages/StatPage.vue");
 /* harmony import */ var _pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ~pages/NotFoundPage */ "./resources/js/vue/pages/NotFoundPage.vue");
 /* harmony import */ var _pages_AboutPage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ~pages/AboutPage */ "./resources/js/vue/pages/AboutPage.vue");
-/* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../i18n */ "./resources/js/i18n.js");
+/* harmony import */ var _pages_JapanPopulationPage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ~pages/JapanPopulationPage */ "./resources/js/vue/pages/JapanPopulationPage.vue");
+/* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../i18n */ "./resources/js/i18n.js");
 // route paths
  // layouts
 
@@ -3726,12 +3825,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
  // import { store } from './store'
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([{
   path: '/',
-  redirect: "/".concat(_i18n__WEBPACK_IMPORTED_MODULE_8__.default.locale)
+  redirect: "/".concat(_i18n__WEBPACK_IMPORTED_MODULE_9__.default.locale)
 }, {
   path: '/:lang',
   component: {
@@ -3757,6 +3857,13 @@ __webpack_require__.r(__webpack_exports__);
     path: _constantRoutes__WEBPACK_IMPORTED_MODULE_0__.routePath.stat.path,
     name: _constantRoutes__WEBPACK_IMPORTED_MODULE_0__.routePath.stat.name,
     component: _pages_StatPage__WEBPACK_IMPORTED_MODULE_5__.default,
+    meta: {
+      layout: _layouts_default__WEBPACK_IMPORTED_MODULE_1__.default
+    }
+  }, {
+    path: _constantRoutes__WEBPACK_IMPORTED_MODULE_0__.routePath.japanPopulation.path,
+    name: _constantRoutes__WEBPACK_IMPORTED_MODULE_0__.routePath.japanPopulation.name,
+    component: _pages_JapanPopulationPage__WEBPACK_IMPORTED_MODULE_8__.default,
     meta: {
       layout: _layouts_default__WEBPACK_IMPORTED_MODULE_1__.default
     }
@@ -7385,6 +7492,45 @@ component.options.__file = "resources/js/vue/pages/HomePage.vue"
 
 /***/ }),
 
+/***/ "./resources/js/vue/pages/JapanPopulationPage.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/vue/pages/JapanPopulationPage.vue ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _JapanPopulationPage_vue_vue_type_template_id_c90e5b40_lang_pug___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./JapanPopulationPage.vue?vue&type=template&id=c90e5b40&lang=pug& */ "./resources/js/vue/pages/JapanPopulationPage.vue?vue&type=template&id=c90e5b40&lang=pug&");
+/* harmony import */ var _JapanPopulationPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./JapanPopulationPage.vue?vue&type=script&lang=js& */ "./resources/js/vue/pages/JapanPopulationPage.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _JapanPopulationPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _JapanPopulationPage_vue_vue_type_template_id_c90e5b40_lang_pug___WEBPACK_IMPORTED_MODULE_0__.render,
+  _JapanPopulationPage_vue_vue_type_template_id_c90e5b40_lang_pug___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/vue/pages/JapanPopulationPage.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/vue/pages/LoginPage.vue":
 /*!**********************************************!*\
   !*** ./resources/js/vue/pages/LoginPage.vue ***!
@@ -7678,6 +7824,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/vue/pages/JapanPopulationPage.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/vue/pages/JapanPopulationPage.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_JapanPopulationPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./JapanPopulationPage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/pages/JapanPopulationPage.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_JapanPopulationPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/vue/pages/LoginPage.vue?vue&type=script&lang=js&":
 /*!***********************************************************************!*\
   !*** ./resources/js/vue/pages/LoginPage.vue?vue&type=script&lang=js& ***!
@@ -7943,6 +8105,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_HomePage_vue_vue_type_template_id_58d433c0_lang_pug___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_HomePage_vue_vue_type_template_id_58d433c0_lang_pug___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/pug-plain-loader/index.js!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HomePage.vue?vue&type=template&id=58d433c0&lang=pug& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/pages/HomePage.vue?vue&type=template&id=58d433c0&lang=pug&");
+
+
+/***/ }),
+
+/***/ "./resources/js/vue/pages/JapanPopulationPage.vue?vue&type=template&id=c90e5b40&lang=pug&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/vue/pages/JapanPopulationPage.vue?vue&type=template&id=c90e5b40&lang=pug& ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_JapanPopulationPage_vue_vue_type_template_id_c90e5b40_lang_pug___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_JapanPopulationPage_vue_vue_type_template_id_c90e5b40_lang_pug___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_JapanPopulationPage_vue_vue_type_template_id_c90e5b40_lang_pug___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/pug-plain-loader/index.js!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./JapanPopulationPage.vue?vue&type=template&id=c90e5b40&lang=pug& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/pages/JapanPopulationPage.vue?vue&type=template&id=c90e5b40&lang=pug&");
 
 
 /***/ }),
@@ -8936,6 +9115,65 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("h1", [_vm._v(_vm._s(_vm.$t("home.title")))])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/pages/JapanPopulationPage.vue?vue&type=template&id=c90e5b40&lang=pug&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/pages/JapanPopulationPage.vue?vue&type=template&id=c90e5b40&lang=pug& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("h1", [_vm._v("Japan Population Page")]),
+      _vm.prefectureList
+        ? _c(
+            "v-row",
+            { attrs: { "no-gutters": "" } },
+            [
+              _c("v-select", {
+                attrs: {
+                  label: "prefectures",
+                  items: _vm.prefectureList,
+                  "item-text": "name",
+                  "item-value": "code",
+                  "return-object": "",
+                  multiple: "",
+                  chips: "",
+                  clearable: ""
+                },
+                model: {
+                  value: _vm.prefectureSelected,
+                  callback: function($$v) {
+                    _vm.prefectureSelected = $$v
+                  },
+                  expression: "prefectureSelected"
+                }
+              })
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

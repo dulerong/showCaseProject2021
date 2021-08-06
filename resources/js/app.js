@@ -15,6 +15,7 @@ import './plugins/statPageConstants'
 import './plugins/checkMobile'
 import './plugins/checkScreenSize'
 import './plugins/language'
+import './plugins/japanPrefectures'
 
 Vue.config.productionTip = false
 
