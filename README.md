@@ -23,20 +23,20 @@ Two layouts
 
 Web app constructed with Vue.js framework, with the following ecosystem.
 
-- [Vue Router](https://router.vuejs.org/)
-- [Vuex](https://vuex.vuejs.org/)
-- [Vuetify](https://vuetifyjs.com/en/)
-- [Vue-i18n](https://kazupon.github.io/vue-i18n/)
-- [Axios](https://axios-http.com/)
-- [Vue-test-utils](https://vue-test-utils.vuejs.org/)
-- [Jest](https://jestjs.io/)
-- [Cypress](https://www.cypress.io/)
-- [Pug](https://pugjs.org/api/getting-started.html)
+- [Vue Router](https://router.vuejs.org/): client-side navigation and routing
+- [Vuex](https://vuex.vuejs.org/): state management
+- [Vuetify](https://vuetifyjs.com/en/): component styling
+- [Vue-i18n](https://kazupon.github.io/vue-i18n/): multi-language internationalization
+- [Axios](https://axios-http.com/): api call
+- [Vue-test-utils](https://vue-test-utils.vuejs.org/): componet testing
+- [Jest](https://jestjs.io/): unit testing
+- [Cypress](https://www.cypress.io/): end-to-end testing
+- [Pug](https://pugjs.org/api/getting-started.html): concise HTML template
 
 Also, the following plugins
 
-- [Day.js](https://day.js.org/)
-- [ApexCharts](https://apexcharts.com/)
+- [Day.js](https://day.js.org/): date object library
+- [ApexCharts](https://apexcharts.com/): charting library
 
 ## About this repository (Back end)
 
