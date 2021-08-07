@@ -10,7 +10,6 @@ import i18n from './i18n'
 // below are plugins
 import './axios'
 import './plugins/day'
-import './plugins/validation'
 import './plugins/statPageConstants'
 import './plugins/checkMobile'
 import './plugins/checkScreenSize'
