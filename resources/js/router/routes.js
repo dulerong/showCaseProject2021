@@ -10,7 +10,6 @@ import HomePage from '~pages/HomePage'
 import LoginPage from '~pages/LoginPage'
 import StatPage from '~pages/StatPage'
 import NotFoundPage from '~pages/NotFoundPage'
-import AboutPage from '~pages/AboutPage'
 import JapanPopulationPage from '~pages/JapanPopulationPage'
 
 // import { store } from './store'
@@ -27,12 +26,6 @@ export default [
       render (c) { return c('router-view') }
     },
     children: [
-      {
-        path: 'about',
-        name: 'about',
-        component: AboutPage,
-        meta: { layout: DefaultLayout }
-      },
       {
         path: routePath.home.path,
         name: routePath.home.name,
