@@ -1984,6 +1984,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  created: function created() {
+    console.log(this.$vuetify.theme.dark);
+  },
   props: {
     chartData: {
       type: Array,
@@ -1992,7 +1995,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     chartOptions: function chartOptions() {
+      var THEME_MODE = this.$vuetify.theme.dark ? 'dark' : 'light';
       return {
+        theme: {
+          mode: THEME_MODE
+        },
         chart: {
           height: 350,
           type: 'line',
@@ -3233,6 +3240,7 @@ __webpack_require__.r(__webpack_exports__);
 var language = {
   en: {
     appBar: {
+      otherSettings: 'Other Settings',
       translate: 'Languages',
       userButton: {
         profile: 'Profile',
@@ -3384,7 +3392,8 @@ var language = {
   },
   ch: {
     appBar: {
-      translate: '其他語言',
+      otherSettings: '其他設定',
+      translate: '語言',
       userButton: {
         profile: '個人檔案',
         logout: '登出'
@@ -9323,7 +9332,7 @@ var render = function() {
       _c("MenuLanguage"),
       _c(
         "ToolTip",
-        { attrs: { message: _vm.$t("appBar.translate") } },
+        { attrs: { message: _vm.$t("appBar.otherSettings") } },
         [
           _c(
             "v-btn",
