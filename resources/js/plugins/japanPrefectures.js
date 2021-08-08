@@ -50,4 +50,4 @@ export const prefectures = [
   '沖縄県'
 ]
 
-Vue.prototype.$_prefectures = prefectures
+Vue.prototype.$_prefectures = prefectures.map((item, i) => ({ name: item, code: i+1 }))
