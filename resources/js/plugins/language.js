@@ -118,6 +118,11 @@ export const language = {
         female: 'Female'
       }
     },
+    japanPopulation: {
+      title: 'Japan Population Trend',
+      xAxis: 'Year',
+      yAxis: 'Population',
+    },
     login: {
       greeting: {
         morning: 'Good morning',
@@ -259,6 +264,13 @@ export const language = {
       birthSex: {
         male: '男',
         female: '女'
+      }
+    },
+    japanPopulation: {
+      chart: {
+        title: '日本人口成長率',
+        xAxis: '年',
+        yAxis: '人口',
       }
     },
     login: {
