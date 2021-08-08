@@ -73,11 +73,18 @@ composer install
 npm install
 ```
 
-### Start server and compile Vue.js files
+## To start local development server, and compile Vue files
+
+### Start server
 
 ```
 php artisan serve
-npm run watch
+```
+
+### Compile Vue files
+
+```
+npm run dev
 ```
 
 ### Open browser and navigate to localhost
@@ -86,3 +93,21 @@ Default local development server hosted at one of the following, please check th
 
 - http://localhost:8000/
 - http://127.0.0.1:8000/
+
+## To test
+
+### Unit & Component testing
+
+```
+npm run test
+```
+
+### End-To-End (e2e) testing
+
+```
+npm run cypress open
+(Opens Cypress in the interactive GUI)
+
+npm run cypress run
+(Runs Cypress tests from the CLI without the GUI)
+```
