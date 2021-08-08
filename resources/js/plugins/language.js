@@ -34,7 +34,8 @@ export const language = {
     footer: {
       tooltip: {
         home: 'Home',
-        stat: 'Statistics',
+        stat: 'New Taipei City Birth Statistics',
+        japanPopulation: 'Japan Population Trend'
       }
     },
     home: {
@@ -117,6 +118,14 @@ export const language = {
         female: 'Female'
       }
     },
+    japanPopulation: {
+      title: 'Japanese Population (1960 - 2045)',
+      chart: {
+        title: 'Japan Population Trend',
+        xAxis: 'Year',
+        yAxis: 'Population',
+      },
+    },
     login: {
       greeting: {
         morning: 'Good morning',
@@ -176,7 +185,8 @@ export const language = {
     footer: {
       tooltip: {
         home: '首頁',
-        stat: '統計數據',
+        stat: '新北市出生統計數據',
+        japanPopulation: '日本人口成長率'
       }
     },
     home: {
@@ -257,6 +267,14 @@ export const language = {
       birthSex: {
         male: '男',
         female: '女'
+      }
+    },
+    japanPopulation: {
+      title: '日本人口成長遷移 (1960 - 2045)',
+      chart: {
+        title: '日本人口成長率',
+        xAxis: '年',
+        yAxis: '人口',
       }
     },
     login: {

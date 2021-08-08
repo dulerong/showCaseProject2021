@@ -43,5 +43,6 @@ Vue.prototype.$_navigation = navigation
 export const footer_navigation = [
   routePath.home,
   routePath.stat,
+  routePath.japanPopulation,
 ]
 Vue.prototype.$_footer_navigation = footer_navigation
