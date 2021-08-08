@@ -20,7 +20,7 @@ export const language = {
         name: 'GENERAL',
         children: {
           home: 'Home',
-          stat: 'Statistics',
+          stat: 'New Taipei City Birth Statistics',
           japanPopulation: 'Japan Population Trend'
         }
       }
@@ -38,7 +38,13 @@ export const language = {
       }
     },
     home: {
-      title: 'Home page (ENG), no content yet, coming soon later...7/21...'
+      title: 'Home page',
+      content: 'Currently, this web app contains the following pages',
+      page: {
+        first: 'Birth Statistics of New Taipei City',
+        second: 'Population Trend of Japan'
+      },
+      description: 'This website is constructed with Vue.js framework, with the following ecosystem'
     },
     about: {
       title: 'About Page'
@@ -156,7 +162,7 @@ export const language = {
         name: '一般',
         children: {
           home: '首頁',
-          stat: '統計數據',
+          stat: '新北市出生統計數據',
           japanPopulation: '日本人口推移'
         }
       }
@@ -174,7 +180,13 @@ export const language = {
       }
     },
     home: {
-      title: 'Home page (CHN), 目前無內容, 之後會陸續補上...7/21...'
+      title: '首頁',
+      content: '目前網頁的功能為下列',
+      page: {
+        first: '新北市出生數據統計',
+        second: '日本人口成長率'
+      },
+      description: '網站是以Vue.js為framework，並以下列的Vue ecosystem整合'
     },
     about: {
       title: '簡介'
