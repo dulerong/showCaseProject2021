@@ -15,6 +15,7 @@ import './plugins/checkMobile'
 import './plugins/checkScreenSize'
 import './plugins/language'
 import './plugins/japanPrefectures'
+import './plugins/apexcharts'
 
 Vue.config.productionTip = false
 
