@@ -119,9 +119,12 @@ export const language = {
       }
     },
     japanPopulation: {
-      title: 'Japan Population Trend',
-      xAxis: 'Year',
-      yAxis: 'Population',
+      title: 'Japanese Population (1960 - 2045)',
+      chart: {
+        title: 'Japan Population Trend',
+        xAxis: 'Year',
+        yAxis: 'Population',
+      },
     },
     login: {
       greeting: {
@@ -267,6 +270,7 @@ export const language = {
       }
     },
     japanPopulation: {
+      title: '日本人口成長遷移 (1960 - 2045)',
       chart: {
         title: '日本人口成長率',
         xAxis: '年',
