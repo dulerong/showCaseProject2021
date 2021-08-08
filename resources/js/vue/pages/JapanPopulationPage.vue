@@ -1,7 +1,7 @@
 <template lang="pug">
 div
   h1 Japan Population Page
-  v-row(v-if="prefectureList" no-gutters)
+  v-row(no-gutters)
     v-select(label="prefectures" :items="prefectureList" v-model="prefectureSelected" item-text="name" item-value="code" return-object multiple chips clearable)
 </template>
 
@@ -9,12 +9,8 @@ div
 import axios from 'axios'
 import { mapMutations } from 'vuex'
 export default {
-  created() {
-    const LIST = this.$_prefectures.map((item, i) => ({name: item, code: i+1}))
-    this.prefectureList = LIST
-  },
-  data: () => ({
-    prefectureList: null,
+  data: (vm) => ({
+    prefectureList: vm.$_prefectures,
     prefectureSelected: [],
     data: [],
     error: false,
