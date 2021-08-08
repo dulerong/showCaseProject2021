@@ -4,7 +4,7 @@ v-app-bar(app :hide-on-scroll="isHideOnScroll")
     v-app-bar-nav-icon(@click.stop="toggle" data-testid="toggleButton")
   v-spacer
   MenuLanguage
-  ToolTip(:message="$t('appBar.translate')")
+  ToolTip(:message="$t('appBar.otherSettings')")
     v-btn(icon @click.stop="toggleSide" data-testid="toggleSideButton")
       v-icon mdi-settings-outline
   v-divider(vertical class="mx-1" inset)

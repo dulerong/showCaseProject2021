@@ -3,6 +3,7 @@ import Vue from 'vue'
 export const language = {
   en: { 
     appBar: {
+      otherSettings: 'Other Settings',
       translate: 'Languages',
       userButton: {
         profile: 'Profile',
@@ -154,7 +155,8 @@ export const language = {
   },
   ch: {
     appBar: {
-      translate: '其他語言',
+      otherSettings: '其他設定',
+      translate: '語言',
       userButton: {
         profile: '個人檔案',
         logout: '登出'
