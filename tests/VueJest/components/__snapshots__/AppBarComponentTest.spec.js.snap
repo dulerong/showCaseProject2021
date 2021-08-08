@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppBar Component Page renders properly 1`] = `
+exports[`AppBar Component Renders properly 1`] = `
 <header class="v-sheet theme--light v-toolbar v-app-bar v-app-bar--fixed" style="height: 64px; margin-top: 0px; transform: translateY(0px); left: 0px; right: 0px;">
   <div class="v-toolbar__content" style="height: 64px;"><span class="v-tooltip v-tooltip--bottom"><!----><div aria-haspopup="true" aria-expanded="false"><button type="button" class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--light v-size--default" data-testid="toggleButton"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu theme--light"></i></span></button></div></span>
   <div class="spacer"></div>
