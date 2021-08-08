@@ -34,7 +34,8 @@ export const language = {
     footer: {
       tooltip: {
         home: 'Home',
-        stat: 'Statistics',
+        stat: 'New Taipei City Birth Statistics',
+        japanPopulation: 'Japan Population Trend'
       }
     },
     home: {
@@ -176,7 +177,8 @@ export const language = {
     footer: {
       tooltip: {
         home: '首頁',
-        stat: '統計數據',
+        stat: '新北市出生統計數據',
+        japanPopulation: '日本人口成長率'
       }
     },
     home: {
