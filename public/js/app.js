@@ -3662,6 +3662,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -10228,6 +10229,7 @@ var staticRenderFns = [
       _c("li", [_vm._v("Vue-test-utils")]),
       _c("li", [_vm._v("Jest")]),
       _c("li", [_vm._v("Cypress")]),
+      _c("li", [_vm._v("Eslint integrated with Prettier")]),
       _c("li", [_vm._v("Pug")]),
       _c("li", [_vm._v("Sass")]),
       _c("li", [_vm._v("Day.js")]),
