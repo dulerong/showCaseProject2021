@@ -18,6 +18,12 @@ mix.webpackConfig({
         test: /\.pug$/,
         loader: 'pug-plain-loader'
       },
+      {
+        enforce: 'pre',
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        test: /\.(js|vue)?$/ 
+      },
     ]
   }
 })
