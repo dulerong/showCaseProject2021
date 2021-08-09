@@ -17,6 +17,7 @@ div
       li Vue-test-utils
       li Jest
       li Cypress
+      li Eslint integrated with Prettier
       li Pug
       li Sass
       li Day.js
