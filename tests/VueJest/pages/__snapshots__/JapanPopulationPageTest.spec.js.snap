@@ -2,7 +2,7 @@
 
 exports[`Japan Population Page Page renders properly 1`] = `
 <div>
-  <h1>Japan Population Page</h1>
+  <h1>japanPopulation.title</h1>
   <div class="row no-gutters">
     <div class="v-input theme--light v-text-field v-select v-select--chips v-select--is-multi">
       <div class="v-input__control">
@@ -28,5 +28,6 @@ exports[`Japan Population Page Page renders properly 1`] = `
       </div>
     </div>
   </div>
+  <apexchart-stub type="line" height="350" options="[object Object]" series=""></apexchart-stub>
 </div>
 `;
