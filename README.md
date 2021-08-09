@@ -5,7 +5,7 @@ As of August 7th, 2021, this web app has the following
 ### Functionality
 
 - Check birth statistics of a city in Taiwan
-- Check Japanese population growth trend (still in construction)
+- Check Japanese population growth trend
 
 ### Layouts
 
