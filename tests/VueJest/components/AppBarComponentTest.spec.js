@@ -21,7 +21,10 @@ describe('AppBar Component', () => {
       localVue,
       vuetify,
       mocks: {
-        $t: (msg) => msg
+        $t: (msg) => msg,
+        $route: {
+          name: 'home'
+        }
       },
       stubs: {
         MenuLanguage: true,
