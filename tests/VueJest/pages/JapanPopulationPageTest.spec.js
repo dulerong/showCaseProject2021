@@ -47,7 +47,11 @@ describe('Japan Population Page', () => {
       localVue,
       vuetify,
       mocks: {
+        $t: (msg) => msg,
         $store: mockStore
+      },
+      stubs: {
+        apexchart: true,
       },
       ...options
     })
@@ -62,37 +66,37 @@ describe('Japan Population Page', () => {
 
   it('Watch prefectureSelected: upon change will trigger fetchData method with correct argument', async () => {
     const fetchDataMethod = jest.spyOn(JapanPopulationPage.methods, 'fetchData')
-    const prefectureSelected = [
-      { name: '北海道', code: 1 }
-    ]
+    const prefectureSelected = { name: '北海道', code: 1 }
     const wrapper = mountFunction()
     expect(fetchDataMethod).not.toHaveBeenCalled()
 
-    await wrapper.setData({ prefectureSelected })
-    expect(fetchDataMethod).toHaveBeenCalledWith(prefectureSelected[0].code)
+    await wrapper.setData({ prefectureSelected: [prefectureSelected] })
+    expect(fetchDataMethod).toHaveBeenCalledWith(prefectureSelected)
   })
 
   it('Method fetchData: upon trigger makes axios GET request with correct parameters', async () => {
     const wrapper = mountFunction()
+    const prefectureSelected = { name: '北海道', code: 1 }
 
     const API_ADDRESS = "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear"
-    const params = { prefCode: 1 }
+    const params = { prefCode: prefectureSelected.code }
     const headers = {
       "Content-Type": "application/json",
       "X-API-KEY": 'API_KEY'
     }
 
-    await wrapper.vm.fetchData(params.prefCode)
+    await wrapper.vm.fetchData(prefectureSelected)
     expect(url).toBe(API_ADDRESS)
     expect(config).toStrictEqual({params, headers})
   })
 
   it('Method fetchData: upon axios GET failure, triggers showNotification', async () => {
     const wrapper = mountFunction()
+    const prefectureSelected = { name: '北海道', code: 1 }
     
     mockError = true
 
-    await wrapper.vm.fetchData()
+    await wrapper.vm.fetchData(prefectureSelected)
     expect(mutations.showNotification).toHaveBeenCalled()
   })
 })
