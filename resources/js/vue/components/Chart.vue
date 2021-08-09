@@ -4,9 +4,6 @@ apexchart(ref="chart" type="line" height="350" :options="chartOptions" :series="
 
 <script>
 export default {
-  created() {
-    console.log(this.$vuetify.theme.dark)
-  },
   props: {
     chartData: {
       type: Array,
