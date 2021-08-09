@@ -72,13 +72,12 @@ Vue.prototype.$_sortMotherAges = sortMotherAges
 
 export const translateData = (data) => {
   return data
-    .map(({statistic_yyy, according, ...item}) => item)
-    .map(item => ({
-      ...item,
+    .map(({birth_count, ...item}) => ({
       site_id: translateDisctrict(item.site_id),
       mother_age: translateMotherAges(item.mother_age),
       birth_order: translateBirthOrders(item.birth_order),
-      birth_sex: translateBirthSex(item.birth_sex)
+      birth_sex: translateBirthSex(item.birth_sex),
+      birth_count
     }))
 }
 Vue.prototype.$_translateData = translateData
