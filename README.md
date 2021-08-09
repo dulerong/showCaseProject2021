@@ -32,6 +32,7 @@ Web app constructed with Vue.js framework, with the following ecosystem.
 - [Jest](https://jestjs.io/): unit testing
 - [Cypress](https://www.cypress.io/): end-to-end testing
 - [Pug](https://pugjs.org/api/getting-started.html): concise HTML template
+- [Eslint](https://eslint.org/) integrated with [Prettier](https://prettier.io/): code problem fixing & formatting
 
 Also, the following plugins
 
@@ -110,4 +111,10 @@ npm run cypress open
 
 npm run cypress run
 (Runs Cypress tests from the CLI without the GUI)
+```
+
+## To lint
+
+```
+npm run lint
 ```
