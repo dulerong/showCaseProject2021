@@ -11,7 +11,7 @@ describe("Home Page Test", () => {
     cy.contains("h1", "Home page")
   })
 
-  it("Changes language correctly, ", () => {
+  it("Changes language correctly,", () => {
     cy.get('[data-testid="menu-language"]').click()
     cy.contains("Languages")
 
