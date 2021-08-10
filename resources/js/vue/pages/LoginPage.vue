@@ -34,12 +34,6 @@ export default {
   components: {
     MenuLanguage: require('~components/MenuLanguage').default
   },
-  created() {
-    this.greetingMessage = this.makeGreetMessage()
-  },
-  updated() {
-    this.greetingMessage = this.makeGreetMessage()
-  },
   data: () => ({
     greetingMessage: null,
     username: null,
@@ -47,6 +41,12 @@ export default {
     showPassword: false,
     loading: false,
   }),
+  created() {
+    this.greetingMessage = this.makeGreetMessage()
+  },
+  updated() {
+    this.greetingMessage = this.makeGreetMessage()
+  },
   methods: {
     ...mapMutations('notification', ['showNotification']),
     makeGreetMessage() {

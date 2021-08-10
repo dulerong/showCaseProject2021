@@ -1,5 +1,5 @@
 <template lang="pug">
-apexchart(ref="chart" type="line" height="350" :options="chartOptions" :series="chartData")
+ApexChart(ref="chart" type="line" height="350" :options="chartOptions" :series="chartData")
 </template>
 
 <script>
