@@ -51,7 +51,7 @@ describe('Japan Population Page', () => {
         $store: mockStore
       },
       stubs: {
-        apexchart: true,
+        ApexChart: true,
       },
       ...options
     })
