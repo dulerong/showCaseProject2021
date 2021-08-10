@@ -3,7 +3,7 @@ v-tooltip(:bottom="isAlign('bottom')" :top="isAlign('top')" :left="isAlign('left
   template(v-slot:activator="{ on, attrs }")
     div(v-bind="attrs" v-on="on")
       slot
-  span {{ message ? message : 'ToolTip' }}
+  span {{ message }}
 </template>
 
 <script>
@@ -15,6 +15,7 @@ export default {
     },
     message: {
       type: String,
+      default: ''
     }
   },
   methods: {
