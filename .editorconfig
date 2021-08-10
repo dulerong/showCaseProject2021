@@ -1,3 +1,4 @@
+# I configured prettier to not use editorconfig, because it conflicted with prettier formatting
 root = true
 
 [*]
