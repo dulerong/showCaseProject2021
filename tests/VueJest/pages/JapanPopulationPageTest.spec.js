@@ -90,6 +90,35 @@ describe('Japan Population Page', () => {
     expect(fetchDataMethod).toHaveBeenCalledWith(prefectureSelected)
   })
 
+  it('Watch prefectureSelected: triggers removePrefecture method when user removes selected prefectures', async () => {
+    const removePrefectureMethod = jest.spyOn(JapanPopulationPage.methods, 'removePrefecture')
+    const prefectureSelected = [
+      { name: 'California' },
+      { name: 'Washington' },
+    ]
+    const data = () => ({ prefectureSelected })
+    const wrapper = mountFunction({ data })
+
+    await wrapper.setData({ prefectureSelected: prefectureSelected.slice(-1) })
+
+    expect(removePrefectureMethod).toHaveBeenCalledWith(prefectureSelected[0])
+  })
+
+  it('Method removePrefecture: removes prefecture from chartData', async () => {
+    const chartData = [
+      { name: 'California' },
+      { name: 'Washington' },
+    ]
+    const data = () => ({ chartData })
+    const wrapper = mountFunction({ data })
+
+    const deletedPrefecture = chartData[0]
+    await wrapper.vm.removePrefecture(deletedPrefecture)
+    
+    const remainingPrefecture = chartData.filter(item => item.name !== deletedPrefecture.name)
+    expect(wrapper.vm.chartData).toEqual(remainingPrefecture)
+  })
+
   it('Method fetchData: triggers axios GET request with correct parameters and return correct result', async () => {
     const wrapper = mountFunction()
     const prefectureSelected = { name: '北海道', code: 1 }
