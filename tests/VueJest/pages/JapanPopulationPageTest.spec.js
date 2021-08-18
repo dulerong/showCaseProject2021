@@ -9,6 +9,22 @@ let url = ''
 let config = {}
 let mockError = false
 
+const mockResult = {
+  data: {
+    result: {
+      data: [
+        {
+          data: [
+            { value: 1 },
+            { value: 2 },
+            { value: 3 },
+          ]
+        }
+      ]
+    }
+  }
+}
+
 jest.mock('axios', () => ({
   get: (_url, _config) => {
     return new Promise((resolve, reject) => {
@@ -16,7 +32,7 @@ jest.mock('axios', () => ({
 
       url = _url
       config = _config
-      resolve(true)
+      resolve(mockResult)
     })
   }
 }))
@@ -74,7 +90,37 @@ describe('Japan Population Page', () => {
     expect(fetchDataMethod).toHaveBeenCalledWith(prefectureSelected)
   })
 
-  it('Method fetchData: upon trigger makes axios GET request with correct parameters', async () => {
+  it('Watch prefectureSelected: triggers removePrefecture method when user removes selected prefectures', async () => {
+    const removePrefectureMethod = jest.spyOn(JapanPopulationPage.methods, 'removePrefecture')
+    const prefectureSelected = [
+      { name: 'California' },
+      { name: 'Washington' },
+    ]
+    const data = () => ({ prefectureSelected })
+    const wrapper = mountFunction({ data })
+
+    await wrapper.setData({ prefectureSelected: prefectureSelected.slice(-1) })
+
+    expect(removePrefectureMethod).toHaveBeenCalledWith(prefectureSelected[0])
+  })
+
+  it('Method removePrefecture: removes prefecture from chartData', async () => {
+    const chartData = [
+      { name: 'California' },
+      { name: 'Washington' },
+    ]
+    const data = () => ({ chartData })
+    const wrapper = mountFunction({ data })
+
+    const deletedPrefecture = chartData[0]
+    await wrapper.vm.removePrefecture(deletedPrefecture)
+    
+    const remainingPrefecture = chartData.filter(item => item.name !== deletedPrefecture.name)
+    expect(wrapper.vm.chartData).toEqual(remainingPrefecture)
+  })
+
+  it('Method fetchData: axios GET request with correct parameters and call addPrefecture method with correct arguments', async () => {
+    const addPrefectureMethod = jest.spyOn(JapanPopulationPage.methods, 'addPrefecture')
     const wrapper = mountFunction()
     const prefectureSelected = { name: '北海道', code: 1 }
 
@@ -88,6 +134,7 @@ describe('Japan Population Page', () => {
     await wrapper.vm.fetchData(prefectureSelected)
     expect(url).toBe(API_ADDRESS)
     expect(config).toStrictEqual({params, headers})
+    expect(addPrefectureMethod).toHaveBeenCalledWith([1, 2, 3], prefectureSelected.name)
   })
 
   it('Method fetchData: upon axios GET failure, triggers showNotification', async () => {
@@ -98,5 +145,16 @@ describe('Japan Population Page', () => {
 
     await wrapper.vm.fetchData(prefectureSelected)
     expect(mutations.showNotification).toHaveBeenCalled()
+  })
+
+  it('Method addPrefecture: push new prefecture data into chartData correctly', async () => {
+    const wrapper = mountFunction()
+    expect(wrapper.vm.chartData).toEqual([])
+
+    const data = [1, 2, 3]
+    const prefectureName = 'California'
+    await wrapper.vm.addPrefecture(data, prefectureName)
+
+    expect(wrapper.vm.chartData).toEqual([{ name: prefectureName, data }])
   })
 })

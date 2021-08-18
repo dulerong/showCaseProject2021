@@ -16,22 +16,16 @@ export default {
   data: () => ({
     prefectureSelected: [],
     error: false,
-    apiResponse: null,
     chartData: []
   }),
   watch: {
     prefectureSelected: async function (val, oldVal) {
-      if (val.length === 0) {
-        this.chartData = []
-      } else if (val.length < oldVal.length) {
+      if (val.length < oldVal.length) {
         const deletedPrefecture = oldVal.find(item => !val.includes(item))
-        this.chartData = this.chartData.filter(item => item.name !== deletedPrefecture.name)
+        this.removePrefecture(deletedPrefecture)
       } else {
         const newPrefecture = val.find(item => !oldVal.includes(item))
         await this.fetchData(newPrefecture)
-        
-        if (this.error) return
-        this.chartData.push({ name: newPrefecture.name, data: this.apiResponse})
       }
     },
   },
@@ -46,11 +40,20 @@ export default {
         "X-API-KEY": API_KEY
       }
       return axios.get(API_ADDRESS, { params, headers })
-        .then(res => this.apiResponse = res.data.result.data[0].data.map(item => item.value))
+        .then(res => {
+          const data = res.data.result.data[0].data.map(item => item.value)
+          this.addPrefecture(data, prefecture.name)
+        })
         .catch(() => {
           this.error = true
           this.showNotification({ message: 'Error occurred fetching data', color: 'error' })
         })
+    },
+    removePrefecture(deletedPrefecture) {
+      this.chartData = this.chartData.filter(item => item.name !== deletedPrefecture.name)
+    },
+    addPrefecture(data, prefectureName) {
+      this.chartData.push({ name: prefectureName, data })
     }
   }
 }
