@@ -119,7 +119,8 @@ describe('Japan Population Page', () => {
     expect(wrapper.vm.chartData).toEqual(remainingPrefecture)
   })
 
-  it('Method fetchData: triggers axios GET request with correct parameters and return correct result', async () => {
+  it('Method fetchData: axios GET request with correct parameters and call addPrefecture method with correct arguments', async () => {
+    const addPrefectureMethod = jest.spyOn(JapanPopulationPage.methods, 'addPrefecture')
     const wrapper = mountFunction()
     const prefectureSelected = { name: '北海道', code: 1 }
 
@@ -133,7 +134,7 @@ describe('Japan Population Page', () => {
     await wrapper.vm.fetchData(prefectureSelected)
     expect(url).toBe(API_ADDRESS)
     expect(config).toStrictEqual({params, headers})
-    expect(wrapper.vm.apiResponse).toEqual([1, 2, 3])
+    expect(addPrefectureMethod).toHaveBeenCalledWith([1, 2, 3], prefectureSelected.name)
   })
 
   it('Method fetchData: upon axios GET failure, triggers showNotification', async () => {
@@ -144,5 +145,16 @@ describe('Japan Population Page', () => {
 
     await wrapper.vm.fetchData(prefectureSelected)
     expect(mutations.showNotification).toHaveBeenCalled()
+  })
+
+  it('Method addPrefecture: push new prefecture data into chartData correctly', async () => {
+    const wrapper = mountFunction()
+    expect(wrapper.vm.chartData).toEqual([])
+
+    const data = [1, 2, 3]
+    const prefectureName = 'California'
+    await wrapper.vm.addPrefecture(data, prefectureName)
+
+    expect(wrapper.vm.chartData).toEqual([{ name: prefectureName, data }])
   })
 })
