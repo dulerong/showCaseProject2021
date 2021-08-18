@@ -21,9 +21,7 @@ export default {
   }),
   watch: {
     prefectureSelected: async function (val, oldVal) {
-      if (val.length === 0) {
-        this.chartData = []
-      } else if (val.length < oldVal.length) {
+      if (val.length < oldVal.length) {
         const deletedPrefecture = oldVal.find(item => !val.includes(item))
         this.chartData = this.chartData.filter(item => item.name !== deletedPrefecture.name)
       } else {
