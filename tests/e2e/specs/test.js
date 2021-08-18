@@ -38,4 +38,11 @@ describe('Route tests', () => {
     cy.contains('Japanese Population (1960 - 2045)')
     cy.url().should('eq', 'http://127.0.0.1:8000/en/japan-population')
   })
+
+  it('Logout page renders correctly', () => {
+    cy.get('[data-testid="profileMenu"]').click()
+    cy.contains('Logout').click()
+
+    cy.url().should('include', '/login')
+  })
 });
