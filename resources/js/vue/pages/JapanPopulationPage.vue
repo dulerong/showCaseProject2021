@@ -23,7 +23,7 @@ export default {
     prefectureSelected: async function (val, oldVal) {
       if (val.length < oldVal.length) {
         const deletedPrefecture = oldVal.find(item => !val.includes(item))
-        this.chartData = this.chartData.filter(item => item.name !== deletedPrefecture.name)
+        this.removePrefecture(deletedPrefecture)
       } else {
         const newPrefecture = val.find(item => !oldVal.includes(item))
         await this.fetchData(newPrefecture)
@@ -49,6 +49,9 @@ export default {
           this.error = true
           this.showNotification({ message: 'Error occurred fetching data', color: 'error' })
         })
+    },
+    removePrefecture(deletedPrefecture) {
+      this.chartData = this.chartData.filter(item => item.name !== deletedPrefecture.name)
     }
   }
 }
