@@ -1,7 +1,7 @@
 <template lang="pug">
 v-menu(:open-on-hover="!$_IS_TOUCH_SCREEN" transition="slide-y-transition" offset-y)
   template(v-slot:activator="{ on, attrs}")
-    v-btn(depressed height="100%" v-bind="attrs" v-on="on")
+    v-btn(depressed height="100%" v-bind="attrs" v-on="on" data-testid="profileMenu")
       v-toolbar-title Username
   v-card(class="pa-3")
     v-list
