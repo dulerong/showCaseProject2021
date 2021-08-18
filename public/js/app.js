@@ -2087,7 +2087,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_1__.default.use((vue_apexcharts__WEBPACK_IMPORTED_MODULE_0___default()));
-vue__WEBPACK_IMPORTED_MODULE_1__.default.component('apexchart', (vue_apexcharts__WEBPACK_IMPORTED_MODULE_0___default()));
+vue__WEBPACK_IMPORTED_MODULE_1__.default.component('ApexChart', (vue_apexcharts__WEBPACK_IMPORTED_MODULE_0___default()));
 
 /***/ }),
 
@@ -3221,9 +3221,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  created: function created() {
-    console.log(this.$vuetify.theme.dark);
-  },
   props: {
     chartData: {
       type: Array,
@@ -3537,7 +3534,8 @@ __webpack_require__.r(__webpack_exports__);
       "default": 'bottom'
     },
     message: {
-      type: String
+      type: String,
+      "default": ''
     }
   },
   methods: {
@@ -3713,7 +3711,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       prefectureSelected: [],
       error: false,
-      apiResponse: null,
       chartData: []
     };
   },
@@ -3725,52 +3722,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!(val.length === 0)) {
-                  _context.next = 4;
-                  break;
-                }
-
-                this.chartData = [];
-                _context.next = 15;
-                break;
-
-              case 4:
                 if (!(val.length < oldVal.length)) {
-                  _context.next = 9;
+                  _context.next = 5;
                   break;
                 }
 
                 deletedPrefecture = oldVal.find(function (item) {
                   return !val.includes(item);
                 });
-                this.chartData = this.chartData.filter(function (item) {
-                  return item.name !== deletedPrefecture.name;
-                });
-                _context.next = 15;
+                this.removePrefecture(deletedPrefecture);
+                _context.next = 8;
                 break;
 
-              case 9:
+              case 5:
                 newPrefecture = val.find(function (item) {
                   return !oldVal.includes(item);
                 });
-                _context.next = 12;
+                _context.next = 8;
                 return this.fetchData(newPrefecture);
 
-              case 12:
-                if (!this.error) {
-                  _context.next = 14;
-                  break;
-                }
-
-                return _context.abrupt("return");
-
-              case 14:
-                this.chartData.push({
-                  name: newPrefecture.name,
-                  data: this.apiResponse
-                });
-
-              case 15:
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -3808,9 +3779,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   params: params,
                   headers: headers
                 }).then(function (res) {
-                  return _this.apiResponse = res.data.result.data[0].data.map(function (item) {
+                  var data = res.data.result.data[0].data.map(function (item) {
                     return item.value;
                   });
+
+                  _this.addPrefecture(data, prefecture.name);
                 })["catch"](function () {
                   _this.error = true;
 
@@ -3833,7 +3806,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return fetchData;
-    }()
+    }(),
+    removePrefecture: function removePrefecture(deletedPrefecture) {
+      this.chartData = this.chartData.filter(function (item) {
+        return item.name !== deletedPrefecture.name;
+      });
+    },
+    addPrefecture: function addPrefecture(data, prefectureName) {
+      this.chartData.push({
+        name: prefectureName,
+        data: data
+      });
+    }
   })
 });
 
@@ -3892,12 +3876,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     MenuLanguage: __webpack_require__(/*! ~components/MenuLanguage */ "./resources/js/vue/components/MenuLanguage.vue").default
   },
-  created: function created() {
-    this.greetingMessage = this.makeGreetMessage();
-  },
-  updated: function updated() {
-    this.greetingMessage = this.makeGreetMessage();
-  },
   data: function data() {
     return {
       greetingMessage: null,
@@ -3906,6 +3884,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       showPassword: false,
       loading: false
     };
+  },
+  created: function created() {
+    this.greetingMessage = this.makeGreetMessage();
+  },
+  updated: function updated() {
+    this.greetingMessage = this.makeGreetMessage();
   },
   methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('notification', ['showNotification'])), {}, {
     makeGreetMessage: function makeGreetMessage() {
@@ -9514,7 +9498,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("apexchart", {
+  return _c("ApexChart", {
     ref: "chart",
     attrs: {
       type: "line",
@@ -10079,7 +10063,7 @@ var render = function() {
         true
       )
     },
-    [_c("span", [_vm._v(_vm._s(_vm.message ? _vm.message : "ToolTip"))])]
+    [_c("span", [_vm._v(_vm._s(_vm.message))])]
   )
 }
 var staticRenderFns = []
