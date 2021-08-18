@@ -9,6 +9,22 @@ let url = ''
 let config = {}
 let mockError = false
 
+const mockResult = {
+  data: {
+    result: {
+      data: [
+        {
+          data: [
+            { value: 1 },
+            { value: 2 },
+            { value: 3 },
+          ]
+        }
+      ]
+    }
+  }
+}
+
 jest.mock('axios', () => ({
   get: (_url, _config) => {
     return new Promise((resolve, reject) => {
@@ -16,7 +32,7 @@ jest.mock('axios', () => ({
 
       url = _url
       config = _config
-      resolve(true)
+      resolve(mockResult)
     })
   }
 }))
@@ -74,7 +90,7 @@ describe('Japan Population Page', () => {
     expect(fetchDataMethod).toHaveBeenCalledWith(prefectureSelected)
   })
 
-  it('Method fetchData: upon trigger makes axios GET request with correct parameters', async () => {
+  it('Method fetchData: triggers axios GET request with correct parameters and return correct result', async () => {
     const wrapper = mountFunction()
     const prefectureSelected = { name: '北海道', code: 1 }
 
@@ -88,6 +104,7 @@ describe('Japan Population Page', () => {
     await wrapper.vm.fetchData(prefectureSelected)
     expect(url).toBe(API_ADDRESS)
     expect(config).toStrictEqual({params, headers})
+    expect(wrapper.vm.apiResponse).toEqual([1, 2, 3])
   })
 
   it('Method fetchData: upon axios GET failure, triggers showNotification', async () => {
