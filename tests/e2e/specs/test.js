@@ -20,7 +20,7 @@ describe('Route tests', () => {
     cy.contains('Languages')
 
     cy.contains('中文').click()
-    cy.url().should('eq', 'http://127.0.0.1:8000/ch/')
+    cy.url().should('include', '/ch')
   })
 
   it('New Taipei City Statistics page renders correctly', () => {
@@ -28,7 +28,7 @@ describe('Route tests', () => {
     cy.contains('New Taipei City').click()
 
     cy.contains('New Taipei City Birth Statistics')
-    cy.url().should('eq', 'http://127.0.0.1:8000/en/stat')
+    cy.url().should('include', '/stat')
   })
 
   it('Japan population page renders correctly', () => {
@@ -36,7 +36,7 @@ describe('Route tests', () => {
     cy.contains('Japan Population Trend').click()
 
     cy.contains('Japanese Population (1960 - 2045)')
-    cy.url().should('eq', 'http://127.0.0.1:8000/en/japan-population')
+    cy.url().should('include', '/japan-population')
   })
 
   it('Logout page renders correctly', () => {
