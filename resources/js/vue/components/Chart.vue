@@ -60,10 +60,6 @@ export default {
             show: false
           }
         },
-        // colors: ['#77B6EA', '#545454'],
-        // dataLabels: {
-        //   enabled: true,
-        // },
         stroke: {
           curve: 'smooth'
         },
