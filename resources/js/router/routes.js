@@ -13,13 +13,13 @@ import NotFoundPage from '~pages/NotFoundPage'
 import JapanPopulationPage from '~pages/JapanPopulationPage'
 
 // import { store } from './store'
-import i18n from '../i18n'
+// import i18n from '../i18n'
 
 export default [
-  {
-    path: '/',
-    redirect: `/${i18n.locale}`
-  },
+  // {
+  //   path: '/',
+  //   redirect: `/${i18n.locale}`
+  // },
   {
     path: '/:lang',
     component: {
