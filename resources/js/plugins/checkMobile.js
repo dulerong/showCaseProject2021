@@ -23,3 +23,16 @@ Vue.prototype.$_IS_TOUCH_SCREEN = IS_TOUCH_SCREEN()
 const IS_DARK = window.matchMedia('(prefers-color-scheme: dark)').matches
 
 Vue.prototype.$_IS_DARK = IS_DARK
+
+// detetct user browser preferred language
+export const AVAILABLE_LANG_LIST = [
+  { title: 'English', value: 'en' },
+  { title: '中文', value: 'zh' },
+]
+const navigatorLangList = navigator.languages
+const preferredLang = navigatorLangList[0]
+
+export const USER_PREFER_LANG = AVAILABLE_LANG_LIST.find(item => preferredLang.includes(item.value)).value
+
+Vue.prototype.$_AVAILABLE_LANG_LIST = AVAILABLE_LANG_LIST
+Vue.prototype.$_USER_PREFER_LANG = USER_PREFER_LANG
