@@ -153,7 +153,7 @@ export const language = {
       title: 'Page Not Found'
     }
   },
-  ch: {
+  zh: {
     appBar: {
       otherSettings: '其他設定',
       translate: '語言',

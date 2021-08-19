@@ -2099,6 +2099,10 @@ vue__WEBPACK_IMPORTED_MODULE_1__.default.component('ApexChart', (vue_apexcharts_
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AVAILABLE_LANG_LIST": () => (/* binding */ AVAILABLE_LANG_LIST),
+/* harmony export */   "USER_PREFER_LANG": () => (/* binding */ USER_PREFER_LANG)
+/* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
  // const USER_AGENT_DATA_MOBILE = navigator.userAgentData.mobile
 
@@ -2115,7 +2119,25 @@ var IS_TOUCH_SCREEN = function IS_TOUCH_SCREEN() {
 }; // iOS 12 or below has no navigator.maxTouchPoints, hence need to check userAgent
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_IS_TOUCH_SCREEN = IS_TOUCH_SCREEN();
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_IS_TOUCH_SCREEN = IS_TOUCH_SCREEN(); // dark-mode media query matched or not
+
+var IS_DARK = window.matchMedia('(prefers-color-scheme: dark)').matches;
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_IS_DARK = IS_DARK; // detetct user browser preferred language
+
+var AVAILABLE_LANG_LIST = [{
+  title: 'English',
+  value: 'en'
+}, {
+  title: '中文',
+  value: 'zh'
+}];
+var navigatorLangList = navigator.languages;
+var preferredLang = navigatorLangList[0];
+var USER_PREFER_LANG = AVAILABLE_LANG_LIST.find(function (item) {
+  return preferredLang.includes(item.value);
+}).value;
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_AVAILABLE_LANG_LIST = AVAILABLE_LANG_LIST;
+vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_USER_PREFER_LANG = USER_PREFER_LANG;
 
 /***/ }),
 
@@ -2353,7 +2375,7 @@ var language = {
       title: 'Page Not Found'
     }
   },
-  ch: {
+  zh: {
     appBar: {
       otherSettings: '其他設定',
       translate: '語言',
@@ -2860,18 +2882,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes */ "./resources/js/router/routes.js");
 /* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../i18n */ "./resources/js/i18n.js");
 /* harmony import */ var _vuetify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../vuetify */ "./resources/js/vuetify.js");
+/* harmony import */ var _js_plugins_checkMobile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ~js/plugins/checkMobile */ "./resources/js/plugins/checkMobile.js");
 
 
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_3__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_4__.default);
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
+
+vue__WEBPACK_IMPORTED_MODULE_4__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_5__.default);
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__.default({
   routes: _routes__WEBPACK_IMPORTED_MODULE_0__.default,
   mode: 'history',
   scrollBehavior: function scrollBehavior(to, from) {
@@ -2882,10 +2906,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
     };
   }
 });
-var langList = ['en', 'ch'];
+var langList = _js_plugins_checkMobile__WEBPACK_IMPORTED_MODULE_3__.AVAILABLE_LANG_LIST.map(function (item) {
+  return item.value;
+});
 router.beforeEach(function (to, from, next) {
-  var lang = to.params.lang;
-  if (!langList.includes(lang)) return next('en'); // if requested language not available, set locale to english and redirect to homepage
+  var lang = to.params.lang; // if requested language not available, set locale to user preferred language and redirect to homepage
+
+  if (!langList.includes(lang)) {
+    return next(_js_plugins_checkMobile__WEBPACK_IMPORTED_MODULE_3__.USER_PREFER_LANG);
+  }
 
   _i18n__WEBPACK_IMPORTED_MODULE_1__.default.locale = lang; // set current language for i18n.
 
@@ -2916,7 +2945,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_StatPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ~pages/StatPage */ "./resources/js/vue/pages/StatPage.vue");
 /* harmony import */ var _pages_NotFoundPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ~pages/NotFoundPage */ "./resources/js/vue/pages/NotFoundPage.vue");
 /* harmony import */ var _pages_JapanPopulationPage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ~pages/JapanPopulationPage */ "./resources/js/vue/pages/JapanPopulationPage.vue");
-/* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../i18n */ "./resources/js/i18n.js");
 // route paths
  // layouts
 
@@ -2928,12 +2956,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // import { store } from './store'
+// import i18n from '../i18n'
 
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([{
-  path: '/',
-  redirect: "/".concat(_i18n__WEBPACK_IMPORTED_MODULE_8__.default.locale)
-}, {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([// {
+//   path: '/',
+//   redirect: `/${i18n.locale}`
+// },
+{
   path: '/:lang',
   component: {
     render: function render(c) {
@@ -3087,7 +3116,7 @@ var opts = {
   lang: {
     locales: {
       en: vuetify_es5_locale_en__WEBPACK_IMPORTED_MODULE_3__.default,
-      ch: vuetify_es5_locale_zh_Hant__WEBPACK_IMPORTED_MODULE_4__.default
+      zh: vuetify_es5_locale_zh_Hant__WEBPACK_IMPORTED_MODULE_4__.default
     },
     current: 'en'
   },
@@ -3228,11 +3257,39 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
+    themeMode: function themeMode() {
+      return this.$vuetify.theme.dark ? 'dark' : 'light';
+    },
+    chartTitle: function chartTitle() {
+      return {
+        text: this.$t("japanPopulation.chart.title"),
+        align: 'left'
+      };
+    },
+    chartXAxis: function chartXAxis() {
+      return {
+        categories: ['1960', '1965', '1970', '1975', '1980', '1985', '1990', '1995', '2000', '2005', '2010', '2015', '2020', '2025', '2030', '2035', '2040', '2045'],
+        title: {
+          text: this.$t("japanPopulation.chart.xAxis")
+        }
+      };
+    },
+    chartYAxis: function chartYAxis() {
+      return {
+        title: {
+          text: this.$t("japanPopulation.chart.yAxis")
+        },
+        labels: {
+          formatter: function formatter(val) {
+            return val.toLocaleString();
+          }
+        }
+      };
+    },
     chartOptions: function chartOptions() {
-      var THEME_MODE = this.$vuetify.theme.dark ? 'dark' : 'light';
       return {
         theme: {
-          mode: THEME_MODE
+          mode: this.themeMode
         },
         chart: {
           height: 350,
@@ -3249,17 +3306,10 @@ __webpack_require__.r(__webpack_exports__);
             show: false
           }
         },
-        // colors: ['#77B6EA', '#545454'],
-        // dataLabels: {
-        //   enabled: true,
-        // },
         stroke: {
           curve: 'smooth'
         },
-        title: {
-          text: this.$t("japanPopulation.chart.title"),
-          align: 'left'
-        },
+        title: this.chartTitle,
         grid: {
           borderColor: '#e7e7e7',
           row: {
@@ -3271,22 +3321,8 @@ __webpack_require__.r(__webpack_exports__);
         markers: {
           size: 1
         },
-        xaxis: {
-          categories: ['1960', '1965', '1970', '1975', '1980', '1985', '1990', '1995', '2000', '2005', '2010', '2015', '2020', '2025', '2030', '2035', '2040', '2045'],
-          title: {
-            text: this.$t("japanPopulation.chart.xAxis")
-          }
-        },
-        yaxis: {
-          title: {
-            text: this.$t("japanPopulation.chart.yAxis")
-          },
-          labels: {
-            formatter: function formatter(val) {
-              return val.toLocaleString();
-            }
-          }
-        },
+        xaxis: this.chartXAxis,
+        yaxis: this.chartYAxis,
         legend: {
           position: 'top',
           horizontalAlign: 'right',
@@ -3359,19 +3395,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      listLanguages: [{
-        title: 'English',
-        value: 'en'
-      }, {
-        title: '中文',
-        value: 'ch'
-      }]
-    };
-  }
-});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
 
@@ -3463,6 +3487,9 @@ __webpack_require__.r(__webpack_exports__);
     isDark: function isDark() {
       return this.$vuetify.theme.dark;
     }
+  },
+  created: function created() {
+    this.$_IS_DARK ? this.toggleThemeDark() : this.toggleThemeLight();
   },
   methods: {
     toggleThemeLight: function toggleThemeLight() {
@@ -3727,7 +3754,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   break;
                 }
 
-                deletedPrefecture = oldVal.find(function (item) {
+                deletedPrefecture = oldVal.filter(function (item) {
                   return !val.includes(item);
                 });
                 this.removePrefecture(deletedPrefecture);
@@ -3809,7 +3836,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }(),
     removePrefecture: function removePrefecture(deletedPrefecture) {
       this.chartData = this.chartData.filter(function (item) {
-        return item.name !== deletedPrefecture.name;
+        return !deletedPrefecture.some(function (pref) {
+          return pref.name === item.name;
+        });
       });
     },
     addPrefecture: function addPrefecture(data, prefectureName) {
@@ -9379,7 +9408,13 @@ var render = function() {
                 "v-btn",
                 _vm._g(
                   _vm._b(
-                    { attrs: { depressed: "", height: "100%" } },
+                    {
+                      attrs: {
+                        depressed: "",
+                        height: "100%",
+                        "data-testid": "profileMenu"
+                      }
+                    },
                     "v-btn",
                     attrs,
                     false
@@ -9683,7 +9718,7 @@ var render = function() {
                 ],
                 1
               ),
-              _vm._l(_vm.listLanguages, function(item, i) {
+              _vm._l(_vm.$_AVAILABLE_LANG_LIST, function(item, i) {
                 return _c(
                   "v-list-item",
                   {

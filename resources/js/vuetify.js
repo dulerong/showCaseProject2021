@@ -3,14 +3,14 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
 // Translation provided by Vuetify (javascript)
-import ch from 'vuetify/es5/locale/zh-Hant'
+import zh from 'vuetify/es5/locale/zh-Hant'
 import en from 'vuetify/es5/locale/en'
 
 Vue.use(Vuetify)
 
 const opts = {
   lang: {
-    locales: { en, ch },
+    locales: { en, zh },
     current: 'en'
   },
   theme: {

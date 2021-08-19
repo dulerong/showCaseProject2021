@@ -30,6 +30,11 @@ export default {
       return this.$vuetify.theme.dark
     }
   },
+  created() {
+    this.$_IS_DARK ?
+      this.toggleThemeDark() :
+      this.toggleThemeLight()
+  },
   methods: {
     toggleThemeLight() {
       this.$vuetify.theme.dark = false
