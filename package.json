@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "lint": "./node_modules/.bin/eslint resources/js/ tests/ --ext .js,.vue",
-    "cypress": "cypress",
+    "cypress": "cypress open",
     "cy:run:firefox": "cypress run --browser firefox",
     "cy:run:chrome": "cypress run --browser chrome",
     "cy:run:edge": "cypress run --browser edge",
