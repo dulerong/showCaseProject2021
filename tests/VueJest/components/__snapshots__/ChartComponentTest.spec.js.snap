@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SettingDrawer Component Renders properly 1`] = `<apexchart-stub type="line" height="350" options="[object Object]" series=""></apexchart-stub>`;

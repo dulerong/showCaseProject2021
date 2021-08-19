@@ -21,7 +21,7 @@ export default {
   watch: {
     prefectureSelected: async function (val, oldVal) {
       if (val.length < oldVal.length) {
-        const deletedPrefecture = oldVal.find(item => !val.includes(item))
+        const deletedPrefecture = oldVal.filter(item => !val.includes(item))
         this.removePrefecture(deletedPrefecture)
       } else {
         const newPrefecture = val.find(item => !oldVal.includes(item))
@@ -50,7 +50,7 @@ export default {
         })
     },
     removePrefecture(deletedPrefecture) {
-      this.chartData = this.chartData.filter(item => item.name !== deletedPrefecture.name)
+      this.chartData = this.chartData.filter(item => !deletedPrefecture.some(pref => pref.name === item.name))
     },
     addPrefecture(data, prefectureName) {
       this.chartData.push({ name: prefectureName, data })

@@ -101,7 +101,7 @@ describe('Japan Population Page', () => {
 
     await wrapper.setData({ prefectureSelected: prefectureSelected.slice(-1) })
 
-    expect(removePrefectureMethod).toHaveBeenCalledWith(prefectureSelected[0])
+    expect(removePrefectureMethod).toHaveBeenCalledWith(prefectureSelected.slice(0, 1))
   })
 
   it('Method removePrefecture: removes prefecture from chartData', async () => {
@@ -112,10 +112,10 @@ describe('Japan Population Page', () => {
     const data = () => ({ chartData })
     const wrapper = mountFunction({ data })
 
-    const deletedPrefecture = chartData[0]
+    const deletedPrefecture = chartData.slice(0, 1)
     await wrapper.vm.removePrefecture(deletedPrefecture)
     
-    const remainingPrefecture = chartData.filter(item => item.name !== deletedPrefecture.name)
+    const remainingPrefecture = chartData.filter(item => !deletedPrefecture.some(pref => pref.name === item.name))
     expect(wrapper.vm.chartData).toEqual(remainingPrefecture)
   })
 
