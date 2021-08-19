@@ -6,6 +6,8 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint resources/js/ tests/ --ext .js,.vue",
     "cypress": "cypress",
+    "cy:run:firefox": "cypress run --browser firefox",
+    "cy:run:chrome": "cypress run --browser chrome",
     "test": "jest",
     "dev": "npm run development",
     "development": "mix",
