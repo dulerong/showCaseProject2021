@@ -31,8 +31,9 @@ export const AVAILABLE_LANG_LIST = [
 ]
 const navigatorLangList = navigator.languages
 const preferredLang = navigatorLangList[0]
+const attemptFindLang = AVAILABLE_LANG_LIST.find(item => preferredLang.includes(item.value))
 
-export const USER_PREFER_LANG = AVAILABLE_LANG_LIST.find(item => preferredLang.includes(item.value)).value
+export const USER_PREFER_LANG = attemptFindLang ? attemptFindLang.value : 'en'
 
 Vue.prototype.$_AVAILABLE_LANG_LIST = AVAILABLE_LANG_LIST
 Vue.prototype.$_USER_PREFER_LANG = USER_PREFER_LANG

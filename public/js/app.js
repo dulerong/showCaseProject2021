@@ -2133,9 +2133,10 @@ var AVAILABLE_LANG_LIST = [{
 }];
 var navigatorLangList = navigator.languages;
 var preferredLang = navigatorLangList[0];
-var USER_PREFER_LANG = AVAILABLE_LANG_LIST.find(function (item) {
+var attemptFindLang = AVAILABLE_LANG_LIST.find(function (item) {
   return preferredLang.includes(item.value);
-}).value;
+});
+var USER_PREFER_LANG = attemptFindLang ? attemptFindLang.value : 'en';
 vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_AVAILABLE_LANG_LIST = AVAILABLE_LANG_LIST;
 vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_USER_PREFER_LANG = USER_PREFER_LANG;
 
