@@ -2,7 +2,17 @@
 div
   h1 {{ $t("japanPopulation.title") }}
   v-row(no-gutters)
-    v-select(:label="$t('japanPopulation.selectFieldLabel')" :items="prefectures" v-model="prefectureSelected" item-text="name" item-value="code" return-object multiple chips clearable)
+    v-select(
+    :label="$t('japanPopulation.selectFieldLabel')"
+    :items="prefectures"
+    v-model="prefectureSelected"
+    item-text="name"
+    item-value="code"
+    return-object
+    multiple
+    chips
+    clearable
+  )
   Chart(:chartData="chartData")
 </template>
 
