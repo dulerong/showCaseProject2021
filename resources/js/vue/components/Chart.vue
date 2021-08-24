@@ -1,5 +1,5 @@
 <template lang="pug">
-ApexChart(ref="chart" type="line" height="350" :options="chartOptions" :series="chartData")
+ApexChart(ref="chart" type="line" height="350" :options="chartOptions" :series="translatedChartData")
 </template>
 
 <script>
@@ -11,6 +11,12 @@ export default {
     }
   },
   computed: {
+    translatedChartData() {
+      return this.chartData.map(item => ({
+        ...item,
+        name: this.$t(`japanPopulation.prefectures.${item.name}`)
+      }))
+    },
     themeMode() {
       return this.$vuetify.theme.dark ? 'dark' : 'light'
     },
