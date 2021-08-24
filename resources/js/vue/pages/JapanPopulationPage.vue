@@ -6,7 +6,7 @@ div
     :label="$t('japanPopulation.selectFieldLabel')"
     :items="prefectures"
     v-model="prefectureSelected"
-    item-text="name"
+    item-text="translatedName"
     item-value="code"
     return-object
     multiple
@@ -30,7 +30,10 @@ export default {
   }),
   computed: {
     prefectures() {
-      return this.$_prefectures.map(item => ({ ...item, name: this.$t(`japanPopulation.prefectures.${item.name}`) }))
+      return this.$_prefectures.map(item => ({
+        ...item,
+        translatedName: this.$t(`japanPopulation.prefectures.${item.name}`)
+      }))
     }
   },
   watch: {
