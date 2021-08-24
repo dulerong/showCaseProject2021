@@ -62,9 +62,6 @@ describe('SettingDrawer Component', () => {
     const mockToggleThemeLight = jest.spyOn(SettingDrawer.methods, 'toggleThemeLight')
     const wrapper = mountFunction()
 
-    expect(mockToggleThemeDark).not.toHaveBeenCalled()
-    expect(mockToggleThemeLight).not.toHaveBeenCalled()
-
     const darkButton = wrapper.findAll('.v-btn').at(1)
     const lightButton = wrapper.findAll('.v-btn').at(0)
     expect(darkButton.text()).toBe('settingDrawer.dark')
