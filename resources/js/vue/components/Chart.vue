@@ -1,5 +1,11 @@
 <template lang="pug">
-ApexChart(ref="chart" type="line" height="350" :options="chartOptions" :series="translatedChartData")
+ApexChart(
+  ref="chart"
+  type="line"
+  height="350"
+  :options="chartOptions"
+  :series="translatedChartData"
+)
 </template>
 
 <script>
