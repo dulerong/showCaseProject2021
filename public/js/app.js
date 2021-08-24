@@ -2200,7 +2200,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 
-var prefectures = ['北海道', '青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県', '茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', '東京都', '神奈川県', '新潟県', '富山県', '石川県', '福井県', '山梨県', '長野県', '岐阜県', '静岡県', '愛知県', '三重県', '滋賀県', '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県', '鳥取県', '島根県', '岡山県', '広島県', '山口県', '徳島県', '香川県', '愛媛県', '高知県', '福岡県', '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県'];
+var prefectures = ['hokkaido', 'aomori', 'iwate', 'miyagi', 'akita', 'yamagata', 'fukushima', 'ibaragi', 'tochigi', 'gunma', 'saitama', 'chiba', 'tokyo', 'kanagawa', 'niigata', 'toyama', 'ishikawa', 'fukui', 'yamanashi', 'nagano', 'gifu', 'shizuoka', 'aichi', 'mie', 'shiga', 'kyoto', 'osaka', 'hyogo', 'nara', 'wakayama', 'tottori', 'shimane', 'okayama', 'hiroshima', 'yamaguchi', 'tokushima', 'kagawa', 'ehime', 'kochi', 'fukuoka', 'saga', 'nagasaki', 'kumamoto', 'oita', 'miyazaki', 'kagoshima', 'okinawa'];
 vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_prefectures = prefectures.map(function (item, i) {
   return {
     name: item,
@@ -2221,315 +2221,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "language": () => (/* binding */ language)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var _translation_enLanguage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./translation/enLanguage */ "./resources/js/plugins/translation/enLanguage.js");
+/* harmony import */ var _translation_zhLanguage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./translation/zhLanguage */ "./resources/js/plugins/translation/zhLanguage.js");
+
+
 
 var language = {
-  en: {
-    appBar: {
-      otherSettings: 'Other Settings',
-      translate: 'Languages',
-      userButton: {
-        profile: 'Profile',
-        logout: 'Logout'
-      },
-      tooltip: {
-        sideDrawer: 'Side Drawer',
-        settings: 'Settings'
-      }
-    },
-    naviDrawer: {
-      mainTitle: 'WEB Application',
-      subTitle: 'Front End',
-      GENERAL: {
-        name: 'GENERAL',
-        children: {
-          home: 'Home',
-          stat: 'New Taipei City Birth Statistics',
-          japanPopulation: 'Japan Population Trend'
-        }
-      }
-    },
-    settingDrawer: {
-      title: 'Settings',
-      theme: 'Theme',
-      light: 'Light',
-      dark: 'Dark'
-    },
-    footer: {
-      tooltip: {
-        home: 'Home',
-        stat: 'New Taipei City Birth Statistics',
-        japanPopulation: 'Japan Population Trend'
-      }
-    },
-    home: {
-      title: 'Home page',
-      content: 'Currently, this web app contains the following pages',
-      page: {
-        first: 'Birth Statistics of New Taipei City',
-        second: 'Population Trend of Japan'
-      },
-      description: 'This website is constructed with Vue.js framework, with the following ecosystem'
-    },
-    about: {
-      title: 'About Page'
-    },
-    stat: {
-      title: 'New Taipei City Birth Statistics (Year: 2019)',
-      result: 'Total Born',
-      form: {
-        site: 'District',
-        motherAge: 'Mother Age',
-        birthOrder: 'Birth Order',
-        birthSex: 'Birth Sex'
-      },
-      button: {
-        fetch: 'FETCH DATA',
-        reset: 'RESET FILTER',
-        clear: 'CLEAR DATA'
-      },
-      notification: {
-        fetch: 'Data Fetched',
-        reset: 'Filter Reset',
-        clear: 'Data Cleared'
-      },
-      tableHeader: {
-        site: 'District',
-        motherAge: 'Mother Age',
-        birthOrder: 'Birth Order',
-        birthSex: 'Birth Sex',
-        birthCount: 'Birth Count'
-      },
-      site: {
-        banqiao: 'Banqiao',
-        sanchong: 'Sanchong',
-        zhonghe: 'Zhonghe',
-        yonghe: 'Yonghe',
-        xinzhuang: 'Xinzhuang',
-        xindian: 'Xindian',
-        tucheng: 'Tucheng',
-        xizhi: 'Xizhi',
-        shuling: 'Shuling',
-        yingge: 'Yingge',
-        sanxia: 'Sanxia',
-        danshui: 'Danshui',
-        ruifang: 'Ruifang'
-      },
-      motherAges: {
-        ageUnder15: 'Under 15',
-        age15To19: '15 - 19',
-        age20To24: '20 - 24',
-        age25To29: '25 - 29',
-        age30To34: '30 - 34',
-        age35To39: '35 - 39',
-        age40To44: '40 - 44',
-        age45To49: '45 - 49',
-        age50Above: '50 and above'
-      },
-      birthOrders: {
-        birth1: '1st',
-        birth2: '2nd',
-        birth3: '3rd',
-        birth4: '4th',
-        birth5: '5th',
-        birth6: '6th',
-        birth7: '7th',
-        birth8: '8th',
-        birth9: '9th and above'
-      },
-      birthSex: {
-        male: 'Male',
-        female: 'Female'
-      }
-    },
-    japanPopulation: {
-      title: 'Japanese Population (1960 - 2045)',
-      chart: {
-        title: 'Japan Population Trend',
-        xAxis: 'Year',
-        yAxis: 'Population'
-      }
-    },
-    login: {
-      greeting: {
-        morning: 'Good morning',
-        afternoon: 'Good afternoon',
-        evening: 'Good evening',
-        welcome: 'Welcome back!'
-      },
-      button: {
-        login: 'LOGIN',
-        signUp: 'SIGN UP'
-      },
-      textField: {
-        username: {
-          label: 'User Name',
-          hint: "Showcase use only (You don't have to enter username)"
-        },
-        password: {
-          label: 'Password',
-          hint: "Showcase use only (You don't have to enter password)"
-        }
-      }
-    },
-    notFound: {
-      title: 'Page Not Found'
-    }
-  },
-  zh: {
-    appBar: {
-      otherSettings: '其他設定',
-      translate: '語言',
-      userButton: {
-        profile: '個人檔案',
-        logout: '登出'
-      },
-      tooltip: {
-        sideDrawer: '橫向抽屜',
-        settings: '設定'
-      }
-    },
-    naviDrawer: {
-      mainTitle: 'WEB應用程式',
-      subTitle: '前端',
-      GENERAL: {
-        name: '一般',
-        children: {
-          home: '首頁',
-          stat: '新北市出生統計數據',
-          japanPopulation: '日本人口推移'
-        }
-      }
-    },
-    settingDrawer: {
-      title: '設定選項',
-      theme: '主題模式',
-      light: '光明',
-      dark: '暗黑'
-    },
-    footer: {
-      tooltip: {
-        home: '首頁',
-        stat: '新北市出生統計數據',
-        japanPopulation: '日本人口成長率'
-      }
-    },
-    home: {
-      title: '首頁',
-      content: '目前網頁的功能為下列',
-      page: {
-        first: '新北市出生數據統計',
-        second: '日本人口成長率'
-      },
-      description: '網站是以Vue.js為framework，並以下列的Vue ecosystem整合'
-    },
-    about: {
-      title: '簡介'
-    },
-    stat: {
-      title: '新北市出生數據統計 (2019年)',
-      result: '總出生人數',
-      form: {
-        site: '區域',
-        motherAge: '母親年齡',
-        birthOrder: '胎數',
-        birthSex: '性別'
-      },
-      button: {
-        fetch: '查詢資料',
-        reset: '重設選項',
-        clear: '清除資料'
-      },
-      notification: {
-        fetch: '資料取得',
-        reset: '選項清空',
-        clear: '資料清除'
-      },
-      tableHeader: {
-        site: '區域',
-        motherAge: '母親年齡',
-        birthOrder: '胎數',
-        birthSex: '性別',
-        birthCount: '出生人數'
-      },
-      site: {
-        banqiao: '板橋',
-        sanchong: '三重',
-        zhonghe: '中和',
-        yonghe: '永和',
-        xinzhuang: '新莊',
-        xindian: '新店',
-        tucheng: '土城',
-        xizhi: '汐止',
-        shuling: '樹林',
-        yingge: '鶯歌',
-        sanxia: '三峽',
-        danshui: '淡水',
-        ruifang: '瑞芳'
-      },
-      motherAges: {
-        ageUnder15: '未滿15歲',
-        age15To19: '15～19歲',
-        age20To24: '20～24歲',
-        age25To29: '25～29歲',
-        age30To34: '30～34歲',
-        age35To39: '35～39歲',
-        age40To44: '40～44歲',
-        age45To49: '45～49歲',
-        age50Above: '50歲以上'
-      },
-      birthOrders: {
-        birth1: '1胎',
-        birth2: '2胎',
-        birth3: '3胎',
-        birth4: '4胎',
-        birth5: '5胎',
-        birth6: '6胎',
-        birth7: '7胎',
-        birth8: '8胎',
-        birth9: '9胎以上'
-      },
-      birthSex: {
-        male: '男',
-        female: '女'
-      }
-    },
-    japanPopulation: {
-      title: '日本人口成長遷移 (1960 - 2045)',
-      chart: {
-        title: '日本人口成長率',
-        xAxis: '年',
-        yAxis: '人口'
-      }
-    },
-    login: {
-      greeting: {
-        morning: '早安',
-        afternoon: '午安',
-        evening: '晚安',
-        welcome: '歡迎回來!'
-      },
-      button: {
-        login: '登入',
-        signUp: '註冊'
-      },
-      textField: {
-        username: {
-          label: '使用者名稱',
-          hint: "展示用 (不需輸入)"
-        },
-        password: {
-          label: '密碼',
-          hint: "展示用 (不需輸入)"
-        }
-      }
-    },
-    notFound: {
-      title: '頁面不存在'
-    }
-  }
+  en: _translation_enLanguage__WEBPACK_IMPORTED_MODULE_0__.enLanguage,
+  zh: _translation_zhLanguage__WEBPACK_IMPORTED_MODULE_1__.zhLanguage
 };
-vue__WEBPACK_IMPORTED_MODULE_0__.default.prototype.$_language = language;
+vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.$_language = language;
 
 /***/ }),
 
@@ -2815,6 +2517,472 @@ var translateBirthSex = function translateBirthSex(sex) {
 
     case '女':
       return 'female';
+  }
+};
+
+/***/ }),
+
+/***/ "./resources/js/plugins/translation/enJapanPrefectures.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/plugins/translation/enJapanPrefectures.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "enJapanPrefectures": () => (/* binding */ enJapanPrefectures)
+/* harmony export */ });
+var enJapanPrefectures = {
+  hokkaido: 'Hokkaido',
+  aomori: 'Aomori',
+  iwate: 'Iwate',
+  miyagi: 'Miyagi',
+  akita: 'Akita',
+  yamagata: 'Yamagata',
+  fukushima: 'Fukushima',
+  ibaragi: 'Ibaragi',
+  tochigi: 'Tochigi',
+  gunma: 'Gunma',
+  saitama: 'Saitama',
+  chiba: 'Chiba',
+  tokyo: 'Tokyo',
+  kanagawa: 'Kanagawa',
+  niigata: 'Niigata',
+  toyama: 'Toyama',
+  ishikawa: 'Ishikawa',
+  fukui: 'Fukui',
+  yamanashi: 'Yamanashi',
+  nagano: 'Nagano',
+  gifu: 'Gifu',
+  shizuoka: 'Shizuoka',
+  aichi: 'Aichi',
+  mie: 'Mie',
+  shiga: 'Shiga',
+  kyoto: 'Kyoto',
+  osaka: 'Osaka',
+  hyogo: 'Hyogo',
+  nara: 'Nara',
+  wakayama: 'Wakayama',
+  tottori: 'Tottori',
+  shimane: 'Shimane',
+  okayama: 'Okayama',
+  hiroshima: 'Hiroshima',
+  yamaguchi: 'Yamaguchi',
+  tokushima: 'Tokushima',
+  kagawa: 'Kagawa',
+  ehime: 'Ehime',
+  kochi: 'Kochi',
+  fukuoka: 'Fukuoka',
+  saga: 'Saga',
+  nagasaki: 'Nagasaki',
+  kumamoto: 'Kumamoto',
+  oita: 'Oita',
+  miyazaki: 'Miyazaki',
+  kagoshima: 'Kagoshima',
+  okinawa: 'Okinawa'
+};
+
+/***/ }),
+
+/***/ "./resources/js/plugins/translation/enLanguage.js":
+/*!********************************************************!*\
+  !*** ./resources/js/plugins/translation/enLanguage.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "enLanguage": () => (/* binding */ enLanguage)
+/* harmony export */ });
+/* harmony import */ var _enJapanPrefectures__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./enJapanPrefectures */ "./resources/js/plugins/translation/enJapanPrefectures.js");
+
+var enLanguage = {
+  appBar: {
+    otherSettings: 'Other Settings',
+    translate: 'Languages',
+    userButton: {
+      profile: 'Profile',
+      logout: 'Logout'
+    },
+    tooltip: {
+      sideDrawer: 'Side Drawer',
+      settings: 'Settings'
+    }
+  },
+  naviDrawer: {
+    mainTitle: 'WEB Application',
+    subTitle: 'Front End',
+    GENERAL: {
+      name: 'GENERAL',
+      children: {
+        home: 'Home',
+        stat: 'New Taipei City Birth Statistics',
+        japanPopulation: 'Japan Population Trend'
+      }
+    }
+  },
+  settingDrawer: {
+    title: 'Settings',
+    theme: 'Theme',
+    light: 'Light',
+    dark: 'Dark'
+  },
+  footer: {
+    tooltip: {
+      home: 'Home',
+      stat: 'New Taipei City Birth Statistics',
+      japanPopulation: 'Japan Population Trend'
+    }
+  },
+  home: {
+    title: 'Home page',
+    content: 'Currently, this web app contains the following pages',
+    page: {
+      first: 'Birth Statistics of New Taipei City',
+      second: 'Population Trend of Japan'
+    },
+    description: 'This website is constructed with Vue.js framework, with the following ecosystem'
+  },
+  about: {
+    title: 'About Page'
+  },
+  stat: {
+    title: 'New Taipei City Birth Statistics (Year: 2019)',
+    result: 'Total Born',
+    form: {
+      site: 'District',
+      motherAge: 'Mother Age',
+      birthOrder: 'Birth Order',
+      birthSex: 'Birth Sex'
+    },
+    button: {
+      fetch: 'FETCH DATA',
+      reset: 'RESET FILTER',
+      clear: 'CLEAR DATA'
+    },
+    notification: {
+      fetch: 'Data Fetched',
+      reset: 'Filter Reset',
+      clear: 'Data Cleared'
+    },
+    tableHeader: {
+      site: 'District',
+      motherAge: 'Mother Age',
+      birthOrder: 'Birth Order',
+      birthSex: 'Birth Sex',
+      birthCount: 'Birth Count'
+    },
+    site: {
+      banqiao: 'Banqiao',
+      sanchong: 'Sanchong',
+      zhonghe: 'Zhonghe',
+      yonghe: 'Yonghe',
+      xinzhuang: 'Xinzhuang',
+      xindian: 'Xindian',
+      tucheng: 'Tucheng',
+      xizhi: 'Xizhi',
+      shuling: 'Shuling',
+      yingge: 'Yingge',
+      sanxia: 'Sanxia',
+      danshui: 'Danshui',
+      ruifang: 'Ruifang'
+    },
+    motherAges: {
+      ageUnder15: 'Under 15',
+      age15To19: '15 - 19',
+      age20To24: '20 - 24',
+      age25To29: '25 - 29',
+      age30To34: '30 - 34',
+      age35To39: '35 - 39',
+      age40To44: '40 - 44',
+      age45To49: '45 - 49',
+      age50Above: '50 and above'
+    },
+    birthOrders: {
+      birth1: '1st',
+      birth2: '2nd',
+      birth3: '3rd',
+      birth4: '4th',
+      birth5: '5th',
+      birth6: '6th',
+      birth7: '7th',
+      birth8: '8th',
+      birth9: '9th and above'
+    },
+    birthSex: {
+      male: 'Male',
+      female: 'Female'
+    }
+  },
+  japanPopulation: {
+    title: 'Japanese Population (1960 - 2045)',
+    chart: {
+      title: 'Japan Population Trend',
+      xAxis: 'Year',
+      yAxis: 'Population'
+    },
+    selectFieldLabel: 'Japan Prefectures',
+    prefectures: _enJapanPrefectures__WEBPACK_IMPORTED_MODULE_0__.enJapanPrefectures
+  },
+  login: {
+    greeting: {
+      morning: 'Good morning',
+      afternoon: 'Good afternoon',
+      evening: 'Good evening',
+      welcome: 'Welcome back!'
+    },
+    button: {
+      login: 'LOGIN',
+      signUp: 'SIGN UP'
+    },
+    textField: {
+      username: {
+        label: 'User Name',
+        hint: "Showcase use only (You don't have to enter username)"
+      },
+      password: {
+        label: 'Password',
+        hint: "Showcase use only (You don't have to enter password)"
+      }
+    }
+  },
+  notFound: {
+    title: 'Page Not Found'
+  }
+};
+
+/***/ }),
+
+/***/ "./resources/js/plugins/translation/zhJapanPrefectures.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/plugins/translation/zhJapanPrefectures.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "zhJapanPrefectures": () => (/* binding */ zhJapanPrefectures)
+/* harmony export */ });
+var zhJapanPrefectures = {
+  hokkaido: '北海道',
+  aomori: '青森県',
+  iwate: '岩手県',
+  miyagi: '宮城県',
+  akita: '秋田県',
+  yamagata: '山形県',
+  fukushima: '福島県',
+  ibaragi: '茨城県',
+  tochigi: '栃木県',
+  gunma: '群馬県',
+  saitama: '埼玉県',
+  chiba: '千葉県',
+  tokyo: '東京都',
+  kanagawa: '神奈川県',
+  niigata: '新潟県',
+  toyama: '富山県',
+  ishikawa: '石川県',
+  fukui: '福井県',
+  yamanashi: '山梨県',
+  nagano: '長野県',
+  gifu: '岐阜県',
+  shizuoka: '静岡県',
+  aichi: '愛知県',
+  mie: '三重県',
+  shiga: '滋賀県',
+  kyoto: '京都府',
+  osaka: '大阪府',
+  hyogo: '兵庫県',
+  nara: '奈良県',
+  wakayama: '和歌山県',
+  tottori: '鳥取県',
+  shimane: '島根県',
+  okayama: '岡山県',
+  hiroshima: '広島県',
+  yamaguchi: '山口県',
+  tokushima: '徳島県',
+  kagawa: '香川県',
+  ehime: '愛媛県',
+  kochi: '高知県',
+  fukuoka: '福岡県',
+  saga: '佐賀県',
+  nagasaki: '長崎県',
+  kumamoto: '熊本県',
+  oita: '大分県',
+  miyazaki: '宮崎県',
+  kagoshima: '鹿児島県',
+  okinawa: '沖縄県'
+};
+
+/***/ }),
+
+/***/ "./resources/js/plugins/translation/zhLanguage.js":
+/*!********************************************************!*\
+  !*** ./resources/js/plugins/translation/zhLanguage.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "zhLanguage": () => (/* binding */ zhLanguage)
+/* harmony export */ });
+/* harmony import */ var _zhJapanPrefectures__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./zhJapanPrefectures */ "./resources/js/plugins/translation/zhJapanPrefectures.js");
+
+var zhLanguage = {
+  appBar: {
+    otherSettings: '其他設定',
+    translate: '語言',
+    userButton: {
+      profile: '個人檔案',
+      logout: '登出'
+    },
+    tooltip: {
+      sideDrawer: '橫向抽屜',
+      settings: '設定'
+    }
+  },
+  naviDrawer: {
+    mainTitle: 'WEB應用程式',
+    subTitle: '前端',
+    GENERAL: {
+      name: '一般',
+      children: {
+        home: '首頁',
+        stat: '新北市出生統計數據',
+        japanPopulation: '日本人口推移'
+      }
+    }
+  },
+  settingDrawer: {
+    title: '設定選項',
+    theme: '主題模式',
+    light: '光明',
+    dark: '暗黑'
+  },
+  footer: {
+    tooltip: {
+      home: '首頁',
+      stat: '新北市出生統計數據',
+      japanPopulation: '日本人口成長率'
+    }
+  },
+  home: {
+    title: '首頁',
+    content: '目前網頁的功能為下列',
+    page: {
+      first: '新北市出生數據統計',
+      second: '日本人口成長率'
+    },
+    description: '網站是以Vue.js為framework，並以下列的Vue ecosystem整合'
+  },
+  about: {
+    title: '簡介'
+  },
+  stat: {
+    title: '新北市出生數據統計 (2019年)',
+    result: '總出生人數',
+    form: {
+      site: '區域',
+      motherAge: '母親年齡',
+      birthOrder: '胎數',
+      birthSex: '性別'
+    },
+    button: {
+      fetch: '查詢資料',
+      reset: '重設選項',
+      clear: '清除資料'
+    },
+    notification: {
+      fetch: '資料取得',
+      reset: '選項清空',
+      clear: '資料清除'
+    },
+    tableHeader: {
+      site: '區域',
+      motherAge: '母親年齡',
+      birthOrder: '胎數',
+      birthSex: '性別',
+      birthCount: '出生人數'
+    },
+    site: {
+      banqiao: '板橋',
+      sanchong: '三重',
+      zhonghe: '中和',
+      yonghe: '永和',
+      xinzhuang: '新莊',
+      xindian: '新店',
+      tucheng: '土城',
+      xizhi: '汐止',
+      shuling: '樹林',
+      yingge: '鶯歌',
+      sanxia: '三峽',
+      danshui: '淡水',
+      ruifang: '瑞芳'
+    },
+    motherAges: {
+      ageUnder15: '未滿15歲',
+      age15To19: '15～19歲',
+      age20To24: '20～24歲',
+      age25To29: '25～29歲',
+      age30To34: '30～34歲',
+      age35To39: '35～39歲',
+      age40To44: '40～44歲',
+      age45To49: '45～49歲',
+      age50Above: '50歲以上'
+    },
+    birthOrders: {
+      birth1: '1胎',
+      birth2: '2胎',
+      birth3: '3胎',
+      birth4: '4胎',
+      birth5: '5胎',
+      birth6: '6胎',
+      birth7: '7胎',
+      birth8: '8胎',
+      birth9: '9胎以上'
+    },
+    birthSex: {
+      male: '男',
+      female: '女'
+    }
+  },
+  japanPopulation: {
+    title: '日本人口成長遷移 (1960 - 2045)',
+    chart: {
+      title: '日本人口成長率',
+      xAxis: '年',
+      yAxis: '人口'
+    },
+    selectFieldLabel: '日本各都道府縣',
+    prefectures: _zhJapanPrefectures__WEBPACK_IMPORTED_MODULE_0__.zhJapanPrefectures
+  },
+  login: {
+    greeting: {
+      morning: '早安',
+      afternoon: '午安',
+      evening: '晚安',
+      welcome: '歡迎回來!'
+    },
+    button: {
+      login: '登入',
+      signUp: '註冊'
+    },
+    textField: {
+      username: {
+        label: '使用者名稱',
+        hint: "展示用 (不需輸入)"
+      },
+      password: {
+        label: '密碼',
+        hint: "展示用 (不需輸入)"
+      }
+    }
+  },
+  notFound: {
+    title: '頁面不存在'
   }
 };
 
@@ -3246,6 +3414,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3258,6 +3438,15 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
+    translatedChartData: function translatedChartData() {
+      var _this = this;
+
+      return this.chartData.map(function (item) {
+        return _objectSpread(_objectSpread({}, item), {}, {
+          name: _this.$t("japanPopulation.prefectures.".concat(item.name))
+        });
+      });
+    },
     themeMode: function themeMode() {
       return this.$vuetify.theme.dark ? 'dark' : 'light';
     },
@@ -3709,18 +3898,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3741,6 +3940,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       error: false,
       chartData: []
     };
+  },
+  computed: {
+    prefectures: function prefectures() {
+      var _this = this;
+
+      return this.$_prefectures.map(function (item) {
+        return _objectSpread(_objectSpread({}, item), {}, {
+          translatedName: _this.$t("japanPopulation.prefectures.".concat(item.name))
+        });
+      });
+    }
   },
   watch: {
     prefectureSelected: function () {
@@ -3787,7 +3997,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapMutations)('notification', ['showNotification'])), {}, {
     fetchData: function () {
       var _fetchData = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(prefecture) {
-        var _this = this;
+        var _this2 = this;
 
         var API_ADDRESS, params, API_KEY, headers;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
@@ -3811,11 +4021,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     return item.value;
                   });
 
-                  _this.addPrefecture(data, prefecture.name);
+                  _this2.addPrefecture(data, prefecture.name);
                 })["catch"](function () {
-                  _this.error = true;
+                  _this2.error = true;
 
-                  _this.showNotification({
+                  _this2.showNotification({
                     message: 'Error occurred fetching data',
                     color: 'error'
                   });
@@ -9540,7 +9750,7 @@ var render = function() {
       type: "line",
       height: "350",
       options: _vm.chartOptions,
-      series: _vm.chartData
+      series: _vm.translatedChartData
     }
   })
 }
@@ -10289,9 +10499,9 @@ var render = function() {
         [
           _c("v-select", {
             attrs: {
-              label: "prefectures",
-              items: _vm.$_prefectures,
-              "item-text": "name",
+              label: _vm.$t("japanPopulation.selectFieldLabel"),
+              items: _vm.prefectures,
+              "item-text": "translatedName",
               "item-value": "code",
               "return-object": "",
               multiple: "",
