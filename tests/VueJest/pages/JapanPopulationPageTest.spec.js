@@ -85,7 +85,10 @@ describe('Japan Population Page', () => {
       { name: 'California', code: 1}
     ]
     const translateMock = (msgText) => `japanPopulation.prefectures.${msgText}`
-    const translatedPrefectures = prefectures.map(item => ({ ...item, name: translateMock(item.name) }))
+    const translatedPrefectures = prefectures.map(item => ({
+      ...item,
+      translatedName: translateMock(item.name)
+    }))
     const localThis = {
       $_prefectures: prefectures,
       $t: msg => msg
