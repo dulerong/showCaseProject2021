@@ -80,6 +80,23 @@ describe('Japan Population Page', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
+  it('Computed prefectures: return array of prefectures with names translated', () => {
+    const prefectures = [
+      { name: 'California', code: 1}
+    ]
+    const translateMock = (msgText) => `japanPopulation.prefectures.${msgText}`
+    const translatedPrefectures = prefectures.map(item => ({
+      ...item,
+      translatedName: translateMock(item.name)
+    }))
+    const localThis = {
+      $_prefectures: prefectures,
+      $t: msg => msg
+    }
+
+    expect(JapanPopulationPage.computed.prefectures.call(localThis)).toStrictEqual(translatedPrefectures)
+  })
+
   it('Watch prefectureSelected: upon change will trigger fetchData method with correct argument', async () => {
     const fetchDataMethod = jest.spyOn(JapanPopulationPage.methods, 'fetchData')
     const prefectureSelected = { name: '北海道', code: 1 }

@@ -50,4 +50,17 @@ describe('SettingDrawer Component', () => {
 
     expect(Chart.computed.themeMode.call(localThis(true))).toEqual('dark')
   })
+
+  it('Computed translatedChartData: returns correct translation', () => {
+    const mockChartData = [
+      { name: 'California', data: [1, 2, 3] }
+    ]
+    const translatedChartData = mockChartData.map(item => ({
+      ...item,
+      name: `japanPopulation.prefectures.${item.name}`
+    }))
+    const wrapper = mountFunction(mockChartData)
+
+    expect(wrapper.vm.translatedChartData).toStrictEqual(translatedChartData)
+  })
 })
