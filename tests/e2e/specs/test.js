@@ -20,7 +20,7 @@ describe('Route tests', () => {
     cy.contains('Languages')
 
     cy.contains('中文').click()
-    cy.url().should('include', '/ch')
+    cy.url().should('include', '/zh')
   })
 
   it('New Taipei City Statistics page renders correctly', () => {
@@ -44,5 +44,8 @@ describe('Route tests', () => {
     cy.contains('Logout').click()
 
     cy.url().should('include', '/login')
+
+    cy.contains('LOGIN').click()
+    cy.contains('h1', 'Home page')
   })
 });
