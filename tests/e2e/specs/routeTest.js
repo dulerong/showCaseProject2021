@@ -48,4 +48,17 @@ describe('Route tests', () => {
     cy.contains('LOGIN').click()
     cy.contains('h1', 'Home page')
   })
+
+  it('404 PageNotFound page renders correctly', () => {
+    cy.visit('http://127.0.0.1:8000/en/12345')
+
+    cy.contains('h1', 'Page Not Found')
+  })
+
+  it('Navigating to unlisted language will render English', () => {
+    const UNLISTED_LANG = 'ru'
+    cy.visit(`http://127.0.0.1:8000/${UNLISTED_LANG}`)
+
+    cy.url().should('not.include', UNLISTED_LANG)
+  })
 });
