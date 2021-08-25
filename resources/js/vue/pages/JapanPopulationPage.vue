@@ -5,6 +5,7 @@ div
     v-select(
     :label="$t('japanPopulation.selectFieldLabel')"
     :items="prefectures"
+    data-testid="japanPrefectureSelect"
     v-model="prefectureSelected"
     item-text="translatedName"
     item-value="code"
@@ -46,6 +47,9 @@ export default {
         await this.fetchData(newPrefecture)
       }
     },
+  },
+  mounted() {
+    if (window.Cypress) window.JapanPopulationPage = this
   },
   methods: {
     ...mapMutations('notification', ['showNotification']),
