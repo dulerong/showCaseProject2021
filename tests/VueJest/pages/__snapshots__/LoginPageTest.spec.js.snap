@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Login Page Greeting message renders evening message during evening 1`] = `
+<h1>
+  login.greeting.evening,
+</h1>
+`;
+
+exports[`Login Page Greeting message renders morning message during morning 1`] = `
+<h1>
+  login.greeting.morning,
+</h1>
+`;
+
 exports[`Login Page Page renders properly 1`] = `
 <div class="mx-auto pa-4 v-card v-sheet theme--light" style="width: 375px;">
   <div class="row no-gutters align-center justify-space-between">
