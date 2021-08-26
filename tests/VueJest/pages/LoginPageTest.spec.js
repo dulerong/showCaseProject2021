@@ -39,7 +39,7 @@ describe('Login Page', () => {
     jest.clearAllMocks()
   })
 
-  const mountFunction = options => {
+  const mountFunction = (options, mockHour) => {
     return mount(LoginPage, {
       localVue,
       vuetify,
@@ -47,7 +47,8 @@ describe('Login Page', () => {
       mocks: {
         $t: msg => msg,
         $router: [],
-        $_routePath: mockRoutes
+        $_routePath: mockRoutes,
+        $_hour_right_now: mockHour
       },
       ...options
     })
@@ -58,6 +59,20 @@ describe('Login Page', () => {
 
     expect(wrapper.exists()).toBe(true)
     expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  it('Greeting message renders morning message during morning', () => {
+    const wrapper = mountFunction({}, 10)
+
+    const greetingMessage = wrapper.find('h1')
+    expect(greetingMessage.element).toMatchSnapshot()
+  })
+
+  it('Greeting message renders evening message during evening', () => {
+    const wrapper = mountFunction({}, 19)
+
+    const greetingMessage = wrapper.find('h1')
+    expect(greetingMessage.element).toMatchSnapshot()
   })
 
   it('Computed greetingMessage returns correct message', () => {
