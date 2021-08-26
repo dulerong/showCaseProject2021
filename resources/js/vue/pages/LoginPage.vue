@@ -35,21 +35,13 @@ export default {
     MenuLanguage: require('~components/MenuLanguage').default
   },
   data: () => ({
-    greetingMessage: null,
     username: null,
     password: null,
     showPassword: false,
     loading: false,
   }),
-  created() {
-    this.greetingMessage = this.makeGreetMessage()
-  },
-  updated() {
-    this.greetingMessage = this.makeGreetMessage()
-  },
-  methods: {
-    ...mapMutations('notification', ['showNotification']),
-    makeGreetMessage() {
+  computed: {
+    greetingMessage() {
       const time = this.$_hour_right_now
       switch(true) {
         case time < 12:
@@ -58,8 +50,13 @@ export default {
           return this.$t("login.greeting.afternoon")
         case time >= 18 && time <= 23:
           return this.$t("login.greeting.evening")
+        default:
+          return 'Welcome'
       }
     },
+  },
+  methods: {
+    ...mapMutations('notification', ['showNotification']),
     login() {
       this.loading = true
       setTimeout(() => {
