@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Page Page renders properly 1`] = `
+<div class="mx-auto pa-4 v-card v-sheet theme--light" style="width: 375px;">
+  <div class="row no-gutters align-center justify-space-between">
+    <h1>Welcome,</h1>
+    <div class="v-menu"><button type="button" class="pa-0 v-btn v-btn--text theme--light v-size--default" data-testid="menu-language" role="button" aria-haspopup="true" aria-expanded="false"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-translate theme--light"></i><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--light" style="font-size: 16px;"></i></span></button>
+      <!---->
+    </div>
+  </div>
+  <form novalidate="novalidate" class="v-form">
+    <div class="v-input theme--light v-text-field">
+      <div class="v-input__control">
+        <div class="v-input__slot">
+          <div class="v-text-field__slot"><label for="input-11" class="v-label theme--light" style="left: 0px; position: absolute;">login.textField.username.label</label><input id="input-11" type="text"></div>
+          <div class="v-input__append-inner">
+            <div></div>
+          </div>
+        </div>
+        <div class="v-text-field__details">
+          <div class="v-messages theme--light">
+            <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="v-input theme--light v-text-field">
+      <div class="v-input__control">
+        <div class="v-input__slot">
+          <div class="v-text-field__slot"><label for="input-14" class="v-label theme--light" style="left: 0px; position: absolute;">login.textField.password.label</label><input id="input-14" type="password"></div>
+          <div class="v-input__append-inner">
+            <div></div>
+          </div>
+          <div class="v-input__append-inner">
+            <div class="v-input__icon v-input__icon--append"><button type="button" aria-label="append icon" class="v-icon notranslate v-icon--link mdi mdi-eye-off theme--light"></button></div>
+          </div>
+        </div>
+        <div class="v-text-field__details">
+          <div class="v-messages theme--light">
+            <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="row mt-5 no-gutters justify-space-between"><button type="button" class="v-btn v-btn--has-bg theme--light v-size--default"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate v-icon--left mdi mdi-login theme--light"></i>login.button.login</span></button><button type="button" class="v-btn v-btn--outlined theme--light v-size--default"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate v-icon--left mdi mdi-clipboard-account theme--light"></i>login.button.signUp</span></button></div>
+</div>
+`;
