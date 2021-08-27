@@ -8,7 +8,7 @@ exports[`Japan Population Page Page renders properly 1`] = `
       <div class="v-input__control">
         <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-4" class="v-input__slot">
           <div class="v-select__slot"><label for="input-4" class="v-label theme--light" style="left: 0px; position: absolute;">japanPopulation.selectFieldLabel</label>
-            <div class="v-select__selections"><input id="input-4" readonly="readonly" type="text" aria-readonly="false" autocomplete="off"></div>
+            <div class="v-select__selections"><input data-testid="japanPrefectureSelect" id="input-4" readonly="readonly" type="text" aria-readonly="false" autocomplete="off"></div>
             <div class="v-input__append-inner">
               <div></div>
             </div>

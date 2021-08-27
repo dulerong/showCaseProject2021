@@ -1,6 +1,6 @@
 // https://docs.cypress.io/api/introduction/api.html
 
-describe('Japan Population Page tests', () => {
+describe('Taipei City Birth Stat Page tests', () => {
   const visit = () => cy.visit('http://127.0.0.1:8000/en/stat')
 
   beforeEach(() => {
