@@ -3,50 +3,30 @@ div
   h1 {{ $t("stat.title") }}
   v-form(v-model="isValid")
     v-row(no-gutters)
-      v-select(
+      VSelectMulti(
         :label="$t('stat.form.site')"
         :items="sites"
-        v-model="siteSelected"
-        item-text="name"
-        item-value="value"
-        multiple
-        chips
-        clearable
-        data-testid="statPageSelectDistrict"
+        dataTestID="statPageSelectDistrict"
+        @selected-data="siteSelected = $event"
       )
     v-row(no-gutters)
-      v-select(
+      VSelectMulti(
         :label="$t('stat.form.motherAge')"
         :items="motherAges"
-        v-model="motherAgeSelected"
-        item-text="name"
-        item-value="value"
-        multiple
-        chips
-        clearable
+        @selected-data="motherAgeSelected = $event"
       )
     v-row(no-gutters)
-      v-select(
+      VSelectMulti(
         :label="$t('stat.form.birthOrder')"
         :items="birthOrders"
-        v-model="birthOrderSelected"
-        item-text="name"
-        item-value="value"
-        multiple
-        chips
-        clearable
+        @selected-data="birthOrderSelected = $event"
       )
     v-row(no-gutters)
       div(style="width: 150px") 
-        v-select(
+        VSelectMulti(
           :label="$t('stat.form.birthSex')"
           :items="birthSex"
-          v-model="sexSelected"
-          item-text="name"
-          item-value="value"
-          multiple
-          chips
-          clearable
+          @selected-data="sexSelected = $event"
         )
     v-row(no-gutters justify="space-between" justify-lg="start")
       v-btn(
@@ -79,6 +59,9 @@ div
 import mockData from '~js/mockData/stat'
 import { mapMutations } from 'vuex'
 export default {
+  components: {
+    VSelectMulti: require('~components/VSelectMulti').default
+  },
   data: () => ({
     isValid: false,
     sexSelected: null,
