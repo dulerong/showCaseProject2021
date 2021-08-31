@@ -3347,7 +3347,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     isHideOnScroll: function isHideOnScroll() {
-      return !this.$_IS_TOUCH_SCREEN && this.$route.name !== 'home';
+      return !this.$_IS_TOUCH_SCREEN;
     }
   }
 });
@@ -3764,6 +3764,61 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/components/VSelectMulti.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/components/VSelectMulti.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    label: {
+      required: true,
+      type: String
+    },
+    items: {
+      required: true,
+      type: Array
+    },
+    dataTestID: {
+      required: false,
+      type: String,
+      "default": ''
+    }
+  },
+  data: function data() {
+    return {
+      selected: null
+    };
+  },
+  watch: {
+    selected: function selected(val) {
+      this.$emit('selected-data', val);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/layouts/default.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/layouts/default.vue?vue&type=script&lang=js& ***!
@@ -3928,6 +3983,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3993,6 +4049,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return prefectureSelected;
     }()
+  },
+  mounted: function mounted() {
+    if (window.Cypress) window.JapanPopulationPage = this;
   },
   methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapMutations)('notification', ['showNotification'])), {}, {
     fetchData: function () {
@@ -4118,21 +4177,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      greetingMessage: null,
       username: null,
       password: null,
       showPassword: false,
       loading: false
     };
   },
-  created: function created() {
-    this.greetingMessage = this.makeGreetMessage();
-  },
-  updated: function updated() {
-    this.greetingMessage = this.makeGreetMessage();
-  },
-  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('notification', ['showNotification'])), {}, {
-    makeGreetMessage: function makeGreetMessage() {
+  computed: {
+    greetingMessage: function greetingMessage() {
       var time = this.$_hour_right_now;
 
       switch (true) {
@@ -4144,8 +4196,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         case time >= 18 && time <= 23:
           return this.$t("login.greeting.evening");
+
+        default:
+          return 'Welcome';
       }
-    },
+    }
+  },
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('notification', ['showNotification'])), {}, {
     login: function login() {
       var _this = this;
 
@@ -4229,9 +4286,45 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    VSelectMulti: __webpack_require__(/*! ~components/VSelectMulti */ "./resources/js/vue/components/VSelectMulti.vue").default
+  },
   data: function data() {
     return {
       isValid: false,
@@ -4256,22 +4349,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     headers: function headers() {
       return [{
-        text: this.$t("stat.tableHeader.site"),
+        text: this.$t('stat.tableHeader.site'),
         align: 'start',
         sortable: false,
         value: 'site_id'
       }, {
-        text: this.$t("stat.tableHeader.motherAge"),
+        text: this.$t('stat.tableHeader.motherAge'),
         value: 'mother_age',
         sort: this.$_sortMotherAges
       }, {
-        text: this.$t("stat.tableHeader.birthOrder"),
+        text: this.$t('stat.tableHeader.birthOrder'),
         value: 'birth_order'
       }, {
-        text: this.$t("stat.tableHeader.birthSex"),
+        text: this.$t('stat.tableHeader.birthSex'),
         value: 'birth_sex'
       }, {
-        text: this.$t("stat.tableHeader.birthCount"),
+        text: this.$t('stat.tableHeader.birthCount'),
         value: 'birth_count'
       }];
     },
@@ -4323,6 +4416,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.fetchData();
     }
   },
+  mounted: function mounted() {
+    if (window.Cypress) window.StatPage = this;
+  },
   methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapMutations)('notification', ['showNotification'])), {}, {
     fetchData: function fetchData() {
       var _this5 = this;
@@ -4339,7 +4435,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
       });
       this.showNotification({
-        message: this.$t("stat.notification.fetch"),
+        message: this.$t('stat.notification.fetch'),
         color: 'success'
       });
     },
@@ -4347,7 +4443,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var isButtonClick = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
       this.data = [];
       if (isButtonClick) this.showNotification({
-        message: this.$t("stat.notification.clear"),
+        message: this.$t('stat.notification.clear'),
         color: 'warning'
       });
     },
@@ -4357,7 +4453,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.birthOrderSelected = null;
       this.sexSelected = null;
       this.showNotification({
-        message: this.$t("stat.notification.reset"),
+        message: this.$t('stat.notification.reset'),
         color: 'info'
       });
     },
@@ -8661,6 +8757,45 @@ component.options.__file = "resources/js/vue/components/ToolTip.vue"
 
 /***/ }),
 
+/***/ "./resources/js/vue/components/VSelectMulti.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/vue/components/VSelectMulti.vue ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _VSelectMulti_vue_vue_type_template_id_5003c9a9_lang_pug___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VSelectMulti.vue?vue&type=template&id=5003c9a9&lang=pug& */ "./resources/js/vue/components/VSelectMulti.vue?vue&type=template&id=5003c9a9&lang=pug&");
+/* harmony import */ var _VSelectMulti_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./VSelectMulti.vue?vue&type=script&lang=js& */ "./resources/js/vue/components/VSelectMulti.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _VSelectMulti_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _VSelectMulti_vue_vue_type_template_id_5003c9a9_lang_pug___WEBPACK_IMPORTED_MODULE_0__.render,
+  _VSelectMulti_vue_vue_type_template_id_5003c9a9_lang_pug___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/vue/components/VSelectMulti.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/vue/layouts/default.vue":
 /*!**********************************************!*\
   !*** ./resources/js/vue/layouts/default.vue ***!
@@ -9078,6 +9213,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/vue/components/VSelectMulti.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/vue/components/VSelectMulti.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VSelectMulti_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VSelectMulti.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/components/VSelectMulti.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VSelectMulti_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/vue/layouts/default.vue?vue&type=script&lang=js&":
 /*!***********************************************************************!*\
   !*** ./resources/js/vue/layouts/default.vue?vue&type=script&lang=js& ***!
@@ -9356,6 +9507,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_ToolTip_vue_vue_type_template_id_2e5d911e_lang_pug___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_ToolTip_vue_vue_type_template_id_2e5d911e_lang_pug___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/pug-plain-loader/index.js!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ToolTip.vue?vue&type=template&id=2e5d911e&lang=pug& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/components/ToolTip.vue?vue&type=template&id=2e5d911e&lang=pug&");
+
+
+/***/ }),
+
+/***/ "./resources/js/vue/components/VSelectMulti.vue?vue&type=template&id=5003c9a9&lang=pug&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/vue/components/VSelectMulti.vue?vue&type=template&id=5003c9a9&lang=pug& ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_VSelectMulti_vue_vue_type_template_id_5003c9a9_lang_pug___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_VSelectMulti_vue_vue_type_template_id_5003c9a9_lang_pug___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_VSelectMulti_vue_vue_type_template_id_5003c9a9_lang_pug___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/pug-plain-loader/index.js!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VSelectMulti.vue?vue&type=template&id=5003c9a9&lang=pug& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/components/VSelectMulti.vue?vue&type=template&id=5003c9a9&lang=pug&");
 
 
 /***/ }),
@@ -10319,6 +10487,49 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/components/VSelectMulti.vue?vue&type=template&id=5003c9a9&lang=pug&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/components/VSelectMulti.vue?vue&type=template&id=5003c9a9&lang=pug& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("v-select", {
+    attrs: {
+      label: _vm.label,
+      items: _vm.items,
+      "item-text": "name",
+      "item-value": "value",
+      multiple: "",
+      chips: "",
+      clearable: "",
+      "data-testid": _vm.dataTestID
+    },
+    model: {
+      value: _vm.selected,
+      callback: function($$v) {
+        _vm.selected = $$v
+      },
+      expression: "selected"
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/layouts/default.vue?vue&type=template&id=34de1424&lang=pug&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/layouts/default.vue?vue&type=template&id=34de1424&lang=pug& ***!
@@ -10501,6 +10712,7 @@ var render = function() {
             attrs: {
               label: _vm.$t("japanPopulation.selectFieldLabel"),
               items: _vm.prefectures,
+              "data-testid": "japanPrefectureSelect",
               "item-text": "translatedName",
               "item-value": "code",
               "return-object": "",
@@ -10708,22 +10920,16 @@ var render = function() {
             "v-row",
             { attrs: { "no-gutters": "" } },
             [
-              _c("v-select", {
+              _c("VSelectMulti", {
                 attrs: {
                   label: _vm.$t("stat.form.site"),
                   items: _vm.sites,
-                  "item-text": "name",
-                  "item-value": "value",
-                  multiple: "",
-                  chips: "",
-                  clearable: ""
+                  dataTestID: "statPageSelectDistrict"
                 },
-                model: {
-                  value: _vm.siteSelected,
-                  callback: function($$v) {
-                    _vm.siteSelected = $$v
-                  },
-                  expression: "siteSelected"
+                on: {
+                  "selected-data": function($event) {
+                    _vm.siteSelected = $event
+                  }
                 }
               })
             ],
@@ -10733,22 +10939,15 @@ var render = function() {
             "v-row",
             { attrs: { "no-gutters": "" } },
             [
-              _c("v-select", {
+              _c("VSelectMulti", {
                 attrs: {
                   label: _vm.$t("stat.form.motherAge"),
-                  items: _vm.motherAges,
-                  "item-text": "name",
-                  "item-value": "value",
-                  multiple: "",
-                  chips: "",
-                  clearable: ""
+                  items: _vm.motherAges
                 },
-                model: {
-                  value: _vm.motherAgeSelected,
-                  callback: function($$v) {
-                    _vm.motherAgeSelected = $$v
-                  },
-                  expression: "motherAgeSelected"
+                on: {
+                  "selected-data": function($event) {
+                    _vm.motherAgeSelected = $event
+                  }
                 }
               })
             ],
@@ -10758,22 +10957,15 @@ var render = function() {
             "v-row",
             { attrs: { "no-gutters": "" } },
             [
-              _c("v-select", {
+              _c("VSelectMulti", {
                 attrs: {
                   label: _vm.$t("stat.form.birthOrder"),
-                  items: _vm.birthOrders,
-                  "item-text": "name",
-                  "item-value": "value",
-                  multiple: "",
-                  chips: "",
-                  clearable: ""
+                  items: _vm.birthOrders
                 },
-                model: {
-                  value: _vm.birthOrderSelected,
-                  callback: function($$v) {
-                    _vm.birthOrderSelected = $$v
-                  },
-                  expression: "birthOrderSelected"
+                on: {
+                  "selected-data": function($event) {
+                    _vm.birthOrderSelected = $event
+                  }
                 }
               })
             ],
@@ -10784,22 +10976,15 @@ var render = function() {
               "div",
               { staticStyle: { width: "150px" } },
               [
-                _c("v-select", {
+                _c("VSelectMulti", {
                   attrs: {
                     label: _vm.$t("stat.form.birthSex"),
-                    items: _vm.birthSex,
-                    "item-text": "name",
-                    "item-value": "value",
-                    multiple: "",
-                    chips: "",
-                    clearable: ""
+                    items: _vm.birthSex
                   },
-                  model: {
-                    value: _vm.sexSelected,
-                    callback: function($$v) {
-                      _vm.sexSelected = $$v
-                    },
-                    expression: "sexSelected"
+                  on: {
+                    "selected-data": function($event) {
+                      _vm.sexSelected = $event
+                    }
                   }
                 })
               ],
@@ -10863,8 +11048,7 @@ var render = function() {
             _vm._s(_vm.$t("stat.result")) +
               ": " +
               _vm._s(_vm.totalNumberCount) +
-              " " +
-              _vm._s(_vm.totalNumberCount ? "born" : "")
+              " born"
           )
         ])
       ]),
