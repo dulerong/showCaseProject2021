@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     isHideOnScroll() {
-      return !this.$_IS_TOUCH_SCREEN && this.$route.name !== 'home'
+      return !this.$_IS_TOUCH_SCREEN
     }
   }
 }
