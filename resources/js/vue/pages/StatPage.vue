@@ -8,18 +8,21 @@ div
         :items="sites"
         dataTestID="statPageSelectDistrict"
         @selected-data="siteSelected = $event"
+        :dataSelected="siteSelected"
       )
     v-row(no-gutters)
       VSelectMulti(
         :label="$t('stat.form.motherAge')"
         :items="motherAges"
         @selected-data="motherAgeSelected = $event"
+        :dataSelected="motherAgeSelected"
       )
     v-row(no-gutters)
       VSelectMulti(
         :label="$t('stat.form.birthOrder')"
         :items="birthOrders"
         @selected-data="birthOrderSelected = $event"
+        :dataSelected="birthOrderSelected"
       )
     v-row(no-gutters)
       div(style="width: 150px") 
@@ -27,6 +30,7 @@ div
           :label="$t('stat.form.birthSex')"
           :items="birthSex"
           @selected-data="sexSelected = $event"
+          :dataSelected="sexSelected"
         )
     v-row(no-gutters justify="space-between" justify-lg="start")
       v-btn(
@@ -64,19 +68,19 @@ export default {
   },
   data: () => ({
     isValid: false,
-    sexSelected: null,
-    siteSelected: null,
-    motherAgeSelected: null,
-    birthOrderSelected: null,
+    sexSelected: [],
+    siteSelected: [],
+    motherAgeSelected: [],
+    birthOrderSelected: [],
     data: [],
   }),
   computed: {
     isFilterOn() {
       return (
-        !!this.siteSelected ||
-        !!this.motherAgeSelected ||
-        !!this.birthOrderSelected ||
-        !!this.sexSelected
+        this.siteSelected.length > 0 ||
+        this.motherAgeSelected.length > 0 ||
+        this.birthOrderSelected.length > 0 ||
+        this.sexSelected.length > 0
       )
     },
     filterSelected() {
@@ -189,10 +193,10 @@ export default {
         })
     },
     resetFilter() {
-      this.siteSelected = null
-      this.motherAgeSelected = null
-      this.birthOrderSelected = null
-      this.sexSelected = null
+      this.siteSelected = []
+      this.motherAgeSelected = []
+      this.birthOrderSelected = []
+      this.sexSelected = []
       this.showNotification({
         message: this.$t('stat.notification.reset'),
         color: 'info',

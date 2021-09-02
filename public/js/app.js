@@ -3791,6 +3791,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
+    dataSelected: {
+      required: true,
+      type: Array
+    },
     label: {
       required: true,
       type: String
@@ -3807,12 +3811,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      selected: null
+      selected: []
     };
   },
   watch: {
     selected: function selected(val) {
       this.$emit('selected-data', val);
+    },
+    dataSelected: function dataSelected(val) {
+      this.selected = val;
     }
   }
 });
@@ -4319,6 +4326,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -4328,16 +4339,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       isValid: false,
-      sexSelected: null,
-      siteSelected: null,
-      motherAgeSelected: null,
-      birthOrderSelected: null,
+      sexSelected: [],
+      siteSelected: [],
+      motherAgeSelected: [],
+      birthOrderSelected: [],
       data: []
     };
   },
   computed: {
     isFilterOn: function isFilterOn() {
-      return !!this.siteSelected || !!this.motherAgeSelected || !!this.birthOrderSelected || !!this.sexSelected;
+      return this.siteSelected.length > 0 || this.motherAgeSelected.length > 0 || this.birthOrderSelected.length > 0 || this.sexSelected.length > 0;
     },
     filterSelected: function filterSelected() {
       return "".concat(this.siteSelected, "|").concat(this.motherAgeSelected, "|").concat(this.birthOrderSelected, "|").concat(this.sexSelected);
@@ -4448,10 +4459,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     resetFilter: function resetFilter() {
-      this.siteSelected = null;
-      this.motherAgeSelected = null;
-      this.birthOrderSelected = null;
-      this.sexSelected = null;
+      this.siteSelected = [];
+      this.motherAgeSelected = [];
+      this.birthOrderSelected = [];
+      this.sexSelected = [];
       this.showNotification({
         message: this.$t('stat.notification.reset'),
         color: 'info'
@@ -10924,7 +10935,8 @@ var render = function() {
                 attrs: {
                   label: _vm.$t("stat.form.site"),
                   items: _vm.sites,
-                  dataTestID: "statPageSelectDistrict"
+                  dataTestID: "statPageSelectDistrict",
+                  dataSelected: _vm.siteSelected
                 },
                 on: {
                   "selected-data": function($event) {
@@ -10942,7 +10954,8 @@ var render = function() {
               _c("VSelectMulti", {
                 attrs: {
                   label: _vm.$t("stat.form.motherAge"),
-                  items: _vm.motherAges
+                  items: _vm.motherAges,
+                  dataSelected: _vm.motherAgeSelected
                 },
                 on: {
                   "selected-data": function($event) {
@@ -10960,7 +10973,8 @@ var render = function() {
               _c("VSelectMulti", {
                 attrs: {
                   label: _vm.$t("stat.form.birthOrder"),
-                  items: _vm.birthOrders
+                  items: _vm.birthOrders,
+                  dataSelected: _vm.birthOrderSelected
                 },
                 on: {
                   "selected-data": function($event) {
@@ -10979,7 +10993,8 @@ var render = function() {
                 _c("VSelectMulti", {
                   attrs: {
                     label: _vm.$t("stat.form.birthSex"),
-                    items: _vm.birthSex
+                    items: _vm.birthSex,
+                    dataSelected: _vm.sexSelected
                   },
                   on: {
                     "selected-data": function($event) {

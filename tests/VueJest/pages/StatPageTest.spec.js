@@ -66,16 +66,22 @@ describe('Stat Page', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('Method fetchData: on click populates data field with correct number of data', async () => {
+  it('Method fetchData: populates data property', async () => {
     const wrapper = mountFunction()
     const siteSelected = ['新北市板橋區']
     const sexSelected = ['男']
-    const numberRecordsMatched = filterStatData(mockRecords, siteSelected, null, null, sexSelected).length
+    const numberRecordsMatched = filterStatData(
+      mockRecords,
+      siteSelected,
+      null,
+      null,
+      sexSelected
+    ).length
 
     await wrapper.setData({ siteSelected, sexSelected })
 
     const button = wrapper.find('.v-btn')
-    expect(button.exists()).toBe(true)
+    expect(button.text()).toEqual('stat.button.fetch')
 
     button.vm.$emit('click')
     await wrapper.vm.$nextTick()
@@ -103,38 +109,50 @@ describe('Stat Page', () => {
       })
     }
     const wrapper = mountFunction(options)
-    expect(wrapper.vm.siteSelected).not.toEqual(null)
+    expect(wrapper.vm.siteSelected).not.toEqual([])
 
     wrapper.vm.resetFilter()
-    expect(wrapper.vm.siteSelected).toEqual(null)
+    expect(wrapper.vm.siteSelected).toEqual([])
   })
 
-  it('Computed property: totalNumberCount calculates correct number of new born', () => {
+  it('Computed property: totalNumberCount calculates correctly', () => {
     const siteSelected = ['新北市板橋區']
     const sexSelected = ['男']
-    const numberRecordsMatched = filterStatData(mockRecords, siteSelected, null, null, sexSelected)
+    const numberRecordsMatched = filterStatData(
+      mockRecords,
+      siteSelected,
+      null,
+      null,
+      sexSelected
+    )
 
-    const actualNumberCount = numberRecordsMatched.reduce((total, item) => total + Number(item.birth_count), 0)
+    const actualNumberCount = numberRecordsMatched.reduce((total, item) =>
+      total + Number(item.birth_count),
+      0
+    )
 
     const localThis = { data: numberRecordsMatched }
 
-    expect(StatPage.computed.totalNumberCount.call(localThis)).toEqual(actualNumberCount)
+    expect(StatPage.computed.totalNumberCount.call(localThis))
+      .toEqual(actualNumberCount)
   })
 
   it('Computed property: isFilterOn works correctly', () => {
     const localThisWithFilterOff = {
-      siteSelected: null,
-      motherAgeSelected: null,
-      birthOrderSelected: null,
-      sexSelected: null
+      siteSelected: [],
+      motherAgeSelected: [],
+      birthOrderSelected: [],
+      sexSelected: []
     }
-    expect(StatPage.computed.isFilterOn.call(localThisWithFilterOff)).toBeFalsy()
+    expect(StatPage.computed.isFilterOn.call(localThisWithFilterOff))
+      .toBeFalsy()
 
     const localThisWithFilterOn = {
       ...localThisWithFilterOff,
       siteSelected: ['新北市板橋區']
     }
-    expect(StatPage.computed.isFilterOn.call(localThisWithFilterOn)).toBeTruthy()
+    expect(StatPage.computed.isFilterOn.call(localThisWithFilterOn))
+      .toBeTruthy()
   })
 
   it('Watch locale: fetchData triggerd when locale changes', async () => {
@@ -150,11 +168,11 @@ describe('Stat Page', () => {
     expect(mockFetchData).toHaveBeenCalled()
   })
 
-  it('Watch filterSelected: clearData triggered when filterSelected changes', async () => {
+  it('Watch filterSelected: triggers clearData', async () => {
     const mockClearData = jest.spyOn(StatPage.methods, 'clearData')
     const wrapper = mountFunction()
 
-    await wrapper.setData({ siteSelected: null })
+    await wrapper.setData({ siteSelected: [] })
     const initialFilterSelected = wrapper.vm.filterSelected
     expect(mockClearData).not.toHaveBeenCalled()
 
