@@ -19,6 +19,7 @@ describe('VSelectMulti Component', () => {
       propsData: {
         label: 'label',
         items: [],
+        dataSelected: [],
       },
       ...options
     })
@@ -42,5 +43,15 @@ describe('VSelectMulti Component', () => {
 
     expect(wrapper.emitted()['selected-data'].length).toBe(2)
     expect(wrapper.emitted()['selected-data'][0]).toEqual([firstDataChange])
+  })
+
+  it('Watch dataSelected: sets seletected to empty array', async () => {
+    const wrapper = mountFunction()
+
+    await wrapper.setData({ selected: ['California'] })
+    expect(wrapper.vm.selected).not.toStrictEqual([])
+
+    await wrapper.setProps({ dataSelected: [] })
+    expect(wrapper.vm.selected).toStrictEqual([])
   })
 })
