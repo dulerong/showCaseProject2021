@@ -15,6 +15,10 @@ v-select(
 <script>
 export default {
   props: {
+    dataSelected: {
+      required: true,
+      type: Array,
+    },
     label: {
       required: true,
       type: String,
@@ -30,11 +34,14 @@ export default {
     }
   },
   data: () => ({
-    selected: null,
+    selected: [],
   }),
   watch: {
     selected: function(val) {
       this.$emit('selected-data', val)
+    },
+    dataSelected: function(val) {
+      this.selected = val
     }
   },
 }
