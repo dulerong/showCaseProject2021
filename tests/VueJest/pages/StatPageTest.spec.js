@@ -126,9 +126,10 @@ describe('Stat Page', () => {
       sexSelected
     )
 
-    const actualNumberCount = numberRecordsMatched.reduce((total, item) => {
-      return total + Number(item.birth_count)
-    }, 0)
+    const actualNumberCount = numberRecordsMatched.reduce((total, item) =>
+      total + Number(item.birth_count),
+      0
+    )
 
     const localThis = { data: numberRecordsMatched }
 
