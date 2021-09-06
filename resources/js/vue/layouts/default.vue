@@ -22,6 +22,7 @@ export default {
   data: (vm) => ({
     drawer: {
       isMini: false,
+      isVisible: false,
       toggle: vm.toggleDrawer
     },
     sideDrawer: {
@@ -32,6 +33,7 @@ export default {
   methods: {
     toggleDrawer() {
       this.drawer.isMini = !this.drawer.isMini
+      this.drawer.isVisible = !this.drawer.isVisible
     },
     toggleSideDrawer() {
       this.sideDrawer.isMini = !this.sideDrawer.isMini
