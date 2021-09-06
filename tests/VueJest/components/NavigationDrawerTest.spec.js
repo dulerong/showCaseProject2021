@@ -27,6 +27,7 @@ describe('AppBar Component', () => {
           params: { lang: 'en' }
         }
       },
+      stubs: ['router-link'],
       propsData: {
         drawer: {
           isMini
@@ -53,7 +54,7 @@ describe('AppBar Component', () => {
   it('Contains correct amount of groups', () => {
     const wrapper = mountFunction()
 
-    const group = wrapper.findAll('.v-list-group__header')
-    expect(group.length).toEqual(navigation.length)
+    const group = wrapper.findAll('router-link-stub')
+    expect(group.length).toEqual(navigation[0].children.length)
   })
 })

@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppBar Component Renders properly 1`] = `
-<nav class="v-navigation-drawer v-navigation-drawer--fixed v-navigation-drawer--is-mobile v-navigation-drawer--open v-navigation-drawer--temporary theme--light" style="height: 100vh; top: 0px; transform: translateX(0%); width: 256px;">
+<nav class="v-navigation-drawer v-navigation-drawer--absolute v-navigation-drawer--mini-variant v-navigation-drawer--open theme--light" style="height: 100%; top: 0px; max-height: calc(100% - 0px); transform: translateX(0%); width: 56px;">
   <div class="v-navigation-drawer__content">
     <div tabindex="-1" class="v-list-item theme--light">
+      <div class="v-list-item__icon mr-2"><i aria-hidden="true" class="v-icon notranslate mdi mdi-desktop-classic theme--light"></i></div>
       <div class="v-list-item__content">
         <div class="v-list-item__title text-h6">naviDrawer.mainTitle</div>
         <div class="v-list-item__subtitle">naviDrawer.subTitle</div>
@@ -11,15 +12,24 @@ exports[`AppBar Component Renders properly 1`] = `
     </div>
     <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
     <div class="v-list v-sheet theme--light">
-      <div class="v-list-group">
-        <div tabindex="0" aria-expanded="false" role="button" class="v-list-group__header v-list-item v-list-item--link theme--light">
-          <div class="v-list-item__title">naviDrawer.GENERAL.name</div>
-          <div class="v-list-item__icon v-list-group__header__append-icon"><i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-down theme--light"></i></div>
+      <router-link-stub tabindex="0" class="v-list-item v-list-item--link theme--light">
+        <div class="v-list-item__icon mr-2"><i aria-hidden="true" class="v-icon notranslate mdi mdi-home theme--light"></i></div>
+        <div class="v-list-item__content">
+          <div class="v-list-item__title">naviDrawer.GENERAL.children.home</div>
         </div>
-        <transition-stub name="expand-transition">
-          <!---->
-        </transition-stub>
-      </div>
+      </router-link-stub>
+      <router-link-stub tabindex="0" class="v-list-item v-list-item--link theme--light">
+        <div class="v-list-item__icon mr-2"><i aria-hidden="true" class="v-icon notranslate mdi mdi-file-chart theme--light"></i></div>
+        <div class="v-list-item__content">
+          <div class="v-list-item__title">naviDrawer.GENERAL.children.stat</div>
+        </div>
+      </router-link-stub>
+      <router-link-stub tabindex="0" class="v-list-item v-list-item--link theme--light">
+        <div class="v-list-item__icon mr-2"><i aria-hidden="true" class="v-icon notranslate mdi mdi-baby-face-outline theme--light"></i></div>
+        <div class="v-list-item__content">
+          <div class="v-list-item__title">naviDrawer.GENERAL.children.japanPopulation</div>
+        </div>
+      </router-link-stub>
     </div>
   </div>
   <div class="v-navigation-drawer__border"></div>

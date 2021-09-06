@@ -3618,12 +3618,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     drawer: {
       type: Object,
       required: true,
       isMini: {
+        type: Boolean,
+        required: true
+      },
+      isVisible: {
         type: Boolean,
         required: true
       }
@@ -3861,6 +3887,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       drawer: {
         isMini: false,
+        isVisible: false,
         toggle: vm.toggleDrawer
       },
       sideDrawer: {
@@ -3872,6 +3899,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     toggleDrawer: function toggleDrawer() {
       this.drawer.isMini = !this.drawer.isMini;
+      this.drawer.isVisible = !this.drawer.isVisible;
     },
     toggleSideDrawer: function toggleSideDrawer() {
       this.sideDrawer.isMini = !this.sideDrawer.isMini;
@@ -10155,19 +10183,31 @@ var render = function() {
   return _c(
     "v-navigation-drawer",
     {
-      attrs: { app: "", temporary: "" },
+      attrs: {
+        app: "",
+        height: "100%",
+        absolute: _vm.$vuetify.breakpoint.mdAndUp,
+        permanent: _vm.$vuetify.breakpoint.mdAndUp,
+        "mini-variant": _vm.drawer.isMini && _vm.$vuetify.breakpoint.mdAndUp
+      },
       model: {
-        value: _vm.drawer.isMini,
+        value: _vm.drawer.isVisible,
         callback: function($$v) {
-          _vm.$set(_vm.drawer, "isMini", $$v)
+          _vm.$set(_vm.drawer, "isVisible", $$v)
         },
-        expression: "drawer.isMini"
+        expression: "drawer.isVisible"
       }
     },
     [
       _c(
         "v-list-item",
         [
+          _c(
+            "v-list-item-icon",
+            { staticClass: "mr-2" },
+            [_c("v-icon", [_vm._v("mdi-desktop-classic")])],
+            1
+          ),
           _c(
             "v-list-item-content",
             [
@@ -10186,80 +10226,40 @@ var render = function() {
       _c("v-divider"),
       _c(
         "v-list",
-        _vm._l(_vm.$_navigation, function(subgroup, i) {
+        _vm._l(_vm.$_navigation[0].children, function(tab, i) {
           return _c(
-            "v-list-group",
+            "v-list-item",
             {
               key: i,
-              attrs: { value: false },
-              scopedSlots: _vm._u(
-                [
-                  {
-                    key: "activator",
-                    fn: function() {
-                      return [
-                        _c("v-list-item-title", {
-                          domProps: {
-                            textContent: _vm._s(
-                              _vm.$t("naviDrawer." + subgroup.title + ".name")
-                            )
-                          }
-                        })
-                      ]
-                    },
-                    proxy: true
-                  }
-                ],
-                null,
-                true
-              )
-            },
-            _vm._l(subgroup.children, function(tab, i) {
-              return _c(
-                "v-list-item",
-                {
-                  key: i,
-                  attrs: {
-                    to: {
-                      name: tab.name,
-                      params: { lang: _vm.$route.params.lang }
-                    },
-                    exact: ""
-                  }
+              attrs: {
+                to: {
+                  name: tab.name,
+                  params: { lang: _vm.$route.params.lang }
                 },
+                exact: ""
+              }
+            },
+            [
+              _c(
+                "v-list-item-icon",
+                { staticClass: "mr-2" },
+                [_c("v-icon", [_vm._v(_vm._s(tab.icon))])],
+                1
+              ),
+              _c(
+                "v-list-item-content",
                 [
-                  _c(
-                    "v-list-item-icon",
-                    { staticClass: "mr-2" },
-                    [
-                      _c("v-icon", { staticStyle: { width: "20px" } }, [
-                        _vm._v(_vm._s(tab.icon))
-                      ])
-                    ],
-                    1
-                  ),
-                  _c(
-                    "v-list-item-content",
-                    [
-                      _c("v-list-item-title", {
-                        domProps: {
-                          textContent: _vm._s(
-                            _vm.$t(
-                              "naviDrawer." +
-                                subgroup.title +
-                                ".children." +
-                                tab.name
-                            )
-                          )
-                        }
-                      })
-                    ],
-                    1
-                  )
+                  _c("v-list-item-title", {
+                    domProps: {
+                      textContent: _vm._s(
+                        _vm.$t("naviDrawer.GENERAL.children." + tab.name)
+                      )
+                    }
+                  })
                 ],
                 1
               )
-            }),
+            ],
             1
           )
         }),
