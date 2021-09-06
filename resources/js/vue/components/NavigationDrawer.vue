@@ -4,7 +4,7 @@ v-navigation-drawer(
   height="100%"
   :absolute="$vuetify.breakpoint.mdAndUp"
   :permanent="$vuetify.breakpoint.mdAndUp"
-  :mini-variant.sync="drawer.isMini && $vuetify.breakpoint.mdAndUp"
+  :mini-variant="drawer.isMini && $vuetify.breakpoint.mdAndUp"
   v-model="drawer.isVisible"
 )
   v-list-item
