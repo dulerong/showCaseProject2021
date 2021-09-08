@@ -7,7 +7,6 @@ v-menu(
   template(v-slot:activator="{ on, attrs}")
     v-btn(
       depressed
-      color="white"
       height="100%"
       v-bind="attrs"
       v-on="on"
