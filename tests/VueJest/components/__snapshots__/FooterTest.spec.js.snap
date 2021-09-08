@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Component Renders properly 1`] = `
+<footer class="v-footer v-sheet v-sheet--outlined theme--light v-footer--absolute v-footer--padless" style="left: 0px; right: 0px; bottom: 0px;">
+  <div class="v-card v-sheet theme--light" style="width: 100%;">
+    <div class="v-card__text">
+      <div class="row no-gutters justify-center">
+        <router-link-stub class="mx-4 v-btn v-btn--icon v-btn--round v-btn--router theme--light v-size--default"><span class="v-btn__content"><span class="v-tooltip v-tooltip--bottom"><!----><div aria-haspopup="true" aria-expanded="false"><i aria-hidden="true" class="v-icon notranslate material-icons theme--light"></i></div></span></span></router-link-stub>
+        <router-link-stub class="mx-4 v-btn v-btn--icon v-btn--round v-btn--router theme--light v-size--default"><span class="v-btn__content"><span class="v-tooltip v-tooltip--bottom"><!----><div aria-haspopup="true" aria-expanded="false"><i aria-hidden="true" class="v-icon notranslate material-icons theme--light"></i></div></span></span></router-link-stub>
+        <router-link-stub class="mx-4 v-btn v-btn--icon v-btn--round v-btn--router theme--light v-size--default"><span class="v-btn__content"><span class="v-tooltip v-tooltip--bottom"><!----><div aria-haspopup="true" aria-expanded="false"><i aria-hidden="true" class="v-icon notranslate material-icons theme--light"></i></div></span></span></router-link-stub>
+      </div>
+    </div>
+    <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+    <div class="v-card__text">
+      <div class="row no-gutters justify-center">
+        <h1>YYYY - Codey Du</h1>
+      </div>
+    </div>
+  </div>
+</footer>
+`;

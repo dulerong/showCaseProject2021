@@ -3329,6 +3329,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     ToolTip: __webpack_require__(/*! ~components/ToolTip */ "./resources/js/vue/components/ToolTip.vue").default,
@@ -3343,11 +3348,6 @@ __webpack_require__.r(__webpack_exports__);
     toggleSide: {
       type: Function,
       required: true
-    }
-  },
-  computed: {
-    isHideOnScroll: function isHideOnScroll() {
-      return !this.$_IS_TOUCH_SCREEN;
     }
   }
 });
@@ -3365,6 +3365,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3552,6 +3568,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     ToolTip: __webpack_require__(/*! ~components/ToolTip */ "./resources/js/vue/components/ToolTip.vue").default
@@ -3600,7 +3623,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -9734,7 +9756,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-app-bar",
-    { attrs: { app: "", "hide-on-scroll": _vm.isHideOnScroll } },
+    {
+      staticStyle: {
+        "background-color": "white",
+        "border-bottom": "1px solid #d2d2d2"
+      },
+      attrs: { app: "", flat: "", height: "64" }
+    },
     [
       _c(
         "ToolTip",
@@ -9829,6 +9857,7 @@ var render = function() {
                     {
                       attrs: {
                         depressed: "",
+                        color: "white",
                         height: "100%",
                         "data-testid": "profileMenu"
                       }
@@ -9890,17 +9919,7 @@ var render = function() {
                   [
                     _c(
                       "v-list-item-icon",
-                      [
-                        _c(
-                          "v-icon",
-                          {
-                            attrs: {
-                              "x-large": item.icon === "mdi-account-circle"
-                            }
-                          },
-                          [_vm._v(_vm._s(item.icon))]
-                        )
-                      ],
+                      [_c("v-icon", [_vm._v(_vm._s(item.icon))])],
                       1
                     ),
                     _c(
@@ -9986,7 +10005,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-footer",
-    { attrs: { padless: "", absolute: "", app: "" } },
+    { attrs: { padless: "", absolute: "", outlined: "", app: "" } },
     [
       _c(
         "v-card",
@@ -10201,6 +10220,9 @@ var render = function() {
     [
       _c(
         "v-list-item",
+        {
+          staticStyle: { height: "64px", "border-bottom": "1px solid #d2d2d2" }
+        },
         [
           _c(
             "v-list-item-icon",
@@ -10223,9 +10245,9 @@ var render = function() {
         ],
         1
       ),
-      _c("v-divider"),
       _c(
         "v-list",
+        { staticStyle: { padding: "0px" } },
         _vm._l(_vm.$_navigation[0].children, function(tab, i) {
           return _c(
             "v-list-item",

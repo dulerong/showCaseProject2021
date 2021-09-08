@@ -1,5 +1,10 @@
 <template lang="pug">
-v-app-bar(app :hide-on-scroll="isHideOnScroll")
+v-app-bar(
+  app
+  flat
+  height="64"
+  style="background-color: white; border-bottom: 1px solid #d2d2d2"
+)
   ToolTip(:message="$t('appBar.tooltip.sideDrawer')")
     v-app-bar-nav-icon(@click.stop="toggle" data-testid="toggleButton")
   v-spacer
@@ -28,10 +33,5 @@ export default {
       required: true
     }
   },
-  computed: {
-    isHideOnScroll() {
-      return !this.$_IS_TOUCH_SCREEN
-    }
-  }
 }
 </script>
