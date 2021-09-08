@@ -3400,7 +3400,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3623,6 +3622,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -9756,13 +9756,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-app-bar",
-    {
-      staticStyle: {
-        "background-color": "white",
-        "border-bottom": "1px solid #d2d2d2"
-      },
-      attrs: { app: "", flat: "", height: "64" }
-    },
+    { attrs: { app: "", flat: "", height: "64", outlined: "" } },
     [
       _c(
         "ToolTip",
@@ -9857,7 +9851,6 @@ var render = function() {
                     {
                       attrs: {
                         depressed: "",
-                        color: "white",
                         height: "100%",
                         "data-testid": "profileMenu"
                       }
@@ -10220,9 +10213,7 @@ var render = function() {
     [
       _c(
         "v-list-item",
-        {
-          staticStyle: { height: "64px", "border-bottom": "1px solid #d2d2d2" }
-        },
+        { staticStyle: { height: "63px" } },
         [
           _c(
             "v-list-item-icon",
@@ -10245,6 +10236,7 @@ var render = function() {
         ],
         1
       ),
+      _c("v-divider"),
       _c(
         "v-list",
         { staticStyle: { padding: "0px" } },
