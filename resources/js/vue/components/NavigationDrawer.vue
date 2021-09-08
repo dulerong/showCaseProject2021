@@ -7,12 +7,13 @@ v-navigation-drawer(
   :mini-variant="drawer.isMini && $vuetify.breakpoint.mdAndUp"
   v-model="drawer.isVisible"
 )
-  v-list-item(style="height: 64px; border-bottom: 1px solid #d2d2d2")
+  v-list-item(style="height: 63px")
     v-list-item-icon(class="mr-2")
       v-icon mdi-desktop-classic
     v-list-item-content
       v-list-item-title(class="text-h6") {{ $t("naviDrawer.mainTitle") }}
       v-list-item-subtitle {{ $t("naviDrawer.subTitle") }}
+  v-divider
   v-list(style="padding: 0px")
     v-list-item(
       v-for="(tab, i) in $_navigation[0].children"
