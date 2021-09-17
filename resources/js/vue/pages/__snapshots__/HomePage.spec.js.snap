@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Page Tests Page renders properly 1`] = `
+<div>
+  <h1>home.title</h1>
+  <div class="mt-1">
+    <h3>home.content</h3>
+    <ol>
+      <li>home.page.first</li>
+      <li>home.page.second</li>
+    </ol>
+  </div>
+  <div class="mt-1">
+    <h3>home.description</h3>
+    <ul>
+      <li>Vue Router</li>
+      <li>Vuex</li>
+      <li>Vuetify</li>
+      <li>Vue-i18n</li>
+      <li>Axios</li>
+      <li>Vue-test-utils</li>
+      <li>Jest</li>
+      <li>Cypress</li>
+      <li>Eslint integrated with Prettier</li>
+      <li>Pug</li>
+      <li>Sass</li>
+      <li>Day.js</li>
+      <li>ApexCharts</li>
+    </ul>
+  </div>
+</div>
+`;
