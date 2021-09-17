@@ -9,12 +9,14 @@ const MOBILE_REGEX = [
   /iPad/i,
   /iPod/i,
   /BlackBerry/i,
-  /Windows Phone/i
+  /Windows Phone/i,
 ]
 
-const IS_MOBILE = () => MOBILE_REGEX.some(item => navigator.userAgent.match(item))
+const IS_MOBILE = () =>
+  MOBILE_REGEX.some(item => navigator.userAgent.match(item))
 
-const IS_TOUCH_SCREEN = () => navigator.maxTouchPoints > 0 || IS_MOBILE()
+const IS_TOUCH_SCREEN = () =>
+  navigator.maxTouchPoints > 0 || IS_MOBILE()
 // iOS 12 or below has no navigator.maxTouchPoints, hence need to check userAgent
 
 Vue.prototype.$_IS_TOUCH_SCREEN = IS_TOUCH_SCREEN()
@@ -32,9 +34,13 @@ export const AVAILABLE_LANG_LIST = [
 ]
 const navigatorLangList = navigator.languages
 const preferredLang = navigatorLangList[0]
-const attemptFindLang = AVAILABLE_LANG_LIST.find(item => preferredLang.includes(item.value))
+const attemptFindLang = AVAILABLE_LANG_LIST.find(item =>
+  preferredLang.includes(item.value)
+)
 
-export const USER_PREFER_LANG = attemptFindLang ? attemptFindLang.value : 'en'
+export const USER_PREFER_LANG = attemptFindLang
+  ? attemptFindLang.value
+  : 'en'
 
 Vue.prototype.$_AVAILABLE_LANG_LIST = AVAILABLE_LANG_LIST
 Vue.prototype.$_USER_PREFER_LANG = USER_PREFER_LANG
