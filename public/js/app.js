@@ -2130,6 +2130,9 @@ var AVAILABLE_LANG_LIST = [{
 }, {
   title: '中文',
   value: 'zh'
+}, {
+  title: '日本語',
+  value: 'jp'
 }];
 var navigatorLangList = navigator.languages;
 var preferredLang = navigatorLangList[0];
@@ -2221,17 +2224,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "language": () => (/* binding */ language)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _translation_enLanguage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./translation/enLanguage */ "./resources/js/plugins/translation/enLanguage.js");
 /* harmony import */ var _translation_zhLanguage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./translation/zhLanguage */ "./resources/js/plugins/translation/zhLanguage.js");
+/* harmony import */ var _translation_jpLanguage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./translation/jpLanguage */ "./resources/js/plugins/translation/jpLanguage.js");
+
 
 
 
 var language = {
   en: _translation_enLanguage__WEBPACK_IMPORTED_MODULE_0__.enLanguage,
-  zh: _translation_zhLanguage__WEBPACK_IMPORTED_MODULE_1__.zhLanguage
+  zh: _translation_zhLanguage__WEBPACK_IMPORTED_MODULE_1__.zhLanguage,
+  jp: _translation_jpLanguage__WEBPACK_IMPORTED_MODULE_2__.jpLanguage
 };
-vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.$_language = language;
+vue__WEBPACK_IMPORTED_MODULE_3__.default.prototype.$_language = language;
 
 /***/ }),
 
@@ -2750,6 +2756,239 @@ var enLanguage = {
   },
   notFound: {
     title: 'Page Not Found'
+  }
+};
+
+/***/ }),
+
+/***/ "./resources/js/plugins/translation/jpJapanPrefectures.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/plugins/translation/jpJapanPrefectures.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "jpJapanPrefectures": () => (/* binding */ jpJapanPrefectures)
+/* harmony export */ });
+var jpJapanPrefectures = {
+  hokkaido: '北海道',
+  aomori: '青森県',
+  iwate: '岩手県',
+  miyagi: '宮城県',
+  akita: '秋田県',
+  yamagata: '山形県',
+  fukushima: '福島県',
+  ibaragi: '茨城県',
+  tochigi: '栃木県',
+  gunma: '群馬県',
+  saitama: '埼玉県',
+  chiba: '千葉県',
+  tokyo: '東京都',
+  kanagawa: '神奈川県',
+  niigata: '新潟県',
+  toyama: '富山県',
+  ishikawa: '石川県',
+  fukui: '福井県',
+  yamanashi: '山梨県',
+  nagano: '長野県',
+  gifu: '岐阜県',
+  shizuoka: '静岡県',
+  aichi: '愛知県',
+  mie: '三重県',
+  shiga: '滋賀県',
+  kyoto: '京都府',
+  osaka: '大阪府',
+  hyogo: '兵庫県',
+  nara: '奈良県',
+  wakayama: '和歌山県',
+  tottori: '鳥取県',
+  shimane: '島根県',
+  okayama: '岡山県',
+  hiroshima: '広島県',
+  yamaguchi: '山口県',
+  tokushima: '徳島県',
+  kagawa: '香川県',
+  ehime: '愛媛県',
+  kochi: '高知県',
+  fukuoka: '福岡県',
+  saga: '佐賀県',
+  nagasaki: '長崎県',
+  kumamoto: '熊本県',
+  oita: '大分県',
+  miyazaki: '宮崎県',
+  kagoshima: '鹿児島県',
+  okinawa: '沖縄県'
+};
+
+/***/ }),
+
+/***/ "./resources/js/plugins/translation/jpLanguage.js":
+/*!********************************************************!*\
+  !*** ./resources/js/plugins/translation/jpLanguage.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "jpLanguage": () => (/* binding */ jpLanguage)
+/* harmony export */ });
+/* harmony import */ var _jpJapanPrefectures__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./jpJapanPrefectures */ "./resources/js/plugins/translation/jpJapanPrefectures.js");
+
+var jpLanguage = {
+  appBar: {
+    otherSettings: '設定',
+    translate: '言語',
+    userButton: {
+      profile: 'プロフィール',
+      logout: 'ログアウト'
+    },
+    tooltip: {
+      sideDrawer: '引き出し',
+      settings: '設定'
+    }
+  },
+  naviDrawer: {
+    mainTitle: 'WEBアプリ',
+    subTitle: 'フロントエンド',
+    GENERAL: {
+      name: '一般',
+      children: {
+        home: '首頁',
+        stat: '新北市出産統計',
+        japanPopulation: '日本人口推移'
+      }
+    }
+  },
+  settingDrawer: {
+    title: '設定項目',
+    theme: 'テーマ',
+    light: 'ライト',
+    dark: 'ダーク'
+  },
+  footer: {
+    tooltip: {
+      home: 'ホーム',
+      stat: '新北市出産統計',
+      japanPopulation: '日本人口成長率'
+    }
+  },
+  home: {
+    title: 'ホーム',
+    content: '下記：現状の実装済み機能',
+    page: {
+      first: '新北市（台湾の都市）出産統計データ',
+      second: '日本人口成長率'
+    },
+    description: 'フレームワーク：Vue.js、プラス下記のVue ecosystemで統合'
+  },
+  about: {
+    title: '簡介'
+  },
+  stat: {
+    title: '新北市出産統計データ (2019年)',
+    result: '出産人数',
+    form: {
+      site: '区',
+      motherAge: '母親年齢',
+      birthOrder: '胎數',
+      birthSex: '性別'
+    },
+    button: {
+      fetch: '検索',
+      reset: 'リセット',
+      clear: 'クリア'
+    },
+    notification: {
+      fetch: 'データ取得',
+      reset: 'フィルターリセット',
+      clear: '検索結果クリア'
+    },
+    tableHeader: {
+      site: '区',
+      motherAge: '母親年齢',
+      birthOrder: '胎數',
+      birthSex: '性別',
+      birthCount: '出産人数'
+    },
+    site: {
+      banqiao: '板橋',
+      sanchong: '三重',
+      zhonghe: '中和',
+      yonghe: '永和',
+      xinzhuang: '新莊',
+      xindian: '新店',
+      tucheng: '土城',
+      xizhi: '汐止',
+      shuling: '樹林',
+      yingge: '鶯歌',
+      sanxia: '三峽',
+      danshui: '淡水',
+      ruifang: '瑞芳'
+    },
+    motherAges: {
+      ageUnder15: '未滿15歲',
+      age15To19: '15～19歲',
+      age20To24: '20～24歲',
+      age25To29: '25～29歲',
+      age30To34: '30～34歲',
+      age35To39: '35～39歲',
+      age40To44: '40～44歲',
+      age45To49: '45～49歲',
+      age50Above: '50歲以上'
+    },
+    birthOrders: {
+      birth1: '1胎',
+      birth2: '2胎',
+      birth3: '3胎',
+      birth4: '4胎',
+      birth5: '5胎',
+      birth6: '6胎',
+      birth7: '7胎',
+      birth8: '8胎',
+      birth9: '9胎以上'
+    },
+    birthSex: {
+      male: '男',
+      female: '女'
+    }
+  },
+  japanPopulation: {
+    title: '日本人口成長推移 (1960 - 2045)',
+    chart: {
+      title: '日本人口成長率',
+      xAxis: '年',
+      yAxis: '人口'
+    },
+    selectFieldLabel: '日本各都道府縣',
+    prefectures: _jpJapanPrefectures__WEBPACK_IMPORTED_MODULE_0__.jpJapanPrefectures
+  },
+  login: {
+    greeting: {
+      morning: 'おはようございます',
+      afternoon: 'こんにちは',
+      evening: 'こんばんは',
+      welcome: 'お帰り！'
+    },
+    button: {
+      login: '登入',
+      signUp: '註冊'
+    },
+    textField: {
+      username: {
+        label: 'ログイン名',
+        hint: "展示用 (入力不要)"
+      },
+      password: {
+        label: '密碼',
+        hint: "展示用 (入力不要)"
+      }
+    }
+  },
+  notFound: {
+    title: 'ページが存在していません'
   }
 };
 
