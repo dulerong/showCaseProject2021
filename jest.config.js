@@ -1,7 +1,7 @@
 module.exports = {
   preset: '@vue/cli-plugin-unit-jest/presets/no-babel',
   testMatch: [ // specify folder which jest test files will be stored
-    '**/tests/VueJest/**/*.spec.[jt]s?(x)',
+    '**/*.spec.[jt]s?(x)',
   ],
   moduleNameMapper: {
     "^~/(.+)$": "<rootDir>/resources/$1",

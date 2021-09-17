@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppBar Component Renders properly 1`] = `
-<header class="v-sheet theme--light v-toolbar v-toolbar--flat v-app-bar v-app-bar--fixed" style="height: 64px; margin-top: 0px; transform: translateY(0px); left: 0px; right: 0px; background-color: white; border-bottom: 1px solid #d2d2d2;">
+<header class="v-sheet v-sheet--outlined theme--light v-toolbar v-toolbar--flat v-app-bar v-app-bar--fixed" style="height: 64px; margin-top: 0px; transform: translateY(0px); left: 0px; right: 0px;">
   <div class="v-toolbar__content" style="height: 64px;"><span class="v-tooltip v-tooltip--bottom"><!----><div aria-haspopup="true" aria-expanded="false"><button type="button" class="v-app-bar__nav-icon v-btn v-btn--icon v-btn--round theme--light v-size--default" data-testid="toggleButton"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu theme--light"></i></span></button></div></span>
   <div class="spacer"></div>
   <menulanguage-stub></menulanguage-stub><span class="v-tooltip v-tooltip--bottom"><!----><div aria-haspopup="true" aria-expanded="false"><button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default" data-testid="toggleSideButton"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-settings-outline theme--light"></i></span></button></div></span>
