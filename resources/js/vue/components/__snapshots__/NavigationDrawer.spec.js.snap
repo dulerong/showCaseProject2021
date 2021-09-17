@@ -3,13 +3,14 @@
 exports[`AppBar Component Renders properly 1`] = `
 <nav class="v-navigation-drawer v-navigation-drawer--absolute v-navigation-drawer--mini-variant v-navigation-drawer--open theme--light" style="height: 100%; top: 0px; max-height: calc(100% - 0px); transform: translateX(0%); width: 56px;">
   <div class="v-navigation-drawer__content">
-    <div tabindex="-1" class="v-list-item theme--light" style="height: 64px; border-bottom: 1px solid #d2d2d2;">
+    <div tabindex="-1" class="v-list-item theme--light" style="height: 63px;">
       <div class="v-list-item__icon mr-2"><i aria-hidden="true" class="v-icon notranslate mdi mdi-desktop-classic theme--light"></i></div>
       <div class="v-list-item__content">
         <div class="v-list-item__title text-h6">naviDrawer.mainTitle</div>
         <div class="v-list-item__subtitle">naviDrawer.subTitle</div>
       </div>
     </div>
+    <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
     <div class="v-list v-sheet theme--light" style="padding: 0px;">
       <router-link-stub tabindex="0" class="v-list-item v-list-item--link theme--light">
         <div class="v-list-item__icon mr-2"><i aria-hidden="true" class="v-icon notranslate mdi mdi-home theme--light"></i></div>
