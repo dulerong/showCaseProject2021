@@ -28,6 +28,7 @@ Vue.prototype.$_IS_DARK = IS_DARK
 export const AVAILABLE_LANG_LIST = [
   { title: 'English', value: 'en' },
   { title: '中文', value: 'zh' },
+  { title: '日本語', value: 'jp' },
 ]
 const navigatorLangList = navigator.languages
 const preferredLang = navigatorLangList[0]
