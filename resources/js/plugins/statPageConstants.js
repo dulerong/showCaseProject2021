@@ -26,7 +26,7 @@ export const statMotherAges = [
   { value: '35～39歲', name: 'age35To39' },
   { value: '40～44歲', name: 'age40To44' },
   { value: '45～49歲', name: 'age45To49' },
-  { value: '50歲以上', name: 'age50Above' }
+  { value: '50歲以上', name: 'age50Above' },
 ]
 Vue.prototype.$_statMotherAges = statMotherAges
 
@@ -39,22 +39,44 @@ export const statBirthOrders = [
   { value: '6胎', name: 'birth6' },
   { value: '7胎', name: 'birth7' },
   { value: '8胎', name: 'birth8' },
-  { value: '9胎以上', name: 'birth9' }
+  { value: '9胎以上', name: 'birth9' },
 ]
 Vue.prototype.$_statBirthOrders = statBirthOrders
 
 export const statSex = [
   { value: '男', name: 'male' },
-  { value: '女', name: 'female' }
+  { value: '女', name: 'female' },
 ]
 Vue.prototype.$_statSex = statSex
 
-export const filterStatData = (data, siteSelected, birthOrderSelected, motherAgeSelected, sexSelected) => {
+export const filterStatData = (
+  data,
+  siteSelected,
+  birthOrderSelected,
+  motherAgeSelected,
+  sexSelected
+) => {
   return data
-    .filter(item => siteSelected && siteSelected.length > 0 ? siteSelected.includes(item.site_id) : true)
-    .filter(item => birthOrderSelected && birthOrderSelected.length > 0 ? birthOrderSelected.includes(item.birth_order) : true)
-    .filter(item => motherAgeSelected && motherAgeSelected.length > 0 ?  motherAgeSelected.includes(item.mother_age) : true)
-    .filter(item => sexSelected && sexSelected.length > 0 ? sexSelected.includes(item.birth_sex) : true)
+    .filter(item =>
+      siteSelected && siteSelected.length > 0
+        ? siteSelected.includes(item.site_id)
+        : true
+    )
+    .filter(item =>
+      birthOrderSelected && birthOrderSelected.length > 0
+        ? birthOrderSelected.includes(item.birth_order)
+        : true
+    )
+    .filter(item =>
+      motherAgeSelected && motherAgeSelected.length > 0
+        ? motherAgeSelected.includes(item.mother_age)
+        : true
+    )
+    .filter(item =>
+      sexSelected && sexSelected.length > 0
+        ? sexSelected.includes(item.birth_sex)
+        : true
+    )
     .filter(item => item.birth_count > 0)
 }
 Vue.prototype.$_filterStatData = filterStatData
@@ -70,20 +92,19 @@ export const sortMotherAges = (a, b) => {
 }
 Vue.prototype.$_sortMotherAges = sortMotherAges
 
-export const translateData = (data) => {
-  return data
-    .map(({birth_count, ...item}) => ({
-      site_id: translateDisctrict(item.site_id),
-      mother_age: translateMotherAges(item.mother_age),
-      birth_order: translateBirthOrders(item.birth_order),
-      birth_sex: translateBirthSex(item.birth_sex),
-      birth_count
-    }))
+export const translateData = data => {
+  return data.map(({ birth_count, ...item }) => ({
+    site_id: translateDisctrict(item.site_id),
+    mother_age: translateMotherAges(item.mother_age),
+    birth_order: translateBirthOrders(item.birth_order),
+    birth_sex: translateBirthSex(item.birth_sex),
+    birth_count,
+  }))
 }
 Vue.prototype.$_translateData = translateData
 
-export const translateDisctrict = (site) => {
-  switch(site) {
+export const translateDisctrict = site => {
+  switch (site) {
     case '新北市板橋區':
       return 'banqiao'
     case '新北市三重區':
@@ -113,8 +134,8 @@ export const translateDisctrict = (site) => {
   }
 }
 
-export const translateMotherAges = (age) => {
-  switch(age) {
+export const translateMotherAges = age => {
+  switch (age) {
     case '未滿15歲':
       return 'ageUnder15'
     case '15～19歲':
@@ -136,8 +157,8 @@ export const translateMotherAges = (age) => {
   }
 }
 
-export const translateBirthOrders = (order) => {
-  switch(order) {
+export const translateBirthOrders = order => {
+  switch (order) {
     case '1胎':
       return 'birth1'
     case '2胎':
@@ -159,8 +180,8 @@ export const translateBirthOrders = (order) => {
   }
 }
 
-export const translateBirthSex = (sex) => {
-  switch(sex) {
+export const translateBirthSex = sex => {
+  switch (sex) {
     case '男':
       return 'male'
     case '女':

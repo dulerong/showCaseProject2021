@@ -19,7 +19,7 @@ export const jpLanguage = {
     GENERAL: {
       name: '一般',
       children: {
-        home: '首頁',
+        home: 'ホーム',
         stat: '新北市出産統計',
         japanPopulation: '日本人口推移'
       }
